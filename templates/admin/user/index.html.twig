@@ -30,8 +30,10 @@
 									<th>NumeroCarteIdentite</th>
 									<th>NumeroCarteEtudiant</th>
 									<th>NiveauEtude</th>
+									<th>Image</th>
 									<th>Faculte</th>
 									<th>Edition</th>
+									<th>Suppression</th>
 									<th>Suppression</th>
 								</tr>
 							</thead>
@@ -45,6 +47,7 @@
 										<td>{{user.numeroCarteIdentite}}</td>
 										<td>{{user.numeroCarteEtudiant}}</td>
 										<td>{{user.niveauEtude}}</td>
+										<td>{{user.image}}</td>
 										<td>{{user.faculte}}</td>
 										<td>
 											<a href="{{path('userEdit', { id:user.id}) }}" class="btn btn-info">Modifier</a>
