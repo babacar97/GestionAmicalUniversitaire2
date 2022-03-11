@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use  App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
@@ -42,5 +43,18 @@ class UserController extends AbstractController
             return $this->redirectToRoute('listeUtilisateur');
         }
         return $this->render('admin/user/edit.html.twig', ['registrationForm' => $form->createView()]);
+    }
+
+
+    /**
+     * @Route("/delete/{id}", name="userDelete")
+     */
+
+    public function supprime(EntityManagerInterface $manager, User $user): Response
+    {
+        $manager->remove($user);
+        $manager->flush();
+
+        return $this->redirectToRoute('listeUtilisateur');
     }
 }
