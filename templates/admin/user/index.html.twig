@@ -11,9 +11,7 @@
 
 			<!-- Page Heading -->
 			<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-			<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-																																																					                        For more information about DataTables, please visit the
-				<a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+			<a href="{{path('app_register')}}" class="btn btn-primary mb-4 ">Ajouter un nouveau membre</a>
 
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
@@ -25,21 +23,28 @@
 						<table class="table table-bordered" id="dataTable">
 							<thead>
 								<tr>
-									<th>ID</th>
-									<th>EMAIL</th>
-									<th>ID</th>
-									<th>EMAIL</th>
-									<th>ID</th>
-									<th>EMAIL</th>
-									<th>ID</th>
-									<th>EMAIL</th>
+									<th>Nom</th>
+									<th>Prenom</th>
+									<th>Email</th>
+									<th>Adresse</th>
+									<th>NumeroCarteIdentite</th>
+									<th>NumeroCarteEtudiant</th>
+									<th>NiveauEtude</th>
+									<th>Faculte</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								{% for user in users %}
 									<tr>
-										<td>{{user.id}}</td>
+										<td>{{user.nom}}</td>
+										<td>{{user.prenom}}</td>
 										<td>{{user.email}}</td>
+										<td>{{user.adresse}}</td>
+										<td>{{user.numeroCarteIdentite}}</td>
+										<td>{{user.numeroCarteEtudiant}}</td>
+										<td>{{user.niveauEtude}}</td>
+										<td>{{user.faculte}}</td>
 									</tr>
 								{% endfor %}
 							</tbody>
