@@ -10,14 +10,12 @@
 			class="container-fluid">
 
 			<!-- Page Heading -->
-			<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
 			<a href="{{path('app_register')}}" class="btn btn-primary mb-4 ">Ajouter un nouveau membre</a>
 
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-				</div>
+				<div class="card-header py-3"></div>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable">
@@ -26,15 +24,15 @@
 									<th>Nom</th>
 									<th>Prenom</th>
 									<th>Email</th>
-									<th>Adresse</th>
+									{# <th>Adresse</th> #}
 									<th>NumeroCarteIdentite</th>
 									<th>NumeroCarteEtudiant</th>
 									<th>NiveauEtude</th>
 									<th>Image</th>
-									<th>Faculte</th>
+									{# <th>Faculte</th> #}
 									<th>Edition</th>
 									<th>Suppression</th>
-									<th>Suppression</th>
+
 								</tr>
 							</thead>
 							<tbody>
@@ -43,12 +41,11 @@
 										<td>{{user.nom}}</td>
 										<td>{{user.prenom}}</td>
 										<td>{{user.email}}</td>
-										<td>{{user.adresse}}</td>
+										{# <td>{{user.adresse}}</td> #}
 										<td>{{user.numeroCarteIdentite}}</td>
 										<td>{{user.numeroCarteEtudiant}}</td>
 										<td>{{user.niveauEtude}}</td>
-										<td>{{user.image}}</td>
-										<td>{{user.faculte}}</td>
+										<td><img src="{{asset('uploads/personne/'~ user.image)}} " alt="" style="width:50px; height: 50px;"></td>
 										<td>
 											<a href="{{path('userEdit', { id:user.id}) }}" class="btn btn-info">Modifier</a>
 										</td>
@@ -62,7 +59,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 {% endblock %}

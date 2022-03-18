@@ -42,7 +42,13 @@ class UserController extends AbstractController
 
             return $this->redirectToRoute('listeUtilisateur');
         }
-        return $this->render('admin/user/edit.html.twig', ['registrationForm' => $form->createView()]);
+        return $this->render(
+            'admin/user/edit.html.twig',
+            [
+                'registrationForm' => $form->createView(),
+                'user' => $user,
+            ]
+        );
     }
 
 

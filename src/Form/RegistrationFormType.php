@@ -11,19 +11,20 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('email')
-            ->add('adresse')
+            ->add('nom', TextType::class)
+            ->add('prenom', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('adresse', TextType::class)
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -34,21 +35,20 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Please enter a password',
                     ]),
                     new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
+                        'min' => 8,
+                        'minMessage' => 'Votre mot de passe doit etre superieur a {{ limit }} characters',
+
                     ]),
                 ],
             ])
             ->add('numeroTelephone')
             ->add('dateNaissance')
-            ->add('lieuNaissance')
+            ->add('lieuNaissance', TextType::class)
             ->add('numeroCarteIdentite')
             ->add('numeroCarteEtudiant')
-            ->add('faculte')
-            ->add('niveauEtude')
-            ->add('codification')
+            ->add('faculte', TextType::class)
+            ->add('niveauEtude', TextType::class)
+            ->add('codification', TextType::class)
             ->add('image', FileType::class, [
                 'label' => 'votre image de profile (PDF file)',
 
