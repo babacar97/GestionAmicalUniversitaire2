@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -25,7 +25,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\Email(message="votre email n'est pas valide" )
      */
     private $email;
 
@@ -37,11 +36,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\Length(
-     * min=8,
-     * max=13,
-     * minMessage = "Votre mot de pass doit etre inferieur a {{ Limite }} caractere",
-     * maxMessage = "Votre mot de pass doit etre superieur a {{ Limite }} caractere")
      */
     private $password;
 
@@ -62,8 +56,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Length(min=9, 
-     * minMessage = "Votre numero telephone doit etre egale a {{ Limite }} caractere")
      */
     private $numeroTelephone;
 
@@ -79,19 +71,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer")
-     *  @Assert\Length(
-     * min=12,
-     * max=12,
-     * minMessage = "Votre numero Carte Identite doit etre egale a 12 caractere")
      */
     private $numeroCarteIdentite;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(
-     * min=13,
-     * max=13,
-     * minMessage ="Votre numero Carte Etudiant  doit etre agale a 13 caractere")
      */
     private $numeroCarteEtudiant;
 

@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -47,8 +48,30 @@ class RegistrationFormType extends AbstractType
             ->add('numeroCarteIdentite')
             ->add('numeroCarteEtudiant')
             ->add('faculte', TextType::class)
-            ->add('niveauEtude', TextType::class)
-            ->add('codification', TextType::class)
+            ->add(
+                'niveauEtude',
+                ChoiceType::class,
+                [
+                    'attr' => ['class' => 'form-select form-select-lg mb-3 '],
+                    'choices'  => [
+                        'Licence1' => true,
+                        'Licence2' => false,
+                        'Licence3' => true,
+                        'Master1' => false,
+                        'Master2' => true,
+                        'Doctorant' => false,
+                    ],
+
+                ]
+            )
+            // ->add('codification', ChoiceType::class)
+            ->add('codification', ChoiceType::class, [
+                'choices'  => [
+
+                    'oui' => true,
+                    'Non' => false,
+                ],
+            ])
             ->add('image', FileType::class, [
                 'label' => 'votre image de profile (PDF file)',
 
