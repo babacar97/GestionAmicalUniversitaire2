@@ -17,4 +17,12 @@ class ComptablityController extends AbstractController
             'controller_name' => 'ComptablityController',
         ]);
     }
+
+    /**
+     * @Route("/newbudget", name="app_newbudget")
+     */
+    public function newbudget(): Response
+    {
+        return $this->render('comptablity/newbudget.html.twig');
+    }
 }
