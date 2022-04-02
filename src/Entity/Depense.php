@@ -54,9 +54,15 @@ class Depense
      */
     private $justificatif;
 
+    /**
+     * @ORM\OneToMany(targetEntity=budgetmoinsdepense::class, mappedBy="depense")
+     */
+    private $budgetmoinsdepense;
+
     public function __construct()
     {
         $this->Budget = new ArrayCollection();
+        $this->budgetmoinsdepense = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -162,6 +168,36 @@ class Depense
     public function setJustificatif(string $justificatif): self
     {
         $this->justificatif = $justificatif;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, budgetmoinsdepense>
+     */
+    public function getBudgetmoinsdepense(): Collection
+    {
+        return $this->budgetmoinsdepense;
+    }
+
+    public function addBudgetmoinsdepense(budgetmoinsdepense $budgetmoinsdepense): self
+    {
+        if (!$this->budgetmoinsdepense->contains($budgetmoinsdepense)) {
+            $this->budgetmoinsdepense[] = $budgetmoinsdepense;
+            $budgetmoinsdepense->setDepense($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBudgetmoinsdepense(budgetmoinsdepense $budgetmoinsdepense): self
+    {
+        if ($this->budgetmoinsdepense->removeElement($budgetmoinsdepense)) {
+            // set the owning side to null (unless already changed)
+            if ($budgetmoinsdepense->getDepense() === $this) {
+                $budgetmoinsdepense->setDepense(null);
+            }
+        }
 
         return $this;
     }

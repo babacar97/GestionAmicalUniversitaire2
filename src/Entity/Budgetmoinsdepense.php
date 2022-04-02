@@ -22,6 +22,16 @@ class Budgetmoinsdepense
      */
     private $restantBudget;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Depense::class, inversedBy="budgetmoinsdepense")
+     */
+    private $depense;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Budget::class, inversedBy="budgetmoinsdepense")
+     */
+    private $budget;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +45,30 @@ class Budgetmoinsdepense
     public function setRestantBudget(int $restantBudget): self
     {
         $this->restantBudget = $restantBudget;
+
+        return $this;
+    }
+
+    public function getDepense(): ?Depense
+    {
+        return $this->depense;
+    }
+
+    public function setDepense(?Depense $depense): self
+    {
+        $this->depense = $depense;
+
+        return $this;
+    }
+
+    public function getBudget(): ?Budget
+    {
+        return $this->budget;
+    }
+
+    public function setBudget(?Budget $budget): self
+    {
+        $this->budget = $budget;
 
         return $this;
     }
