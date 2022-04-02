@@ -54,12 +54,12 @@ class RegistrationFormType extends AbstractType
                 [
                     'attr' => ['class' => 'form-select form-select-lg mb-3 '],
                     'choices'  => [
-                        'Licence1' => true,
-                        'Licence2' => false,
-                        'Licence3' => true,
-                        'Master1' => false,
-                        'Master2' => true,
-                        'Doctorant' => false,
+                        'Licence1' => "licence1",
+                        'Licence2' => "licence2",
+                        'Licence3' => "licence3",
+                        'Master1' => "Master1",
+                        'Master2' => "Master2",
+                        'Doctorant' => "Doctorant",
                     ],
 
                 ]
