@@ -23,12 +23,12 @@ class Budgetmoinsdepense
     private $restantBudget;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Depense::class, inversedBy="budgetmoinsdepense")
+     * @ORM\ManyToOne(targetEntity=Depense::class, inversedBy="Budgetmoinsdepense")
      */
     private $depense;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Budget::class, inversedBy="budgetmoinsdepense")
+     * @ORM\ManyToOne(targetEntity=Budget::class, inversedBy="Budgetmoinsdepense")
      */
     private $budget;
 

@@ -24,19 +24,26 @@ class Budget
      */
     private $montant;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity=Depense::class, inversedBy="Budget")
+     * @ORM\OneToMany(targetEntity=Budgetmoinsdepense::class, mappedBy="budget")
+     */
+    private $budgetmoinsdepense;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Depense::class, mappedBy="budget")
      */
     private $depense;
 
     /**
-     * @ORM\OneToMany(targetEntity=budgetmoinsdepense::class, mappedBy="budget")
+     * @ORM\Column(type="date")
      */
-    private $budgetmoinsdepense;
+    private $date;
 
     public function __construct()
     {
         $this->budgetmoinsdepense = new ArrayCollection();
+        $this->depense = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,17 +63,7 @@ class Budget
         return $this;
     }
 
-    public function getDepense(): ?Depense
-    {
-        return $this->depense;
-    }
 
-    public function setDepense(?Depense $depense): self
-    {
-        $this->depense = $depense;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, budgetmoinsdepense>
@@ -94,6 +91,48 @@ class Budget
                 $budgetmoinsdepense->setBudget(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, depense>
+     */
+    public function getDepense(): Collection
+    {
+        return $this->depense;
+    }
+
+    public function addDepense(depense $depense): self
+    {
+        if (!$this->depense->contains($depense)) {
+            $this->depense[] = $depense;
+            $depense->setBudget($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDepense(depense $depense): self
+    {
+        if ($this->depense->removeElement($depense)) {
+            // set the owning side to null (unless already changed)
+            if ($depense->getBudget() === $this) {
+                $depense->setBudget(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

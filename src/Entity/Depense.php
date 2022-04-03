@@ -19,10 +19,7 @@ class Depense
      */
     private $id;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Budget::class, mappedBy="depense")
-     */
-    private $Budget;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -59,6 +56,11 @@ class Depense
      */
     private $budgetmoinsdepense;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Budget::class, inversedBy="depense")
+     */
+    private $budget;
+
     public function __construct()
     {
         $this->Budget = new ArrayCollection();
@@ -78,27 +80,6 @@ class Depense
         return $this->Budget;
     }
 
-    public function addBudget(Budget $budget): self
-    {
-        if (!$this->Budget->contains($budget)) {
-            $this->Budget[] = $budget;
-            $budget->setDepense($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBudget(Budget $budget): self
-    {
-        if ($this->Budget->removeElement($budget)) {
-            // set the owning side to null (unless already changed)
-            if ($budget->getDepense() === $this) {
-                $budget->setDepense(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getType(): ?string
     {
@@ -198,6 +179,13 @@ class Depense
                 $budgetmoinsdepense->setDepense(null);
             }
         }
+
+        return $this;
+    }
+
+    public function setBudget(?Budget $budget): self
+    {
+        $this->budget = $budget;
 
         return $this;
     }

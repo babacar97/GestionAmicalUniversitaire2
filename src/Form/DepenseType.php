@@ -2,24 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\Budget;
+use App\Entity\Depense;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BudgetType extends AbstractType
+class DepenseType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('type')
             ->add('montant')
-            ->add('date');
+            ->add('date')
+            ->add('auteur')
+            ->add('commentaires')
+            ->add('justificatif')
+            ->add('budget')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Budget::class,
+            'data_class' => Depense::class,
         ]);
     }
 }
