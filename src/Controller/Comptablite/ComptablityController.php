@@ -3,7 +3,10 @@
 namespace App\Controller\Comptablite;
 
 use App\Entity\Budget;
+use App\Entity\Depense;
 use App\Form\BudgetType;
+use App\Form\DepenseType;
+use App\Repository\BudgetRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,10 +18,13 @@ class ComptablityController extends AbstractController
     /**
      * @Route("/comptablity", name="app_comptablity")
      */
-    public function index(): Response
+    public function index(BudgetRepository $budgetRepository): Response
     {
+        $budget = $budgetRepository->findAll();
+
         return $this->render('comptablity/index.html.twig', [
             'controller_name' => 'ComptablityController',
+            'listeBudgets' => $budget
         ]);
     }
 
@@ -52,7 +58,7 @@ class ComptablityController extends AbstractController
      */
     public function newDepense(Request $request, EntityManagerInterface $entityManager)
     {
-        $depense = new Budget();
+        $depense = new Depense();
         $form = $this->createForm(DepenseType::class, $depense);
         $form->handleRequest($request);
 

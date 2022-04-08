@@ -9,11 +9,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BudgetType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+
+    public function buildForm(FormBuilderInterface $builder,  array $options): void
     {
         $builder
             ->add('montant')
-            ->add('date');
+            ->add('date')
+            ->add('nombudget');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

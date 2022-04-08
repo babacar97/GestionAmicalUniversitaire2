@@ -52,7 +52,7 @@ class Depense
     private $justificatif;
 
     /**
-     * @ORM\OneToMany(targetEntity=budgetmoinsdepense::class, mappedBy="depense")
+     * @ORM\OneToMany(targetEntity=Budgetmoinsdepense::class, mappedBy="depense")
      */
     private $budgetmoinsdepense;
 

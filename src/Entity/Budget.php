@@ -40,6 +40,11 @@ class Budget
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nomBudget;
+
     public function __construct()
     {
         $this->budgetmoinsdepense = new ArrayCollection();
@@ -133,6 +138,18 @@ class Budget
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getNomBudget(): ?string
+    {
+        return $this->nomBudget;
+    }
+
+    public function setNomBudget(string $nomBudget): self
+    {
+        $this->nomBudget = $nomBudget;
 
         return $this;
     }

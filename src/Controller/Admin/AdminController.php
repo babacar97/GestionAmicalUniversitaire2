@@ -87,6 +87,7 @@ class AdminController extends AbstractController
         );
     }
 
+
     /**
      * @Route("/delete/{id}", name="userDelete")
      */
