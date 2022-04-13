@@ -10,37 +10,33 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
-
     public function __construct(UserPasswordHasherInterface $hasher)
     {
         $this->hasher = $hasher;
     }
     public function load(ObjectManager $manager): void
     {
-        $user = new User();
+
         $faker = Factory::create("fr_FR");
 
         for ($i = 0; $i < 100; $i++) {
+            $user = new User();
+            $user->setEmail($faker->email())
+                ->setPassword($faker->password())
+                ->setNom($faker->firstName())
+                ->setPrenom($faker->lastName())
+                ->setAdresse($faker->address())
+                ->setNumeroTelephone($faker->e164PhoneNumber())
+                ->setLieuNaissance($faker->company())
+                ->setNumeroCarteIdentite($faker->isbn13())
+                ->setNumeroCarteEtudiant($faker->isbn13())
+                ->setFaculte($faker->city())
+                ->setNiveauEtude($faker->city())
+                ->setCodification($faker->boolean())
+                ->setImage($faker->imageUrl())
+                ->setDateNaissance($faker->dateTimeInInterval());
 
-            $password = $this->hasher->hashPassword($user, 'pass_1234');
-
-            $user->setEmail("test@user.com")
-                ->setPassword($password)
-                ->setNom($faker->Nom)
-                ->setPrenom($faker->prenom)
-                ->setAdresse($faker->adresse)
-                ->setNumeroTelephone($faker->numeroTelephone)
-                ->setDateNaissance($faker->dateNaissance)
-                ->setLieuNaissance($faker->lieuNaissance)
-                ->setNumeroCarteIdentite($faker->numeroCarteIdentite)
-                ->setNumeroCarteEtudiant($faker->numeroCarteEtudiant)
-                ->setFaculte($faker->faculte)
-                ->setNiveauEtude($faker->niveauEtude)
-                ->setCodification($faker->codification)
-                ->setImage($faker->image);
-
-            // $product = new Product();
-            // $manager->persist($product);
+            $manager->persist($user);
         }
 
 
