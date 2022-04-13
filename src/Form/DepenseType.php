@@ -2,9 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Budget;
 use App\Entity\Depense;
+use App\Repository\BudgetRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DepenseType extends AbstractType
@@ -18,8 +21,14 @@ class DepenseType extends AbstractType
             ->add('auteur')
             ->add('commentaires')
             ->add('justificatif')
-            ->add('budget')
-        ;
+            ->add('budget', EntityType::class, [
+                'class' => Budget::class,
+                'choice_label' => 'id',
+                'mapped' => false,
+                'query_builder' => function (BudgetRepository $budgetRepository) {
+                    return $budgetRepository->createQueryBuilder('id');
+                }
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

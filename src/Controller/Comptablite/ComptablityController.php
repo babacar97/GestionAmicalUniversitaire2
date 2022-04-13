@@ -8,10 +8,12 @@ use App\Form\BudgetType;
 use App\Form\DepenseType;
 use App\Repository\BudgetRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ComptablityController extends AbstractController
 {
@@ -21,12 +23,56 @@ class ComptablityController extends AbstractController
     public function index(BudgetRepository $budgetRepository): Response
     {
         $budget = $budgetRepository->findAll();
-
         return $this->render('comptablity/index.html.twig', [
             'controller_name' => 'ComptablityController',
             'listeBudgets' => $budget
         ]);
     }
+
+    /**
+     * @Route("/idbudget/{idBudget}", name="app_budget")
+     */
+    public function idbudget($idBudget, BudgetRepository $budgetRepository)
+    {
+
+        $idbudget = $budgetRepository->findOneById($idBudget);
+        dd($idbudget);
+
+        $budget = $budgetRepository->findAll();
+
+
+
+        // $budgetdepense = $idbudget->getdepense();
+        // $nombudget =  $idbudget->getnom_budget();
+
+        $montantBudget = $idbudget->getmontant();
+
+
+        $budgetmoinsdepense = $idbudget->getBudgetmoinsdepense();
+
+        return $this->render('comptablity/infoBudget.html.twig', [
+            'idbudgetBudgets' => $idbudget,
+            'montantBudget' => $montantBudget,
+            // 'budgetdepense' => $budgetdepense,
+            'budgetmoinsdepense' => $budgetmoinsdepense,
+            'listeBudgets' => $budget,
+            // 'nombudget' => $nombudget
+        ]);
+    }
+
+
+    /**
+     * @Route("/Budget/{slug}", name="Budget_id")
+     */
+    // public function budgetId(BudgetRepository $budgetRepository, Request $request,  $slug): Response
+    // {
+    //     // $budget = $budgetRepository->findOneBy(["id" => $id]);
+    //     $post = $budgetRepository->findOneBy(['slug' => $slug]);
+
+    //     return $this->render('comptablity/infoBudget.html.twig', [
+    //         'post' => $post
+    //     ]);
+    // }
 
     /**
      * @Route("/newbudget", name="app_newbudget")
@@ -73,7 +119,7 @@ class ComptablityController extends AbstractController
 
 
         return $this->render('comptablity/newDepense.html.twig', [
-            'registrationForm' => $form->createView(),
+            'form' => $form->createView(),
 
         ]);
     }
