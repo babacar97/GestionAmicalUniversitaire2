@@ -7,6 +7,7 @@ use App\Entity\Depense;
 use App\Form\BudgetType;
 use App\Form\DepenseType;
 use App\Repository\BudgetRepository;
+use App\Repository\DepenseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+use function PHPSTORM_META\type;
 
 class ComptablityController extends AbstractController
 {
@@ -32,31 +35,45 @@ class ComptablityController extends AbstractController
     /**
      * @Route("/idbudget/{idBudget}", name="app_budget")
      */
-    public function idbudget($idBudget, BudgetRepository $budgetRepository)
+    public function idbudget($idBudget, BudgetRepository $budgetRepository, DepenseRepository $depenseRepository)
     {
-
         $idbudget = $budgetRepository->findOneById($idBudget);
-        dd($idbudget);
-
         $budget = $budgetRepository->findAll();
+        $iddepenses = $depenseRepository->findBy(['budget' => $idbudget]);
+        // dd($iddepenses);
+        // $montantdepense = $iddepenses->getMontant();
+        // $typedepense = $iddepenses->getType();
+        // dd(sizeof($iddepenses));
+        // dd($typedepense);
+        // $idbd = $depenseRepository->findAll();
+        // dd($idbd);
 
+        // foreach ($iddepenses as $iddepense) {
+        //     $montants = $iddepense->getMontant();
+        // }
+        // dd($montants);
 
+        $date = $idbudget->getDate();
+        // dd($date);
 
-        // $budgetdepense = $idbudget->getdepense();
-        // $nombudget =  $idbudget->getnom_budget();
-
+        $budgetdepense = $idbudget->getDepense();
+        // dd($budgetdepense);
+        $nombudget =  $idbudget->getnombudget();
         $montantBudget = $idbudget->getmontant();
 
-
         $budgetmoinsdepense = $idbudget->getBudgetmoinsdepense();
-
+        // dd($budgetmoinsdepense);
         return $this->render('comptablity/infoBudget.html.twig', [
             'idbudgetBudgets' => $idbudget,
             'montantBudget' => $montantBudget,
-            // 'budgetdepense' => $budgetdepense,
+            'budgetdepense' => $budgetdepense,
             'budgetmoinsdepense' => $budgetmoinsdepense,
             'listeBudgets' => $budget,
-            // 'nombudget' => $nombudget
+            'nombudget' => $nombudget,
+            'datebudget' => $date,
+            'iddepenses' => $iddepenses
+            // 'types' => $types,
+            // 'montants' => $montants
         ]);
     }
 
