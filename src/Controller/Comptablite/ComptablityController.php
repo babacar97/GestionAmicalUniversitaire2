@@ -40,7 +40,8 @@ class ComptablityController extends AbstractController
         $idbudget = $budgetRepository->findOneById($idBudget);
         $budget = $budgetRepository->findAll();
         $iddepenses = $depenseRepository->findBy(['budget' => $idbudget]);
-        // dd($iddepenses);
+        //dd($iddepenses);
+        // dd($dt->getDepense());
         // $montantdepense = $iddepenses->getMontant();
         // $typedepense = $iddepenses->getType();
         // dd(sizeof($iddepenses));
@@ -52,7 +53,12 @@ class ComptablityController extends AbstractController
         //     $montants = $iddepense->getMontant();
         // }
         // dd($montants);
-
+        //totale des dépenses effectuer
+        $sumDepense = 0;
+        foreach ($iddepenses as $sum) {
+            $sumDepense += $sum->getMontant();
+        }
+        // dd($sumDepense);
         $date = $idbudget->getDate();
         // dd($date);
 
@@ -65,6 +71,7 @@ class ComptablityController extends AbstractController
         // dd($budgetmoinsdepense);
         return $this->render('comptablity/infoBudget.html.twig', [
             'idbudgetBudgets' => $idbudget,
+            'id' => $idbudget->getId(),
             'montantBudget' => $montantBudget,
             'budgetdepense' => $budgetdepense,
             'budgetmoinsdepense' => $budgetmoinsdepense,

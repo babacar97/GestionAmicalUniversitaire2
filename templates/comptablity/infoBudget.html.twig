@@ -97,7 +97,7 @@
 							<div class="col mr-2">
 								<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
 									Depense Total realisé realisé</div>
-								<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+								<div class="h5 mb-0 font-weight-bold text-gray-800"></div>
 							</div>
 							<div class="col-auto">
 								<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -139,140 +139,74 @@
 					</div>
 				</div>
 			</div>
+		</p>
+		<div class="col-xl-4 col-lg-5">
+			<div
+				class="card shadow mb-4">
+				<!-- Card Header - Dropdown -->
+				<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+					<h6 class="m-0 font-weight-bold text-primary">Listes des dépenses</h6>
 
-			<!-- Pie Chart -->
-			{# <div class="col-xl-4 col-lg-5">
-																																																				<div class="card shadow mb-4">
-																																																					<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-																																																						<h6 class="m-0 font-weight-bold text-primary">Liste dépenses</h6>
-																																																						<div class="card-body">
-																																																							<div class="table-responsive">
-																																																								<table class="table table-bordered" id="dataTable">
-																																																									<thead>
-																																																										<tr>
-																																																											<th>Type dépense</th>
-																																																											<th>Montant</th>
-																																																										</tr>
-																																																									</thead>
-																																																									<tbody>
-																																																
-																																																										<tr>
-																																																											<td>{{ typedepense }}</td>
-																																																											<td>{{ montantdepense }}</td>
-																																																										
-																																																										</tr>
-																																																
-																																																									</tbody>
-																																																								</table>
-																																																							</div>
-																																																						</div>
-																																																					</div>
-																																																					<div class="dropdown no-arrow">
-																																																						<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																																																							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-																																																						</a>
-																																																						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-																																																							<div class="dropdown-header">Dropdown Header:</div>
-																																																							<a class="dropdown-item" href="{{path('app_newDepense')}}">Nouveau dépense</a>
-																																																							<a class="dropdown-item" href="#">Another action</a>
-																																																							<div class="dropdown-divider"></div>
-																																																							<a class="dropdown-item" href="#">Something else here</a>
-																																																						</div>
-																																																					</div>
-																																																				</div>
-																																																	
-																																																				<div class="card-body">
-																																																					<div class="chart-pie pt-4 pb-2">
-																																																						<canvas id="myPieChart"></canvas>
-																																																					</div>
-																																																					<div class="mt-4 text-center small">
-																																																						<span class="mr-2">
-																																																							<i class="fas fa-circle text-primary"></i>
-																																																							Direct
-																																																						</span>
-																																																						<span class="mr-2">
-																																																							<i class="fas fa-circle text-success"></i>
-																																																							Social
-																																																						</span>
-																																																						<span class="mr-2">
-																																																							<i class="fas fa-circle text-info"></i>
-																																																							Referral
-																																																						</span>
-																																																					</div>
-																																																				</div>
-																																																			</div>
-																																																		</div>
-																																																	</div>
-																																																</p> #}
+					<div class="dropdown no-arrow">
 
-			<div class="col-xl-4 col-lg-5">
-				<div
-					class="card shadow mb-4">
-					<!-- Card Header - Dropdown -->
-					<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-						<h6 class="m-0 font-weight-bold text-primary">Listes des dépenses</h6>
-
-						<div class="dropdown no-arrow">
-
-							<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-								<div class="dropdown-header">Dropdown Header:</div>
-								<a class="dropdown-item" href="{{path('app_newDepense')}}">Nouveau dépense</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</div>
-						</div>
-					</div>
-					<!-- Card Body -->
-					<div class="card-body">
-						<table class="table table-bordered" id="dataTable">
-							<thead>
-								<tr>
-									<th>Type dépense</th>
-									<th>Montant</th>
-									<th>Date</th>
-								</tr>
-							</thead>
-							<tbody>
-								{% for iddepense in iddepenses %}
-									<tr>
-										<td>{{ iddepense.type}}</td>
-										<td>{{ iddepense.montant }}</td>
-										<td>{{iddepense.date |date('d-m-Y H:i:s')}}</td>
-
-									</tr>
-								{% endfor %}
-							</tbody>
-						</table>
-						<div class="chart-pie pt-4 pb-2">
-							<canvas id="myPieChart"></canvas>
-						</div>
-						<div class="mt-4 text-center small">
-							<span class="mr-2">
-								<i class="fas fa-circle text-primary"></i>
-								Direct
-							</span>
-							<span class="mr-2">
-								<i class="fas fa-circle text-success"></i>
-								Social
-							</span>
-							<span class="mr-2">
-								<i class="fas fa-circle text-info"></i>
-								Referral
-							</span>
+						<a class="dropdown-toggle" href='{{path('app_newDepense')}}/{{id}}' role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+							<div class="dropdown-header">Dropdown Header:</div>
+							{# <a class="dropdown-item" href="{{path('app_newDepense')}}">Nouveau dépense</a> #}
+							<a class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
 						</div>
 					</div>
 				</div>
+				<!-- Card Body -->
+				<div class="card-body">
+					<table class="table table-bordered" id="dataTable">
+						<thead>
+							<tr>
+								<th>Type dépense</th>
+								<th>Montant</th>
+								<th>Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for iddepense in iddepenses %}
+								<tr>
+									<td>{{ iddepense.type}}</td>
+									<td>{{ iddepense.montant }}</td>
+									<td>{{iddepense.date |date('d-m-Y H:i:s')}}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<div class="chart-pie pt-4 pb-2">
+						<canvas id="myPieChart"></canvas>
+					</div>
+					<div class="mt-4 text-center small">
+						<span class="mr-2">
+							<i class="fas fa-circle text-primary"></i>
+							Direct
+						</span>
+						<span class="mr-2">
+							<i class="fas fa-circle text-success"></i>
+							Social
+						</span>
+						<span class="mr-2">
+							<i class="fas fa-circle text-info"></i>
+							Referral
+						</span>
+					</div>
+				</div>
 			</div>
-		{% endblock %}
-		{% block javascripts %}
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-			<script>
+		</div>
+	{% endblock %}
+	{% block javascripts %}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script>
 
-				function getComboA(name) { // var value = selectObject.value;
+			function getComboA(name) { // var value = selectObject.value;
 console.log(name);
 window.location.href = '/idbudget/' + name;
 // $.ajax({
@@ -280,5 +214,5 @@ window.location.href = '/idbudget/' + name;
 // type: "GET"
 // })
 }
-			</script>
-		{% endblock %}
+		</script>
+	{% endblock %}
