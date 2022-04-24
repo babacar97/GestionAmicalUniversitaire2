@@ -30,26 +30,26 @@ class AppFixtures extends Fixture
         $faker = Factory::create("fr_FR");
 
         for ($i = 0; $i < 100; $i++) {
-            // $user = new User();
-            // $user->setEmail($faker->email())
-            //     ->setPassword($faker->password())
-            //     ->setNom($faker->firstName())
-            //     ->setPrenom($faker->lastName())
-            //     ->setAdresse($faker->address())
-            //     ->setNumeroTelephone($faker->e164PhoneNumber())
-            //     ->setLieuNaissance($faker->company())
-            //     ->setNumeroCarteIdentite($faker->isbn13())
-            //     ->setNumeroCarteEtudiant($faker->isbn13())
-            //     ->setFaculte($faker->city())
-            //     ->setNiveauEtude($faker->city())
-            //     ->setCodification($faker->boolean())
-            //     ->setImage($faker->imageUrl())
-            //     ->setDateNaissance($faker->dateTimeInInterval());
+            $user = new User();
+            $user->setEmail($faker->email())
+                ->setPassword($faker->password())
+                ->setNom($faker->firstName())
+                ->setPrenom($faker->lastName())
+                ->setAdresse($faker->address())
+                ->setNumeroTelephone($faker->e164PhoneNumber())
+                ->setLieuNaissance($faker->company())
+                ->setNumeroCarteIdentite($faker->isbn13())
+                ->setNumeroCarteEtudiant($faker->isbn13())
+                ->setFaculte($faker->city())
+                ->setNiveauEtude($faker->city())
+                ->setCodification($faker->boolean())
+                ->setImage($faker->imageUrl())
+                ->setDateNaissance($faker->dateTimeInInterval());
 
-            // $budget = new Budget();
-            // $budget->setMontant($faker->ean8())
-            //     ->setDate($faker->dateTimeInInterval())
-            //     ->setNomBudget($faker->name());
+            $budget = new Budget();
+            $budget->setMontant($faker->ean8())
+                ->setDate($faker->dateTimeInInterval())
+                ->setNomBudget($faker->name());
 
             $depense = new Depense();
 
@@ -63,7 +63,7 @@ class AppFixtures extends Fixture
                 ->setBudget($faker->randomElement($idbuget))
                 ->setJustificatif($faker->domainWord());
 
-            $manager->persist($depense);
+            $manager->persist($user);
         }
 
 

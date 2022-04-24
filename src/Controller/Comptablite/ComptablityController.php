@@ -49,10 +49,7 @@ class ComptablityController extends AbstractController
         // $idbd = $depenseRepository->findAll();
         // dd($idbd);
 
-        // foreach ($iddepenses as $iddepense) {
-        //     $montants = $iddepense->getMontant();
-        // }
-        // dd($montants);
+
         //totale des dépenses effectuer
         $sumDepense = 0;
         foreach ($iddepenses as $sum) {
@@ -123,11 +120,30 @@ class ComptablityController extends AbstractController
         ]);
     }
 
+    // /**
+    //  * @Route("/newDepense/{id}", name="newDepense")
+    //  */
+    // public function redirectRoute($id, BudgetRepository $budgetRepository)
+    // {
+    //     $budget = $budgetRepository->findOneBy(["id" => $id]);
+
+    //     $budgetid = $budget->getId();
+    //     // dd($budgetid);
+    //     return $this->redirectToRoute('app_newDepense', [
+    //         'budgetid' => $budgetid,
+    //     ]);
+    // }
+
     /**
-     * @Route("/newDepense", name="app_newDepense")
+     * @Route("/newDepense/{id}", name="app_newDepense")
      */
-    public function newDepense(Request $request, EntityManagerInterface $entityManager)
+    public function newDepense($id, Request $request, EntityManagerInterface $entityManager, BudgetRepository $budgetRepository)
     {
+
+
+        $budget = $budgetRepository->findOneBy(["id" => $id]);
+        // dd($budget);
+        $budgetid = $budget->getId();
         $depense = new Depense();
         $form = $this->createForm(DepenseType::class, $depense);
         $form->handleRequest($request);
@@ -140,11 +156,9 @@ class ComptablityController extends AbstractController
 
             return $this->redirectToRoute('app_comptablity');
         }
-
-
         return $this->render('comptablity/newDepense.html.twig', [
             'form' => $form->createView(),
-
+            'budgetid' => $budgetid
         ]);
     }
 }

@@ -5,7 +5,7 @@
 {% block body %}
 	<div class="row">
 		<div class="col-6 mx-auto ">
-
+			{{budgetid}}
 			<h1 class="display-4 my-4 text-center">Nouveau Dépenses</h1>
 			{{form_start(form)}}
 			{{form_row(form.type)}}
@@ -13,12 +13,11 @@
 			{{form_row(form.auteur)}}
 			{{form_row(form.commentaires)}}
 			{{form_row(form.justificatif)}}
-			{{form_row(form.budget)}}
+			{{form_row(form.budget,{'value': budgetid})}}
 			{{form_row(form.date)}}
 			<button type="submit" class="btn btn-primary w-100 my-4">Send</button>
 			{{form_end(form)}}
 		</div>
 	</div>
-
 
 {% endblock %}
