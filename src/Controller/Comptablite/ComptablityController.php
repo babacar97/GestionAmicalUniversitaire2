@@ -9,6 +9,7 @@ use App\Form\DepenseType;
 use App\Repository\BudgetRepository;
 use App\Repository\DepenseRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,7 +76,8 @@ class ComptablityController extends AbstractController
             'listeBudgets' => $budget,
             'nombudget' => $nombudget,
             'datebudget' => $date,
-            'iddepenses' => $iddepenses
+            'iddepenses' => $iddepenses,
+            'sumDepense' => $sumDepense
             // 'types' => $types,
             // 'montants' => $montants
         ]);
@@ -150,7 +152,7 @@ class ComptablityController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $depense = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
+            $depense->setBudget($budget);
             $entityManager->persist($depense);
             $entityManager->flush();
 

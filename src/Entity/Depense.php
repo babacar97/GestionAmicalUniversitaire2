@@ -59,6 +59,7 @@ class Depense
     /**
      * @ORM\ManyToOne(targetEntity=Budget::class, inversedBy="depense")
      */
+
     private $budget;
 
     public function __construct()

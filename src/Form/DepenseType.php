@@ -26,11 +26,6 @@ class DepenseType extends AbstractType
         // ->add('budget', EntityType::class, [
         // 'type' => HiddenType::class,
         // 'class' => Budget::class,
-        // 'choice_label' => 'id',
-        // 'mapped' => false,
-        // 'query_builder' => function (BudgetRepository $budgetRepository) {
-        //     return $budgetRepository->createQueryBuilder('id');
-        // }
         // ]);
     }
 
