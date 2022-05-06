@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use  App\Entity\User;
 use App\Repository\UserRepository;
 use  App\Form\RegistrationFormType;
+use App\Service\PdfService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,6 +34,19 @@ class AdminController extends AbstractController
             'users' => $users,
         ]);
     }
+
+
+    /**
+     * @Route("/pdf", name="listePdf")
+     */
+    public function pdf(UserRepository $users, PdfService $pdf)
+    {
+        $user = $users->findAll();
+        $html = $this->render($filename = 'admin/user/index.html.twig', $option = ['users' => $user]);
+
+        $pdf->showPdf($html);
+    }
+
 
 
     /**

@@ -23,10 +23,6 @@ class DepenseType extends AbstractType
             ->add('commentaires')
             ->add('justificatif')
             ->add('budget', HiddenType::class);
-        // ->add('budget', EntityType::class, [
-        // 'type' => HiddenType::class,
-        // 'class' => Budget::class,
-        // ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

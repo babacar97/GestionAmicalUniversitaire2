@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
 
         $faker = Factory::create("fr_FR");
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $user = new User();
             $user->setEmail($faker->email())
                 ->setPassword($faker->password())
@@ -63,7 +63,7 @@ class AppFixtures extends Fixture
                 ->setBudget($faker->randomElement($idbuget))
                 ->setJustificatif($faker->domainWord());
 
-            $manager->persist($user);
+            $manager->persist($depense);
         }
 
 

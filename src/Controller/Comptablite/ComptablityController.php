@@ -2,10 +2,13 @@
 
 namespace App\Controller\Comptablite;
 
+use Dompdf\Dompdf;
 use App\Entity\Budget;
 use App\Entity\Depense;
 use App\Form\BudgetType;
 use App\Form\DepenseType;
+use App\Service\PdfService;
+use function PHPSTORM_META\type;
 use App\Repository\BudgetRepository;
 use App\Repository\DepenseRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,10 +17,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-use function PHPSTORM_META\type;
 
 class ComptablityController extends AbstractController
 {
@@ -83,20 +85,6 @@ class ComptablityController extends AbstractController
         ]);
     }
 
-
-    /**
-     * @Route("/Budget/{slug}", name="Budget_id")
-     */
-    // public function budgetId(BudgetRepository $budgetRepository, Request $request,  $slug): Response
-    // {
-    //     // $budget = $budgetRepository->findOneBy(["id" => $id]);
-    //     $post = $budgetRepository->findOneBy(['slug' => $slug]);
-
-    //     return $this->render('comptablity/infoBudget.html.twig', [
-    //         'post' => $post
-    //     ]);
-    // }
-
     /**
      * @Route("/newbudget", name="app_newbudget")
      */
@@ -139,28 +127,81 @@ class ComptablityController extends AbstractController
     /**
      * @Route("/newDepense/{id}", name="app_newDepense")
      */
-    public function newDepense($id, Request $request, EntityManagerInterface $entityManager, BudgetRepository $budgetRepository)
+    public function newDepense($id, Request $request, EntityManagerInterface $entityManager, BudgetRepository $budgetRepository, DepenseRepository $depenseRepository)
     {
-
-
         $budget = $budgetRepository->findOneBy(["id" => $id]);
         // dd($budget);
         $budgetid = $budget->getId();
+        $iddepenses = $depenseRepository->findBy(['budget' => $budgetid]);
+        // ici on recupere le montant du budget
+        $budgetMontant = $budget->getMontant();
+
+        // Somme totale des depenses d'une budget
+        $sumBudgetDepense = 0;
+        foreach ($iddepenses as $sum) {
+            $sumBudgetDepense += $sum->getMontant();
+        }
+        //Restant d'une budget
+        $RestantBudget =  $budgetMontant - $sumBudgetDepense;
+        // dd($RestantBudget);
+        //Creation d'une nouvelle depenses
         $depense = new Depense();
         $form = $this->createForm(DepenseType::class, $depense);
         $form->handleRequest($request);
-
+        //traitemeent et soumission de la depense
         if ($form->isSubmitted() && $form->isValid()) {
             $depense = $form->getData();
-            $depense->setBudget($budget);
-            $entityManager->persist($depense);
-            $entityManager->flush();
+            $montantsoumis = $depense->getMontant();
+
+            // $montantsoumis = new Dompdf();
+            if ($montantsoumis > $RestantBudget) {
+                return "imposible d'ajouter ce depense car le budget ne le permet pas";
+            } else {
+                $depense->setBudget($budget);
+                $entityManager->persist($depense);
+                $entityManager->flush();
+            }
 
             return $this->redirectToRoute('app_comptablity');
         }
         return $this->render('comptablity/newDepense.html.twig', [
             'form' => $form->createView(),
-            'budgetid' => $budgetid
+            'budgetid' => $budgetid,
+            'restantBudget' => $RestantBudget
         ]);
+    }
+
+    /**
+     * @Route("/rapportBudget/{id}", name="rapport")
+     */
+    public function rapport($id, BudgetRepository $budget, DepenseRepository $depense, PdfService $pdf)
+    {
+        $budget = $budget->findOneBy(["id" => $id]);
+        // dd($budget);
+        $budgetid = $budget->getId();
+        $date = $budget->getDate();
+        $intutile = $budget->getNomBudget();
+        $montant = $budget->getMontant();
+        // dd($budgetid);
+        $iddepenses = $depense->findBy(['budget' => $budgetid]);
+        // dd($iddepenses);
+        $sumBudgetDepense = 0;
+        foreach ($iddepenses as $sum) {
+            $sumBudgetDepense += $sum->getMontant();
+        }
+        $restantB = $montant - $sumBudgetDepense;
+
+        $html = $this->render($filename = 'comptablity/rapportBudget.html.twig', $option = [
+            'iddepenses' => $iddepenses,
+            'nomBudget' => $intutile,
+            'date' => $date,
+            'numero' => $budgetid,
+            'montant' => $montant,
+            'depensetotale' => $sumBudgetDepense,
+            'restant' => $restantB
+        ]);
+
+        return new Response($pdf->showPdf($html));
+        return $this->redirectToRoute('app_comptablity');
     }
 }

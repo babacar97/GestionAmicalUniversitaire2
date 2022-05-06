@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			body {
+				background-color: white
+			}
+
+			.padding {
+				padding: 2rem !important
+			}
+
+			.card {
+				margin-bottom: 30px;
+				border: none;
+				-webkit-box-shadow: 0 1px 2px 1px rgba(154, 154, 204, 0.22);
+				-moz-box-shadow: 0 1px 2px 1px rgba(154, 154, 204, 0.22);
+				box-shadow: 0 1px 2px 1px rgba(154, 154, 204, 0.22)
+			}
+
+			.card-header {
+				background-color: #fff;
+				border-bottom: 1px solid #e6e6f2
+			}
+
+			h3 {
+				font-size: 20px
+			}
+
+			h5 {
+				font-size: 15px;
+				line-height: 26px;
+				color: #3d405c;
+				margin: 0 0 15px;
+				font-family: 'Circular Std Medium'
+			}
+
+			.text-dark {
+				color: #3d405c !important
+			}
+		</style>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
+			<div class="card">
+				<div class="card-header p-4">
+					<div class="float-right">
+						<h3 class="mb-0">Rapport Budget
+						</h3>
+						Numero:
+						{{numero}}
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="row mb-4">
+						<div class="col-sm-6">
+							<h5 class="mb-3"></h5>
+							<h3 class="text-dark mb-1">Intitulé :
+								{{nomBudget}}</h3>
+							<div>29, Singla Street</div>
+							<div>Budget voté le
+								{{date | date}}</div>
+							<div>Email: contact@bbbootstrap.com</div>
+							<div>Phone: +91 9897 989 989</div>
+						</div>
+						<div class="col-sm-6 "></div>
+					</div>
+					<div class="table-responsive-sm">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th class="center">Numero-Depense</th>
+
+									<th>Intutilé-Depense</th>
+									<th class="right">Montant-Depense</th>
+									<th>Auteur</th>
+									<th class="center">Qty</th>
+									<th class="right">Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for iddepense in iddepenses %}
+									<tr>
+										<td>{{iddepense.id}}</td>
+										<td>{{ iddepense.type}}</td>
+										<td>{{ iddepense.montant }}</td>
+										<td>{{iddepense.auteur}}</td>
+										<td></td>
+										<td>{{iddepense.montant}}</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-sm-5"></div>
+				<div class="col-lg-4 col-sm-5 ml-auto">
+					<table class="table table-clear">
+						<tbody>
+							<tr>
+								<td class="left">
+									<strong class="text-dark">Budget initiale</strong>
+								</td>
+								<td class="right">{{montant}}
+									Fcfa</td>
+							</tr>
+							<tr>
+								<td class="left">
+									<strong class="text-dark">Budget restant</strong>
+								</td>
+								<td class="right">{{restant}}Fcfa</td>
+							</tr>
+							<tr>
+								<td class="left">
+									<strong class="text-dark">Depense total</strong>
+								</td>
+								<td class="right">
+									<strong class="text-dark">{{depensetotale}}Fcfa</strong>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer bg-white">
+			<p class="mb-0">Systeme de gestion des amicales universitaires</p>
+		</div>
+	</body>
+</html></div><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></body></body></html>
