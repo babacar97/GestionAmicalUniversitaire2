@@ -202,6 +202,5 @@ class ComptablityController extends AbstractController
         ]);
 
         return new Response($pdf->showPdf($html));
-        return $this->redirectToRoute('app_comptablity');
     }
 }
