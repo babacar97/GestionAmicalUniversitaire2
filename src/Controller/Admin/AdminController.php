@@ -39,13 +39,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/pdf", name="listePdf")
      */
-    public function pdf(UserRepository $users, PdfService $pdf)
-    {
-        $user = $users->findAll();
-        $html = $this->render($filename = 'admin/user/index.html.twig', $option = ['users' => $user]);
+    // public function pdf(UserRepository $users, PdfService $pdf)
+    // {
+    //     $user = $users->findAll();
+    //     $html = $this->render($filename = 'admin/user/index.html.twig', $option = ['users' => $user]);
 
-        $pdf->showPdf($html);
-    }
+    //     $pdf->showPdf($html);
+    // }
 
 
 

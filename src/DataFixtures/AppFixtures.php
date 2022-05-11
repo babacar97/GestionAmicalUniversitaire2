@@ -3,6 +3,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\Budget;
+use App\Entity\Campagne;
+use App\Entity\Candidats;
 use App\Entity\Depense;
 use Faker\Factory;
 use App\Entity\User;
@@ -29,7 +31,7 @@ class AppFixtures extends Fixture
 
         $faker = Factory::create("fr_FR");
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $user = new User();
             $user->setEmail($faker->email())
                 ->setPassword($faker->password())
@@ -63,7 +65,17 @@ class AppFixtures extends Fixture
                 ->setBudget($faker->randomElement($idbuget))
                 ->setJustificatif($faker->domainWord());
 
-            $manager->persist($depense);
+            //nouvelle campagnes
+            $campagne = new Campagne();
+            $campagne->setDateDebut($faker->dateTimeBetween())
+                ->setDateFin($faker->dateTimeInInterval())
+                ->setType($faker->company())
+                ->setDescription($faker->text())
+                ->setLibelle($faker->name());
+
+            $candidat = new Candidats();
+            $candidat->setListe($faker->colorName);
+            $manager->persist($candidat);
         }
 
 
