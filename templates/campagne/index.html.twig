@@ -1,0 +1,57 @@
+{% extends 'base.html copy.twig' %}
+
+{% block title %}Campagne index
+{% endblock %}
+
+{% block body %}
+	<a href="{{ path('app_campagne_new') }}" class="btn btn-primary mb-4 ">Nouveau Campagne</a>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3"></div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Libelle</th>
+							<th>Date_debut</th>
+							<th>Date_fin</th>
+							<th>Type</th>
+							<th>Description</th>
+
+							<th>Plus de details</th>
+							<th>Modifier</th>
+							<th>Supprimer</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for campagne in campagnes %}
+							<tr>
+								<td>{{ campagne.id }}</td>
+								<td>{{ campagne.libelle }}</td>
+								<td>{{ campagne.dateDebut ? campagne.dateDebut|date('Y-m-d') : '' }}</td>
+								<td>{{ campagne.dateFin ? campagne.dateFin|date('Y-m-d') : '' }}</td>
+								<td>{{ campagne.type }}</td>
+								<td>{{ campagne.description }}</td>
+								<td>
+									<a href="{{ path('app_campagne_show', {'id': campagne.id}) }}">show</a>
+								</td>
+								<td>
+									<a href="{{ path('app_campagne_edit', {'id': campagne.id}) }}">edit</a>
+								</td>
+								<td>
+									<a href="{{ path('app_campagne_edit', {'id': campagne.id}) }}">edit</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="7">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</table>
+		</div>
+	</div>
+
+</div>{% endblock %}

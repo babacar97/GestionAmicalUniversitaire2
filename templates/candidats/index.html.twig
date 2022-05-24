@@ -1,0 +1,47 @@
+{% extends 'base.html copy.twig' %}
+
+{% block title %}Candidats index
+{% endblock %}
+
+{% block body %}
+	<a href="{{ path('app_candidats_new') }}" class="btn btn-primary mb-4 ">Nouveau Candidats</a>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3"></div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Liste</th>
+							<th>actions</th>
+							<th>Edition</th>
+							<th>Suppression</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for candidat in candidats %}
+							<tr>
+								<td>{{ candidat.id }}</td>
+								<td>{{ candidat.liste }}</td>
+								<td>
+									<a href="{{ path('app_candidats_show', {'id': candidat.id}) }}" class="btn btn-info">show</a>
+								</td>
+								<td>
+									<a href="{{ path('app_candidats_edit', {'id': candidat.id}) }}" class="btn btn-info">Edit</a>
+								</td>
+								<td>
+									<a href="{{ path('app_candidats_delete', {'id': candidat.id}) }}" class="btn btn-danger">Suppression</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="3">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

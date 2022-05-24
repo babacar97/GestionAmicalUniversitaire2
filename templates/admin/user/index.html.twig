@@ -27,7 +27,7 @@
 									{# <th>Adresse</th> #}
 									<th>NumeroCarteIdentite</th>
 									<th>NumeroCarteEtudiant</th>
-									<th>NiveauEtude</th>
+									{# <th>NiveauEtude</th> #}
 									<th>Image</th>
 									{# <th>Faculte</th> #}
 									<th>Edition</th>
@@ -44,7 +44,7 @@
 										{# <td>{{user.adresse}}</td> #}
 										<td>{{user.numeroCarteIdentite}}</td>
 										<td>{{user.numeroCarteEtudiant}}</td>
-										<td>{{user.niveauEtude}}</td>
+										{# <td>{{user.niveauEtude}}</td> #}
 										<td><img src="{{asset('uploads/personne/'~ user.image)}} " alt="" style="width:50px; height: 50px;"></td>
 										<td>
 											<a href="{{path('userEdit', { id:user.id}) }}" class="btn btn-info">Modifier</a>

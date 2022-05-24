@@ -75,6 +75,7 @@ class AppFixtures extends Fixture
 
             $candidat = new Candidats();
             $candidat->setListe($faker->colorName);
+            $candidat->setProgrammes($faker->text());
             $manager->persist($candidat);
         }
 

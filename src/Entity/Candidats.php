@@ -34,6 +34,11 @@ class Candidats
      */
     private $idCampagne;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $programmes;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Candidats
     public function setIdCampagne(?campagne $idCampagne): self
     {
         $this->idCampagne = $idCampagne;
+
+        return $this;
+    }
+
+    public function getProgrammes(): ?string
+    {
+        return $this->programmes;
+    }
+
+    public function setProgrammes(string $programmes): self
+    {
+        $this->programmes = $programmes;
 
         return $this;
     }
