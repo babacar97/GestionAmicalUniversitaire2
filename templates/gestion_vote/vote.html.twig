@@ -7,7 +7,23 @@
 		<title>Document</title>
 	</head>
 	<body>
-		{{personne.id}}
-
+		{# {{personne.id}} #}
+		<h1 class="text-center ">
+			Vote
+		</h1>
+		{# {{personne.id}}
+						{{candidatChoisi.id}} #}
+		{{ form_start(registrationForm) }}
+		<div class="row">
+			<div class="col">{{ form_row(registrationForm.id_candidat) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.id_user) }}
+			</div>
+			<div class="col">
+				{{ form_row(registrationForm.date_vote) }}
+			</div>
+		</div>
+		{{ form_end(registrationForm) }}
 	</body>
 </html>

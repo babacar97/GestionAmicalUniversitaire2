@@ -3,13 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Vote;
+use App\Form\VoteType;
 use App\Repository\UserRepository;
 use App\Repository\CandidatsRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class GestionVoteController extends AbstractController
 {
@@ -40,20 +43,34 @@ class GestionVoteController extends AbstractController
     // }
 
     /**
-     * @Route("/Vote/id", name="app_Vote")
+     * @Route("/Vote/{idCandidat}", name="app_Vote")
      */
-    public function Vote(CandidatsRepository $candidat, int $idCandidat = null): Response
+    public function Vote(CandidatsRepository $candidat, int $idCandidat = null, Request $request, EntityManagerInterface $entityManager): Response
     {
 
         $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
 
+        // dd($candidatChoisi);
         //Ici on recupere la personne qui est connecter
         $personne = $this->getUser();
 
-        // dd($personne);
+        $vote = new Vote();
+        $form = $this->createForm(VoteType::class, $vote);
+        $form->handleRequest($request);
+        //d($form);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $vote = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($vote);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_comptablity');
+        }
 
         return $this->render('gestion_vote/vote.html.twig', [
+            'registrationForm' => $form->createView(),
             'controller_name' => 'GestionVoteController',
             'personne' => $personne,
             'candidatChoisi' => $candidatChoisi

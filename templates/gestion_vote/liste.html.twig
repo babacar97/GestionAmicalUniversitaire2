@@ -19,7 +19,7 @@
 		<!-- Tabs navs -->
 		<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
 			<li class="nav-item" role="presentation">
-				<a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Tab 1</a>
+				<a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Vote pour le président du bureau</a>
 			</li>
 			<li class="nav-item" role="presentation">
 				<a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Tab 2</a>
@@ -65,12 +65,12 @@
 										</div>
 										<div class="d-flex justify-content-start align-items-end h-100">
 											<h5>
-												<a href="{{path("app_candidat_details")}}">
+												<a href="{{path('app_candidats_show', {'id': listeCandidat.id})}}">
 													<span class="badge bg-primary ms-2">Plus de détails</span>
 												</a>
 											</h5>
 											<h5>
-												<a href="{{path('app_Vote', { id:listeCandidat.id}) }}">
+												<a href="{{path('app_Vote', {'idCandidat':listeCandidat.id}) }}">
 													<span class="badge bg-success ms-2">Je vote</span>
 												</a>
 											</h5>

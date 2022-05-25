@@ -85,14 +85,4 @@ class CandidatsController extends AbstractController
 
         return $this->redirectToRoute('app_candidats_index', [], Response::HTTP_SEE_OTHER);
     }
-
-
-    /**
-     * @Route("/programme", name="app_candidat_details", methods={"POST"})
-     */
-    public function detailsCandidats(Request $request, Candidats $candidat, CandidatsRepository $candidatsRepository)
-    {
-
-        return $this->render('gestion_vote/programmes.html.twig');
-    }
 }
