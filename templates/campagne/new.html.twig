@@ -1,12 +1,174 @@
-{% extends 'base.html copy.twig' %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			<link href="{{ asset ('assets/admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+			<link
+			href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-{% block title %}New Campagne
-{% endblock %}
+			<!-- Custom styles for this template-->
+			<link href=" {{ asset ('assets/admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+			<style>
+				.container-fluid {
+					background: white;
+				}
+				.body {
+					background: whitesmoke;
+				}
+			</style>
 
-{% block body %}
-	<h1>Create new Campagne</h1>
+			<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+			<!-- Google Fonts -->
+			<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+			<!-- MDB -->
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet"/>
+		{% endblock %}
 
-	{{ include('campagne/_form.html.twig') }}
 
-	<a href="{{ path('app_campagne_index') }}">back to list</a>
-{% endblock %}
+	</head>
+	<body id="page-top">
+
+		{% block body %}
+			<nav
+				class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+				<!-- Sidebar Toggle (Topbar) -->
+				<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+					<i class="fa fa-bars"></i>
+				</button>
+
+				<!-- Topbar Search -->
+
+				<form class="d-none d-sm-inline-block ">
+					<div class="input-group">
+
+						<div class="input-group-append">
+
+							<a href="{{ path('app_campagne_index') }}" class="btn btn-primary  ">Retour a la page d'accueil</a>
+
+
+						</div>
+					</div>
+				</form>
+				<!-- Topbar Navbar -->
+				<ul class="navbar-nav ml-auto">
+
+
+					<!-- Nav Item - Alerts -->
+
+
+					<!-- Nav Item - Messages -->
+						<li class="nav-item dropdown no-arrow mx-1"> <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fas fa-envelope fa-fw"></i>
+							<!-- Counter - Messages -->
+							<span class="badge badge-danger badge-counter">7</span>
+						</a>
+						<!-- Dropdown - Messages -->
+						<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+							<h6 class="dropdown-header">
+								Message Center
+							</h6>
+							<a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+									<div class="status-indicator bg-success"></div>
+								</div>
+								<div class="font-weight-bold">
+									<div class="text-truncate">Hi there! I am wondering if you can help me with a
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                                            problem I've been having.</div>
+									<div class="small text-gray-500">Emily Fowler · 58m</div>
+								</div>
+							</a>
+							<a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+									<div class="status-indicator"></div>
+								</div>
+								<div>
+									<div class="text-truncate">I have the photos that you ordered last month, how
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                                            would you like them sent to you?</div>
+									<div class="small text-gray-500">Jae Chun · 1d</div>
+								</div>
+							</a>
+							<a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+									<div class="status-indicator bg-warning"></div>
+								</div>
+								<div>
+									<div class="text-truncate">Last month's report looks great, I am very happy with
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                                            the progress so far, keep up the good work!</div>
+									<div class="small text-gray-500">Morgan Alvarez · 2d</div>
+								</div>
+							</a>
+							<a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
+									<div class="status-indicator bg-success"></div>
+								</div>
+								<div>
+									<div class="text-truncate">Am I a good boy? The reason I ask is because someone
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										                                            told me that people say this to all dogs, even if they aren't good...</div>
+									<div class="small text-gray-500">Chicken the Dog · 2w</div>
+								</div>
+							</a>
+							<a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+						</div>
+					</li>
+
+					<div class="topbar-divider d-none d-sm-block"></div>
+
+					<!-- Nav Item - User Information -->
+					<li class="nav-item dropdown no-arrow">
+						<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+							<img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+						</a>
+						<!-- Dropdown - User Information -->
+						<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="#">
+								<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+								Profile
+							</a>
+							<a class="dropdown-item" href="#">
+								<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+								Settings
+							</a>
+							<a class="dropdown-item" href="#">
+								<i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+								Activity Log
+							</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+								<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								Logout
+							</a>
+						</div>
+					</li>
+
+				</ul>
+
+			</nav>
+			<div class="container-fluid  ">
+
+
+				<h1 class="text-center">Nouveau Campagne</h1>
+
+				{{ include('campagne/_form.html.twig') }}
+				{# 
+																				<a href="{{ path('app_campagne_index') }}">back to list</a> #}
+
+			</div>
+		{% endblock %}
+		<!-- MDB -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+	</body>
+</html>

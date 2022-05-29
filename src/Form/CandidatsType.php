@@ -2,9 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Campagne;
 use App\Entity\Candidats;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CandidatsType extends AbstractType
@@ -13,9 +16,14 @@ class CandidatsType extends AbstractType
     {
         $builder
             ->add('liste')
-            ->add('idUser')
-            ->add('idCampagne')
-        ;
+            ->add('idUser', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'id'
+            ])
+            ->add('idCampagne', EntityType::class, [
+                'class' => Campagne::class,
+                'choice_label' => 'id'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

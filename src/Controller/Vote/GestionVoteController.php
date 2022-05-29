@@ -7,6 +7,8 @@ use App\Entity\Vote;
 use App\Form\VoteType;
 use App\Repository\UserRepository;
 use App\Repository\CandidatsRepository;
+use App\Service\MailerService;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,35 +47,47 @@ class GestionVoteController extends AbstractController
     /**
      * @Route("/Vote/{idCandidat}", name="app_Vote")
      */
-    public function Vote(CandidatsRepository $candidat, int $idCandidat = null, Request $request, EntityManagerInterface $entityManager): Response
+    public function Vote(CandidatsRepository $candidat, int $idCandidat = null, Request $request, EntityManagerInterface $entityManager, MailerService $mailer): Response
     {
 
         $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
 
-        // dd($candidatChoisi);
+        // dd($candidatChoisi->getId());
         //Ici on recupere la personne qui est connecter
         $personne = $this->getUser();
 
-        $vote = new Vote();
-        $form = $this->createForm(VoteType::class, $vote);
-        $form->handleRequest($request);
-        //d($form);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $vote = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($vote);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_comptablity');
-        }
-
         return $this->render('gestion_vote/vote.html.twig', [
-            'registrationForm' => $form->createView(),
+            // 'registrationForm' => $form->createView(),
             'controller_name' => 'GestionVoteController',
             'personne' => $personne,
             'candidatChoisi' => $candidatChoisi
         ]);
+    }
+
+
+
+    /**
+     * @Route("/aVote/{idCandidat}", name="app_aVote")
+     */
+    public function aVote(CandidatsRepository $candidat, int $idCandidat = null, Request $request, EntityManagerInterface $entityManager, MailerService $mailer): Response
+    {
+
+        $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
+
+        $personne = $this->getUser();
+
+        $email = $this->getUser()->getUserIdentifier();
+
+
+        $vote = new Vote();
+
+        $vote->setIdUser($personne);
+        $vote->setIdCandidat($candidatChoisi);
+        $vote->setDateVote(new DateTime());
+        $entityManager->persist($vote);
+        $entityManager->flush();
+        // $mailer->sendEmail();
+        return $this->redirectToRoute('app_comptablity');
+        // }
     }
 }

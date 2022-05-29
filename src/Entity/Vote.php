@@ -33,6 +33,16 @@ class Vote
      */
     private $id_user;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $codeDeConfirmation;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $aVoter;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,5 +87,29 @@ class Vote
     public function __toString()
     {
         return $this->somePropertyOrPlainString;
+    }
+
+    public function getCodeDeConfirmation(): ?int
+    {
+        return $this->codeDeConfirmation;
+    }
+
+    public function setCodeDeConfirmation(int $codeDeConfirmation): self
+    {
+        $this->codeDeConfirmation = $codeDeConfirmation;
+
+        return $this;
+    }
+
+    public function getAVoter(): ?bool
+    {
+        return $this->aVoter;
+    }
+
+    public function setAVoter(bool $aVoter): self
+    {
+        $this->aVoter = $aVoter;
+
+        return $this;
     }
 }

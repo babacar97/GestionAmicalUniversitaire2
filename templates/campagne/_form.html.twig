@@ -1,4 +1,38 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="row">
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+	<div class="col">
+		{{ form_row(form.libelle) }}
+	</div>
+	<div class="col" id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+		{{ form_row(form.date_debut) }}
+
+	</div>
+	<div class="col">
+		{{ form_row(form.date_fin) }}
+	</div>
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+</div>
+<div class="row">
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+	<div class="col">
+		{{ form_row(form.type) }}
+	</div>
+
+	<div class="col">
+		{{ form_row(form.description) }}
+	</div>
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+</div>
+<div class="col text-center ">
+	<button class="btn btn-primary">{{ button_label|default('Enregistrer la nouvelle campagne') }}</button>
+</div>
 {{ form_end(form) }}

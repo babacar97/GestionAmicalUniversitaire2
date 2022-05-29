@@ -1,4 +1,33 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+<div class="row">
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+	<div class="col">
+		{{ form_row(form.liste) }}
+	</div>
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+</div>
+<div class="row">
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+	<div class="col">
+		{{ form_row(form.idUser) }}
+	</div>
+
+	<div class="col">
+		{{ form_row(form.idCampagne) }}
+	</div>
+	<div
+		class="col-2">{# {{ form_row(registrationForm.adresse) }} #}
+	</div>
+</div>
+<div class="col text-center ">
+	<button class="btn btn-primary">{{ button_label|default('Enregistrement nouveau candidat') }}</button>
+</div>
 {{ form_end(form) }}
