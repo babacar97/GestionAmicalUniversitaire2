@@ -69,25 +69,34 @@ class GestionVoteController extends AbstractController
     /**
      * @Route("/aVote/{idCandidat}", name="app_aVote")
      */
-    public function aVote(CandidatsRepository $candidat, int $idCandidat = null, Request $request, EntityManagerInterface $entityManager, MailerService $mailer): Response
+    public function aVote(CandidatsRepository $candidat, int $idCandidat = null, EntityManagerInterface $entityManager): Response
     {
 
         $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
-
         $personne = $this->getUser();
-
-        $email = $this->getUser()->getUserIdentifier();
-
-
+        // $code = rand(1000, 9000);
+        // $to = $this->getUser()->getUserIdentifier();
         $vote = new Vote();
-
         $vote->setIdUser($personne);
         $vote->setIdCandidat($candidatChoisi);
         $vote->setDateVote(new DateTime());
         $entityManager->persist($vote);
         $entityManager->flush();
-        // $mailer->sendEmail();
+
         return $this->redirectToRoute('app_comptablity');
         // }
+    }
+
+
+    /**
+     * @Route("/email/{idCandidat}", name="app_email")
+     */
+    public function email(MailerService $mailer, int $idCandidat)
+    {
+        // $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
+        $code = rand(1000, 9000);
+        $user = $this->getUser()->getUserIdentifier();
+        $mailer->sendEmail($code, $user);
+        return $this->redirectToRoute('app_Vote', ['idCandidat' => $idCandidat]);
     }
 }

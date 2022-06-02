@@ -50,60 +50,74 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item dropdown no-arrow">
 					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+						<span class="mr-2 d-none d-lg-inline text-gray-600 small">
+							{{personne.prenom}}
+							{{personne.nom}}</span>
 						<img class="img-profile rounded-circle" src="img/undraw_profile.svg">
 					</a>
 					<!-- Dropdown - User Information -->
 				</li>
 			</ul>
 		</nav>
-		<div class="container">
+		<div
+			class="container">
 
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Confirmation de vote</h5>
+							<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">Vous etes sur le point de voter pour le candidat n:1 babacar ndiaye
+							<br>
+							Souhaitez vous recevoire le code de Confirmation par email</div>
+						<div class="modal-footer">
+							{# <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Annuler</button> #}
+							{# <button type="button" class="btn btn-primary">Recevoire le code </button> #}
+								<a href="" class="btn btn-secondary " type="button"> Annuler</a>
+							<a href="{{path('app_email', {'idCandidat':candidatChoisi.id})}}" class="btn btn-primary " type="button">Recevoire le code</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="card bg-light rounded-4 hover-shadow">
 				<h1 class="text-center ">
 					Vote
 				</h1>
-				<img src="{{personne.image}}" alt="">
-				<span>{{candidatChoisi.programmes}}</span>
-				<button
-					class="btn btn-primary " type="button" data-toggle="modal" data-target="#modalPush">
-					{# <a href="{{path('app_aVote', {'idCandidat':candidatChoisi.id}) }}"> #}
-					<span>Je vote</span>
-				</a>
-			</button>
-
-		</div>
-
-		<!--Modal: modalPush-->
-		<div class="modal fade" id="modalPush" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div
-				class="modal-dialog modal-notify modal-info" role="document">
-				<!--Content-->
-				<div
-					class="modal-content text-center">
-					<!--Header-->
-					<div class="modal-header d-flex justify-content-center">
-						<p class="heading">Be always up to date</p>
-					</div>
-
-					<!--Body-->
-					<div class="modal-body">
-
-						<i class="fas fa-bell fa-4x animated rotateIn mb-4"></i>
-
-						<p>Do you want to receive the push notification about the newest posts?</p>
-
-					</div>
-
-					<!--Footer-->
-					<div class="modal-footer flex-center">
-						<a href="https://mdbootstrap.com/docs/standard/pro/" class="btn btn-info">Yes</a>
-						<a type="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">No</a>
+				<div>
+					<p>{{candidatChoisi.programmes}}</p>
+				</div>
+				<div class="container">
+					<div class="row  ">
+						<div class="col-sm-6 col-lg-10">
+							<pre>	<h5>Pour debuter votre vote veuillez d'abord cliquer a cette button</h5><button type="button" class="btn btn-info  mb-4 " data-mdb-toggle="modal" data-mdb-target="#exampleModal">Je vote pour ce candidat</button></pre>
+						</div>
+						<div class="col-6 col-lg-2"></div>
 					</div>
 				</div>
-				<!--/.Content-->
+
+				<div class="row">
+					<div class="col-6 col-sm-4"></div>
+					<div class="col-6 col-sm-4">
+						<div class="form-outline col-auto">
+							<input type="password" id="formTextExample2" class="form-control mb-6  " aria-describedby="textExample2"/>
+							<label class="form-label" for="formTextExample2">Veuillez entrer le code de confirmation que vous avez reçu par mail</label>
+						</div>
+					</div>
+					<div class="col-6 col-sm-4"></div>
+				</div>
+				<div class="row">
+					<div class="col-6 col-lg-5"></div>
+						<div class="col-6 col-lg-4">
+							<a href="{{path('app_aVote', {'idCandidat':candidatChoisi.id}) }}"class="btn btn-success mb-4" type="button" >
+								Confirmer mon vote vote
+							</a>
+						</div>	
+					<div class="col-6 col-lg-2"></div>	
+				</div> 
 			</div>
-		</div>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
-	</body>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+		</body>
 </html>

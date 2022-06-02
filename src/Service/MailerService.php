@@ -19,8 +19,7 @@ class MailerService
     public function sendEmail($code, $to): void
     {
 
-        $code = 0;
-        $to = '';
+
         $email = (new Email())
             ->from('babacarndiaye808@gmail.com')
             ->to($to)
