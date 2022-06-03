@@ -2,53 +2,45 @@
 
 {% block body %}
 	<div class="container-fluid">
-		<div
-			class="container-fluid">
-			<!-- Page Heading -->
-			<div class="d-sm-flex align-items-center justify-content-between mb-4">
-				<h1 class="h3 mb-0 text-gray-800">Bienvenue au logicielle de sysyteme de gestion AmiUniv</h1>
-			</div>
-			<!-- Content Row -->
-			<div class="row">
-				<div
-					class="row">
-					<!-- Area Chart -->
-					<div class="col-xl-8 col-lg-7">
-						<div class="card shadow mb-4">
-
-							<div class="card-body">
-								<div class="chart-area">
-									<canvas id="myAreaChart"></canvas>
-								</div>
-							</div>
-						</div>
+		<div class="row mb-4">
+			<div class="col-6 ">
+				<div class="card shadow ">
+					<div class="card-body">
+						<div class="chart-area"></div>
 					</div>
-
-					<!-- Pie Chart -->
-					<div class="col-xl-4 col-lg-5">
-						<div class="card shadow mb-4">
-							<div class="card-body">
-								<div class="chart-pie pt-4 pb-2">
-									<canvas id="myPieChart"></canvas>
-								</div>
-								<div class="mt-4 text-center small">
-									<span class="mr-2">
-										<i class="fas fa-circle text-primary"></i>
-										Direct
-									</span>
-									<span class="mr-2">
-										<i class="fas fa-circle text-success"></i>
-										Social
-									</span>
-									<span class="mr-2">
-										<i class="fas fa-circle text-info"></i>
-										Referral
-									</span>
-								</div>
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="col-2 ">
+				<div class="card shadow ">
+					<div class="card-body">
+						<div class="chart-area"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 ">
+				<div class="card shadow ">
+					<div class="card-body">
+						<div class="chart-area"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-	{% endblock %}
+
+		<div class="row">
+			<div class="col-8 ">
+				<div class="card shadow ">
+					<div class="card-body">
+						<div class="chart-area"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 ">
+				<div class="card shadow ">
+					<div class="card-body">
+						<div class="chart-area"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

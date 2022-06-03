@@ -76,15 +76,36 @@ class GestionVoteController extends AbstractController
         $personne = $this->getUser();
         // $code = rand(1000, 9000);
         // $to = $this->getUser()->getUserIdentifier();
-        $vote = new Vote();
-        $vote->setIdUser($personne);
-        $vote->setIdCandidat($candidatChoisi);
-        $vote->setDateVote(new DateTime());
-        $entityManager->persist($vote);
-        $entityManager->flush();
+        // $vote = new Vote();
+        // $vote->setIdUser($personne);
+        // $vote->setIdCandidat($candidatChoisi);
+        // $vote->setDateVote(new DateTime());
+        // $entityManager->persist($vote);
+        // $entityManager->flush();
 
-        return $this->redirectToRoute('app_comptablity');
-        // }
+        // return $this->redirectToRoute('app_comptablity');
+
+        //debut de mon fonctionalite pour inserer le code de confirmation
+
+        $vote = new Vote();
+        $form = $this->createForm(VoteType::class, $vote);
+        $form->handleRequest($vote);
+        //traitemeent et soumission de la depense
+        if ($form->isSubmitted() && $form->isValid()) {
+            $vote = $form->getData();
+            $vote->setIdUser($personne);
+            $vote->setIdCandidat($candidatChoisi);
+            $vote->setDateVote(new DateTime());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($vote);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_comptablity');
+        }
+        return $this->render('gestion_vote/vote.html.twig', [
+            'form' => $form->createView(),
+
+        ]);
     }
 
 
