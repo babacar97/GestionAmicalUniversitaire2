@@ -5,39 +5,77 @@
 		<div class="row mb-4">
 			<div class="col-6 ">
 				<div class="card shadow ">
-					<div class="card-body">
-						<div class="chart-area"></div>
-					</div>
+					<div class="card-body"></div>
 				</div>
 			</div>
 			<div class="col-2 ">
 				<div class="card shadow ">
-					<div class="card-body">
-						<div class="chart-area"></div>
+					<style>
+						.btn-xl {
+							height: 128px;
+							width: 128px;
+							border-radius: 100px;
+						}
+
+						.btn-info {
+							position: relative;
+							left: 115px;
+						}
+						.btn-success {
+							position: relative;
+							left: 50px;
+						}
+						.btn-warning {
+							position: relative;
+							left: 90px;
+						}
+					</style>
+					<div class="card-body mb-4">
+						<a class="btn btn-primary me-2 mb-4" target="_blank" role="button">Nombre totales inscrit 750
+							<i class="fas fa-user-check"></i>
+						</a>
+						<br><br>
+						<a class="btn btn-primary me-2 mb-4" target="_blank" role="button">Nombre totales hommes 550
+							<i class="fas fa-user-check"></i>
+						</a>
+						<br><br>
+						<a class="btn btn-primary me-2 mb-4" target="_blank" role="button">Nombre totales filles 200
+
+							<i class="fas fa-user-check"></i>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-4 ">
 				<div class="card shadow ">
 					<div class="card-body">
-						<div class="chart-area"></div>
+						<a href="#" class="btn btn-primary btn-block mb-4">
+							Etat financiere</a>
+
+						<button type="button" class="btn btn-info btn-rounded btn-xl  mb-4">28 budget votées
+						</button><br>
+						<button type="button" class="btn btn-success btn-rounded btn-xl">122 dépenses realisées</button>
+						<button type="button" class="btn btn-warning btn-rounded btn-xl">12002000 F cfa depensé
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-8 ">
+			<div class="col-6 ">
 				<div class="card shadow ">
 					<div class="card-body">
 						<div class="chart-area"></div>
 					</div>
 				</div>
 			</div>
-			<div class="col-4 ">
+			<div class="col-6 ">
 				<div class="card shadow ">
-					<div class="card-body">
-						<div class="chart-area"></div>
+					<div class="card-body height: auto">
+
+						{{ include('calendrier/index.html.twig') }}
+
 					</div>
 				</div>
 			</div>

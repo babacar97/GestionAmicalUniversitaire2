@@ -101,10 +101,12 @@
 				<div class="row">
 					<div class="col-6 col-sm-4"></div>
 					<div class="col-6 col-sm-4">
+					{{form_start(form)}}
 						<div class="form-outline col-auto">
-							<input type="password" id="formTextExample2" class="form-control mb-6  " aria-describedby="textExample2"/>
+							{{form_widget(form.codeConfirmation)}}
 							<label class="form-label" for="formTextExample2">Veuillez entrer le code de confirmation que vous avez reçu par mail</label>
 						</div>
+					{{form_end(form)}}	
 					</div>
 					<div class="col-6 col-sm-4"></div>
 				</div>

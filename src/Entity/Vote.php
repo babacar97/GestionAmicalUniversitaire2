@@ -53,7 +53,7 @@ class Vote
         return $this->date_vote;
     }
 
-    public function setDateVote(\DateTimeInterface $date_vote): self
+    public function setDateVote(\DateTimeInterface $date_vote = null): self
     {
         $this->date_vote = $date_vote;
 
@@ -65,7 +65,7 @@ class Vote
         return $this->id_candidat;
     }
 
-    public function setIdCandidat(?candidats $id_candidat): self
+    public function setIdCandidat(?candidats $id_candidat = null): self
     {
         $this->id_candidat = $id_candidat;
 
@@ -77,7 +77,7 @@ class Vote
         return $this->id_user;
     }
 
-    public function setIdUser(user $id_user): self
+    public function setIdUser(user $id_user = null): self
     {
         $this->id_user = $id_user;
 
@@ -94,7 +94,7 @@ class Vote
         return $this->codeDeConfirmation;
     }
 
-    public function setCodeDeConfirmation(int $codeDeConfirmation): self
+    public function setCodeDeConfirmation(int $codeDeConfirmation = null): self
     {
         $this->codeDeConfirmation = $codeDeConfirmation;
 
@@ -106,7 +106,7 @@ class Vote
         return $this->aVoter;
     }
 
-    public function setAVoter(bool $aVoter): self
+    public function setAVoter(bool $aVoter = null): self
     {
         $this->aVoter = $aVoter;
 

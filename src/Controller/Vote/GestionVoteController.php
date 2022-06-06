@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\User;
 use App\Entity\Vote;
 use App\Form\VoteType;
+use App\Service\MailerService;
+use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
 use App\Repository\CandidatsRepository;
-use App\Service\MailerService;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -34,15 +37,6 @@ class GestionVoteController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/EngistrementVote", name="app_EngistrementVote")
-    //  */
-    // public function EngistrementVote(): Response
-    // {
-    //     return $this->render('gestion_vote/liste.html.twig', [
-    //         'controller_name' => 'GestionVoteController',
-    //     ]);
-    // }
 
     /**
      * @Route("/Vote/{idCandidat}", name="app_Vote")
@@ -74,50 +68,56 @@ class GestionVoteController extends AbstractController
 
         $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
         $personne = $this->getUser();
-        // $code = rand(1000, 9000);
-        // $to = $this->getUser()->getUserIdentifier();
-        // $vote = new Vote();
-        // $vote->setIdUser($personne);
-        // $vote->setIdCandidat($candidatChoisi);
-        // $vote->setDateVote(new DateTime());
-        // $entityManager->persist($vote);
-        // $entityManager->flush();
-
-        // return $this->redirectToRoute('app_comptablity');
-
-        //debut de mon fonctionalite pour inserer le code de confirmation
-
+        $code = rand(1000, 9000);
+        $to = $this->getUser()->getUserIdentifier();
         $vote = new Vote();
-        $form = $this->createForm(VoteType::class, $vote);
-        $form->handleRequest($vote);
-        //traitemeent et soumission de la depense
-        if ($form->isSubmitted() && $form->isValid()) {
-            $vote = $form->getData();
-            $vote->setIdUser($personne);
-            $vote->setIdCandidat($candidatChoisi);
-            $vote->setDateVote(new DateTime());
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($vote);
-            $entityManager->flush();
+        $vote->setIdUser($personne);
+        $vote->setIdCandidat($candidatChoisi);
+        $vote->setDateVote(new DateTime());
+        $entityManager->persist($vote);
+        $entityManager->flush();
 
-            return $this->redirectToRoute('app_comptablity');
-        }
-        return $this->render('gestion_vote/vote.html.twig', [
-            'form' => $form->createView(),
-
-        ]);
+        return $this->redirectToRoute('app_comptablity');
     }
 
 
     /**
      * @Route("/email/{idCandidat}", name="app_email")
      */
-    public function email(MailerService $mailer, int $idCandidat)
+    public function email(MailerService $mailer, int $idCandidat, EntityManagerInterface $entityManager)
     {
         // $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
+        $vote = new Vote();
         $code = rand(1000, 9000);
         $user = $this->getUser()->getUserIdentifier();
         $mailer->sendEmail($code, $user);
+        $vote->setCodeDeConfirmation($code);
+        $entityManager->persist($vote);
+        $entityManager->flush();
         return $this->redirectToRoute('app_Vote', ['idCandidat' => $idCandidat]);
+    }
+
+    /**
+     * @Route("/validation", name="app_validation")
+     */
+    public function validationVote(Request $request)
+    {
+        $defaultData = ['message' => 'Type your message here'];
+        $form = $this->createFormBuilder($defaultData)
+
+            ->add('codeConfirmation', NumberType::class)
+            ->add('send', SubmitType::class)
+            ->getForm();
+
+        // $form->handleRequest($request);
+
+        // if ($form->isSubmitted() && $form->isValid()) {
+        //     // data is an array with "name", "email", and "message" keys
+        //     $data = $form->getData();
+        // }
+
+        return $this->render('gestion_vote/vote.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }

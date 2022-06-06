@@ -29,7 +29,7 @@ class Candidats
     private $liste;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Campagne::class, inversedBy="candidats")
+     * @ORM\ManyToOne(targetEntity=Campagne::class, inversedBy="Candidats")
      * @ORM\JoinColumn(nullable=false)
      */
     private $idCampagne;

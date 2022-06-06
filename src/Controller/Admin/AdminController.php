@@ -3,9 +3,10 @@
 namespace App\Controller\Admin;
 
 use  App\Entity\User;
+use App\Service\PdfService;
 use App\Repository\UserRepository;
 use  App\Form\RegistrationFormType;
-use App\Service\PdfService;
+use App\Repository\CalendarRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,9 +20,27 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function admin()
+    public function admin(CalendarRepository $calendar)
     {
-        return $this->render('admin/home.html.twig');
+        $events = $calendar->findAll();
+
+        $rdv = [];
+
+        foreach ($events as $event) {
+            $rdv[] = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                'end' => $event->getEnd(),
+                'title' => $event->getTitle(),
+                'description' => $event->getDescription(),
+                'backgroundColo' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+            ];
+
+            $data = json_encode($rdv);
+        }
+        return $this->render('admin/home.html.twig', compact('data'));
     }
 
     /**
