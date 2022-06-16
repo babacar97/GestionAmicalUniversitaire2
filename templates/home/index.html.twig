@@ -1,38 +1,4224 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html class="no-js " lang="fr" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>
+			Tableau de bord - OpenClassrooms
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta charset="utf-8"/><script type="text/javascript">
+			(window.NREUM || (NREUM =
+{})).init = {
+privacy: {
+cookies_enabled: false
+},
+ajax: {
+deny_list: []
+}
+};
+(window.NREUM || (NREUM =
+{})).loader_config = {
+xpid: "Vg8PUV5WABABUVdaBgQBUVc=",
+licenseKey: "NRJS-5b58725ce0d442079d0",
+applicationID: "156815673"
+};
+window.NREUM || (NREUM =
+{}),
+__nr_require = function (t, e, n) {
+function r(n) {
+if (! e[n]) {
+var i = e[n] = {
+exports: {}
+};
+t[n][0].call(i.exports, function (e) {
+var i = t[n][1][e];
+return r(i || e)
+}, i, i.exports)
+}
+return e[n].exports
+}
+if ("function" == typeof __nr_require) 
+return __nr_require;
 
-{% block title %}Hello HomeController!
-{% endblock %}
+for (var i = 0; i < n.length; i++) 
+r(n[i]);
 
-{% block body %}
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-	</style>
+return r
+}({
+1: [
+function (t, e, n) {
+function r(t) {
+try {
+s.console && console.log(t)
+} catch (e) {}
+}
+var i,
+o = t("ee"),
+a = t(27),
+s = {};
+try {
+i = localStorage.getItem("__nr_flags").split(","),
+console && "function" == typeof console.log && (s.console =! 0, i.indexOf("dev") !== -1 && (s.dev =! 0), i.indexOf("nr_dev") !== -1 && (s.nrDev =! 0))
+} catch (c) {}s.nrDev && o.on("internal-error", function (t) {
+r(t.stack)
+}),
+s.dev && o.on("fn-err", function (t, e, n) {
+r(n.stack)
+}),
+s.dev && (r("NR AGENT IN DEVELOPMENT MODE"), r("flags: " + a(s, function (t, e) {
+return t
+}).join(", ")))
+}, {}
+],
+2: [
+function (t, e, n) {
+function r(t, e, n, r, s) {
+try {
+p ? p -= 1 : i(s || new UncaughtException(t, e, n), !0)
+} catch (f) {
+try {
+o("ierr", [
+f,
+c.now(),
+!0
+])
+} catch (d) {}
+}
+return "function" == typeof u && u.apply(this, a(arguments))
+}
+function UncaughtException(t, e, n) {
+this.message = t || "Uncaught error with no additional information",
+this.sourceURL = e,
+this.line = n
+}
+function i(t, e) {
+var n = e ? null : c.now();
+o("err", [t, n])
+}
+var o = t("handle"),
+a = t(28),
+s = t("ee"),
+c = t("loader"),
+f = t("gos"),
+u = window.onerror,
+d = !1,
+l = "nr@seenError";
+if (! c.disabled) {
+var p = 0;
+c.features.err = !0,
+t(1),
+window.onerror = r;
+try {
+throw new Error
+} catch (h) {
+"stack" in h && (t(10), t(9), "addEventListener" in window && t(6), c.xhrWrappable && t(11), d =! 0)
+}
+s.on("fn-start", function (t, e, n) {
+d && (p += 1)
+}),
+s.on("fn-err", function (t, e, n) {
+d && ! n[l] && (f(n, l, function () {
+return !0
+}), this.thrown =! 0, i(n))
+}),
+s.on("fn-end", function () {
+d && !this.thrown && p > 0 && (p -= 1)
+}),
+s.on("internal-error", function (t) {
+o("ierr", [
+t,
+c.now(),
+!0
+])
+})
+}
+}, {}
+],
+3: [
+function (t, e, n) {
+var r = t("loader");
+r.disabled || (r.features.ins =! 0)
+}, {}
+],
+4: [
+function (t, e, n) {
+function r() {
+var t = new PerformanceObserver(function (t, e) {
+var n = t.getEntries();
+s(v, [n])
+});
+try {
+t.observe({entryTypes: ["resource"]})
+} catch (e) {}
+}
+function i(t) {
+if (s(v, [window.performance.getEntriesByType(w)]), window.performance["c" + l]) 
+try {
+window.performance[h](m, i, !1)
+}
+ catch (t) {} else 
+try {
+window.performance[h]("webkit" + m, i, !1)
+}
+ catch (t) {}
+}
+function o(t) {}
+if (window.performance && window.performance.timing && window.performance.getEntriesByType) {
+var a = t("ee"),
+s = t("handle"),
+c = t(10),
+f = t(9),
+u = t(5),
+d = t(19),
+l = "learResourceTimings",
+p = "addEventListener",
+h = "removeEventListener",
+m = "resourcetimingbufferfull",
+v = "bstResource",
+w = "resource",
+g = "-start",
+y = "-end",
+x = "fn" + g,
+b = "fn" + y,
+E = "bstTimer",
+R = "pushState",
+S = t("loader");
+if (! S.disabled) {
+S.features.stn = !0,
+t(8),
+"addEventListener" in window && t(6);
+var O = NREUM.o.EV;
+a.on(x, function (t, e) {
+var n = t[0];
+n instanceof O && (this.bstStart = S.now())
+}),
+a.on(b, function (t, e) {
+var n = t[0];
+n instanceof O && s("bst", [n, e, this.bstStart, S.now()])
+}),
+c.on(x, function (t, e, n) {
+this.bstStart = S.now(),
+this.bstType = n
+}),
+c.on(b, function (t, e) {
+s(E, [e, this.bstStart, S.now(), this.bstType])
+}),
+f.on(x, function () {
+this.bstStart = S.now()
+}),
+f.on(b, function (t, e) {
+s(E, [e, this.bstStart, S.now(), "requestAnimationFrame"])
+}),
+a.on(R + g, function (t) {
+this.time = S.now(),
+this.startPath = location.pathname + location.hash
+}),
+a.on(R + y, function (t) {
+s("bstHist", [
+location.pathname + location.hash,
+this.startPath,
+this.time
+])
+}),
+u() ? (s(v, [window.performance.getEntriesByType("resource")]), r()) : p in window.performance && (window.performance["c" + l] ? window.performance[p](m, i, d(!1)) : window.performance[p]("webkit" + m, i, d(!1))),
+document[p]("scroll", o, d(!1)),
+document[p]("keypress", o, d(!1)),
+document[p]("click", o, d(!1))
+}
+}
+}, {}
+],
+5: [
+function (t, e, n) {
+e.exports = function () {
+return "PerformanceObserver" in window && "function" == typeof window.PerformanceObserver
+}
+}, {}
+],
+6: [
+function (t, e, n) {
+function r(t) {
+for (var e = t; e && ! e.hasOwnProperty(u);) 
+e = Object.getPrototypeOf(e);
 
-	<div class="example-wrapper">
-		<h1>Hello
-			{{ controller_name }}! ✅</h1>
+e && i(e)
+}
+function i(t) {
+s.inPlace(t, [
+u, d
+], "-", o)
+}
+function o(t, e) {
+return t[1]
+}
+var a = t("ee").get("events"),
+s = t("wrap-function")(a, !0),
+c = t("gos"),
+f = XMLHttpRequest,
+u = "addEventListener",
+d = "removeEventListener";
+e.exports = a,
+"getPrototypeOf" in Object ? (r(document), r(window), r(f.prototype)) : f.prototype.hasOwnProperty(u) && (i(window), i(f.prototype)),
+a.on(u + "-start", function (t, e) {
+var n = t[1];
+if (null !== n && ("function" == typeof n || "object" == typeof n)) {
+var r = c(n, "nr@wrapped", function () {
+function t() {
+if ("function" == typeof n.handleEvent) 
+return n.handleEvent.apply(n, arguments)
 
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>
-					<a href="{{ 'C:/Users/Lenovo-T440/Desktop/Access Code School/Symphony/Projet Stage a TEK TAL/amicale-etudiant/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a>
-				</code>
-			</li>
-			<li>Your template at
-				<code>
-					<a href="{{ 'C:/Users/Lenovo-T440/Desktop/Access Code School/Symphony/Projet Stage a TEK TAL/amicale-etudiant/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a>
-				</code>
-			</li>
-		</ul>
+}
+var e = {
+object: t,
+"function": n
+}[typeof n];
+return e ? s(e, "fn-", null, e.name || "anonymous") : n
+});
+this.wrapped = t[1] = r
+}
+}),
+a.on(d + "-start", function (t) {
+t[1] = this.wrapped || t[1]
+})
+}, {}
+],
+7: [
+function (t, e, n) {
+function r(t, e, n) {
+var r = t[e];
+"function" == typeof r && (t[e] = function () {
+var t = o(arguments),
+e = {};
+i.emit(n + "before-start", [t], e);
+var a;
+e[m] && e[m].dt && (a = e[m].dt);
+var s = r.apply(this, t);
+return i.emit(n + "start", [
+t, a
+], s),
+s.then(function (t) {
+return i.emit(n + "end", [
+null, t
+], s),
+t
+}, function (t) {
+throw i.emit(n + "end", [t], s),
+t
+})
+})
+}
+var i = t("ee").get("fetch"),
+o = t(28),
+a = t(27);
+e.exports = i;
+var s = window,
+c = "fetch-",
+f = c + "body-",
+u = [
+"arrayBuffer",
+"blob",
+"json",
+"text",
+"formData"
+],
+d = s.Request,
+l = s.Response,
+p = s.fetch,
+h = "prototype",
+m = "nr@context";
+d && l && p && (a(u, function (t, e) {
+r(d[h], e, f),
+r(l[h], e, f)
+}), r(s, "fetch", c), i.on(c + "end", function (t, e) {
+var n = this;
+if (e) {
+var r = e.headers.get("content-length");
+null !== r && (n.rxSize = r),
+i.emit(c + "done", [
+null, e
+], n)
+} else 
+i.emit(c + "done", [t], n)
+
+}))
+}, {}
+],
+8: [
+function (t, e, n) {
+var r = t("ee").get("history"),
+i = t("wrap-function")(r);
+e.exports = r;
+var o = window.history && window.history.constructor && window.history.constructor.prototype,
+a = window.history;
+o && o.pushState && o.replaceState && (a = o),
+i.inPlace(a, [
+"pushState", "replaceState"
+], "-")
+}, {}
+],
+9: [
+function (t, e, n) {
+var r = t("ee").get("raf"),
+i = t("wrap-function")(r),
+o = "equestAnimationFrame";
+e.exports = r,
+i.inPlace(window, [
+"r" + o,
+"mozR" + o,
+"webkitR" + o,
+"msR" + o
+], "raf-"),
+r.on("raf-start", function (t) {
+t[0] = i(t[0], "fn-")
+})
+}, {}
+],
+10: [
+function (t, e, n) {
+function r(t, e, n) {
+t[0] = a(t[0], "fn-", null, n)
+}
+function i(t, e, n) {
+this.method = n,
+this.timerDuration = isNaN(t[1]) ? 0 : + t[1],
+t[0] = a(t[0], "fn-", this, n)
+}
+var o = t("ee").get("timer"),
+a = t("wrap-function")(o),
+s = "setTimeout",
+c = "setInterval",
+f = "clearTimeout",
+u = "-start",
+d = "-";
+e.exports = o,
+a.inPlace(window, [
+s, "setImmediate"
+], s + d),
+a.inPlace(window, [c], c + d),
+a.inPlace(window, [
+f, "clearImmediate"
+], f + d),
+o.on(c + u, r),
+o.on(s + u, i)
+}, {}
+],
+11: [
+function (t, e, n) {
+function r(t, e) {
+d.inPlace(e, ["onreadystatechange"], "fn-", s)
+}
+function i() {
+var t = this,
+e = u.context(t);
+t.readyState > 3 && ! e.resolved && (e.resolved =! 0, u.emit("xhr-resolved", [], t)),
+d.inPlace(t, y, "fn-", s)
+}
+function o(t) {
+x.push(t),
+m && (E ? E.then(a) : w ? w(a) : (R = -R, S.data = R))
+}
+function a() {
+for (var t = 0; t < x.length; t++) 
+r([], x[t]);
+
+x.length && (x =[])
+}
+function s(t, e) {
+return e
+}
+function c(t, e) {
+for (var n in t) 
+e[n] = t[n];
+
+return e
+}
+t(6);
+var f = t("ee"),
+u = f.get("xhr"),
+d = t("wrap-function")(u),
+l = t(19),
+p = NREUM.o,
+h = p.XHR,
+m = p.MO,
+v = p.PR,
+w = p.SI,
+g = "readystatechange",
+y = [
+"onload",
+"onerror",
+"onabort",
+"onloadstart",
+"onloadend",
+"onprogress",
+"ontimeout"
+],
+x = [];
+e.exports = u;
+var b = window.XMLHttpRequest = function (t) {
+var e = new h(t);
+try {
+u.emit("new-xhr", [e], e),
+e.addEventListener(g, i, l(!1))
+} catch (n) {
+try {
+u.emit("internal-error", [n])
+} catch (r) {}
+}
+return e
+};
+if (c(h, b), b.prototype = h.prototype, d.inPlace(b.prototype, [
+"open", "send"
+], "-xhr-", s), u.on("send-xhr-start", function (t, e) {
+r(t, e),
+o(e)
+}), u.on("open-xhr-start", r), m) {
+var E = v && v.resolve();
+if (! w && ! v) {
+var R = 1,
+S = document.createTextNode(R);
+new m(a).observe(S, {
+characterData: !0
+})
+}
+} else 
+f.on("fn-end", function (t) {
+t[0] && t[0].type === g || a()
+})
+
+}, {}
+],
+12: [
+function (t, e, n) {
+function r(t) {
+if (!s(t)) 
+return null;
+
+var e = window.NREUM;
+if (! e.loader_config) 
+return null;
+
+var n = (e.loader_config.accountID || "").toString() || null,
+r = (e.loader_config.agentID || "").toString() || null,
+f = (e.loader_config.trustKey || "").toString() || null;
+if (! n || ! r) 
+return null;
+
+var h = p.generateSpanId(),
+m = p.generateTraceId(),
+v = Date.now(),
+w = {
+spanId: h,
+traceId: m,
+timestamp: v
+};
+return(t.sameOrigin || c(t) && l()) && (w.traceContextParentHeader = i(h, m), w.traceContextStateHeader = o(h, v, n, r, f)),
+(t.sameOrigin && !u() || ! t.sameOrigin && c(t) && d()) && (w.newrelicHeader = a(h, m, v, n, r, f)),
+w
+}
+function i(t, e) {
+return "00-" + e + "-" + t + "-01"
+}
+function o(t, e, n, r, i) {
+var o = 0,
+a = "",
+s = 1,
+c = "",
+f = "";
+return i + "@nr=" + o + "-" + s + "-" + n + "-" + r + "-" + t + "-" + a + "-" + c + "-" + f + "-" + e
+}
+function a(t, e, n, r, i, o) {
+var a = "btoa" in window && "function" == typeof window.btoa;
+if (! a) 
+return null;
+
+var s = {
+v: [
+0, 1
+],
+d: {
+ty: "Browser",
+ac: r,
+ap: i,
+id: t,
+tr: e,
+ti: n
+}
+};
+return o && r !== o && (s.d.tk = o),
+btoa(JSON.stringify(s))
+}
+function s(t) {
+return f() && c(t)
+}
+function c(t) {
+var e = !1,
+n = {};
+if ("init" in NREUM && "distributed_tracing" in NREUM.init && (n = NREUM.init.distributed_tracing), t.sameOrigin) 
+e = !0;
+ else if (n.allowed_origins instanceof Array) 
+for (var r = 0; r < n.allowed_origins.length; r++) {
+var i = h(n.allowed_origins[r]);
+if (t.hostname === i.hostname && t.protocol === i.protocol && t.port === i.port) {
+e = !0;
+break
+}
+}
+
+return e
+}
+function f() {
+return "init" in NREUM && "distributed_tracing" in NREUM.init && !!NREUM.init.distributed_tracing.enabled
+}
+function u() {
+return "init" in NREUM && "distributed_tracing" in NREUM.init && !!NREUM.init.distributed_tracing.exclude_newrelic_header
+}
+function d() {
+return "init" in NREUM && "distributed_tracing" in NREUM.init && NREUM.init.distributed_tracing.cors_use_newrelic_header !== !1
+}
+function l() {
+return "init" in NREUM && "distributed_tracing" in NREUM.init && !!NREUM.init.distributed_tracing.cors_use_tracecontext_headers
+}
+var p = t(24),
+h = t(14);
+e.exports = {
+generateTracePayload: r,
+shouldGenerateTrace: s
+}
+}, {}
+],
+13: [
+function (t, e, n) {
+function r(t) {
+var e = this.params,
+n = this.metrics;
+if (!this.ended) {
+this.ended = !0;
+for (var r = 0; r < l; r++) 
+t.removeEventListener(d[r], this.listener, !1);
+
+return e.protocol && "data" === e.protocol ? void g("Ajax/DataUrl/Excluded") : void(e.aborted || (n.duration = a.now() - this.startTime, this.loadCaptureCalled || 4 !== t.readyState ? null == e.status && (e.status = 0) : o(this, t), n.cbTime = this.cbTime, s("xhr", [
+e,
+n,
+this.startTime,
+this.endTime,
+"xhr"
+], this)))
+}
+}
+function i(t, e) {
+var n = c(e),
+r = t.params;
+r.hostname = n.hostname,
+r.port = n.port,
+r.protocol = n.protocol,
+r.host = n.hostname + ":" + n.port,
+r.pathname = n.pathname,
+t.parsedOrigin = n,
+t.sameOrigin = n.sameOrigin
+}
+function o(t, e) {
+t.params.status = e.status;
+var n = v(e, t.lastSize);
+if (n && (t.metrics.rxSize = n), t.sameOrigin) {
+var r = e.getResponseHeader("X-NewRelic-App-Data");
+r && (t.params.cat = r.split(", ").pop())
+}
+t.loadCaptureCalled = !0
+}
+var a = t("loader");
+if (a.xhrWrappable && ! a.disabled) {
+var s = t("handle"),
+c = t(14),
+f = t(12).generateTracePayload,
+u = t("ee"),
+d = [
+"load", "error", "abort", "timeout"
+],
+l = d.length,
+p = t("id"),
+h = t(20),
+m = t(18),
+v = t(15),
+w = t(19),
+g = t(21).recordSupportability,
+y = NREUM.o.REQ,
+x = window.XMLHttpRequest;
+a.features.xhr = !0,
+t(11),
+t(7),
+u.on("new-xhr", function (t) {
+var e = this;
+e.totalCbs = 0,
+e.called = 0,
+e.cbTime = 0,
+e.end = r,
+e.ended = !1,
+e.xhrGuids = {},
+e.lastSize = null,
+e.loadCaptureCalled = !1,
+e.params = this.params || {},
+e.metrics = this.metrics || {},
+t.addEventListener("load", function (n) {
+o(e, t)
+}, w(!1)),
+h && (h > 34 || h < 10) || t.addEventListener("progress", function (t) {
+e.lastSize = t.loaded
+}, w(!1))
+}),
+u.on("open-xhr-start", function (t) {
+this.params = {
+method: t[0]
+},
+i(this, t[1]),
+this.metrics = {}
+}),
+u.on("open-xhr-end", function (t, e) {
+"loader_config" in NREUM && "xpid" in NREUM.loader_config && this.sameOrigin && e.setRequestHeader("X-NewRelic-ID", NREUM.loader_config.xpid);
+var n = f(this.parsedOrigin);
+if (n) {
+var r = !1;
+n.newrelicHeader && (e.setRequestHeader("newrelic", n.newrelicHeader), r =! 0),
+n.traceContextParentHeader && (e.setRequestHeader("traceparent", n.traceContextParentHeader), n.traceContextStateHeader && e.setRequestHeader("tracestate", n.traceContextStateHeader), r =! 0),
+r && (this.dt = n)
+}
+}),
+u.on("send-xhr-start", function (t, e) {
+var n = this.metrics,
+r = t[0],
+i = this;
+if (n && r) {
+var o = m(r);
+o && (n.txSize = o)
+}
+this.startTime = a.now(),
+this.listener = function (t) {
+try {
+"abort" !== t.type || i.loadCaptureCalled || (i.params.aborted =! 0),
+("load" !== t.type || i.called === i.totalCbs && (i.onloadCalled || "function" != typeof e.onload)) && i.end(e)
+} catch (n) {
+try {
+u.emit("internal-error", [n])
+} catch (r) {}
+}
+};
+for (var s = 0; s < l; s++) 
+e.addEventListener(d[s], this.listener, w(!1))
+
+}),
+u.on("xhr-cb-time", function (t, e, n) {
+this.cbTime += t,
+e ? this.onloadCalled = !0 : this.called += 1,
+this.called !== this.totalCbs || !this.onloadCalled && "function" == typeof n.onload || this.end(n)
+}),
+u.on("xhr-load-added", function (t, e) {
+var n = "" + p(t) + !! e;
+this.xhrGuids && !this.xhrGuids[n] && (this.xhrGuids[n] =! 0, this.totalCbs += 1)
+}),
+u.on("xhr-load-removed", function (t, e) {
+var n = "" + p(t) + !! e;
+this.xhrGuids && this.xhrGuids[n] && (delete this.xhrGuids[n], this.totalCbs -= 1)
+}),
+u.on("xhr-resolved", function () {
+this.endTime = a.now()
+}),
+u.on("addEventListener-end", function (t, e) {
+e instanceof x && "load" === t[0] && u.emit("xhr-load-added", [
+t[1], t[2]
+], e)
+}),
+u.on("removeEventListener-end", function (t, e) {
+e instanceof x && "load" === t[0] && u.emit("xhr-load-removed", [
+t[1], t[2]
+], e)
+}),
+u.on("fn-start", function (t, e, n) {
+e instanceof x && ("onload" === n && (this.onload =! 0), ("load" === (t[0] && t[0].type) || this.onload) && (this.xhrCbStart = a.now()))
+}),
+u.on("fn-end", function (t, e) {
+this.xhrCbStart && u.emit("xhr-cb-time", [
+a.now() - this.xhrCbStart,
+this.onload,
+e
+], e)
+}),
+u.on("fetch-before-start", function (t) {
+function e(t, e) {
+var n = !1;
+return e.newrelicHeader && (t.set("newrelic", e.newrelicHeader), n =! 0),
+e.traceContextParentHeader && (t.set("traceparent", e.traceContextParentHeader), e.traceContextStateHeader && t.set("tracestate", e.traceContextStateHeader), n =! 0),
+n
+}
+var n,
+r = t[1] || {};
+"string" == typeof t[0] ? n = t[0] : t[0] && t[0].url ? n = t[0].url : window.URL && t[0] && t[0] instanceof URL && (n = t[0].href),
+n && (this.parsedOrigin = c(n), this.sameOrigin = this.parsedOrigin.sameOrigin);
+var i = f(this.parsedOrigin);
+if (i && (i.newrelicHeader || i.traceContextParentHeader)) 
+if ("string" == typeof t[0] || window.URL && t[0] && t[0] instanceof URL) {
+var o = {};
+for (var a in r) 
+o[a] = r[a];
+
+o.headers = new Headers(r.headers || {}),
+e(o.headers, i) && (this.dt = i),
+t.length > 1 ? t[1] = o : t.push(o)
+}
+ else 
+t[0] && t[0].headers && e(t[0].headers, i) && (this.dt = i)
+
+
+}
+),
+u.on("fetch-start", function (t, e) {
+this.params = {},
+this.metrics = {},
+this.startTime = a.now(),
+this.dt = e,
+t.length >= 1 && (this.target = t[0]),
+t.length >= 2 && (this.opts = t[1]);
+var n,
+r = this.opts || {},
+o = this.target;
+if ("string" == typeof o ? n = o : "object" == typeof o && o instanceof y ? n = o.url : window.URL && "object" == typeof o && o instanceof URL && (n = o.href), i(this, n), "data" !== this.params.protocol) {
+var s = ("" + (
+o && o instanceof y && o.method || r.method || "GET"
+)).toUpperCase();
+this.params.method = s,
+this.txSize = m(r.body) || 0
+}
+}),
+u.on("fetch-done", function (t, e) {
+if (this.endTime = a.now(), this.params || (this.params =
+{}), "data" === this.params.protocol) 
+return void g("Ajax/DataUrl/Excluded");
+
+this.params.status = e ? e.status : 0;
+var n;
+"string" == typeof this.rxSize && this.rxSize.length > 0 && (n = + this.rxSize);
+var r = {
+txSize: this.txSize,
+rxSize: n,
+duration: a.now() - this.startTime
+};
+s("xhr", [
+this.params,
+r,
+this.startTime,
+this.endTime,
+"fetch"
+], this)
+})
+}
+}, {}
+], 14 : [
+function (t, e, n) {
+var r = {};
+e.exports = function (t) {
+if (t in r) 
+return r[t];
+
+if (0 === (t || "").indexOf("data:")) 
+return {protocol: "data"};
+
+var e = document.createElement("a"),
+n = window.location,
+i = {};
+e.href = t,
+i.port = e.port;
+var o = e.href.split("://");
+! i.port && o[1] && (i.port = o[1].split("/")[0].split("@").pop().split(":")[1]),
+i.port && "0" !== i.port || (i.port = "https" === o[0] ? "443" : "80"),
+i.hostname = e.hostname || n.hostname,
+i.pathname = e.pathname,
+i.protocol = o[0],
+"/" !== i.pathname.charAt(0) && (i.pathname = "/" + i.pathname);
+var a = ! e.protocol || ":" === e.protocol || e.protocol === n.protocol,
+s = e.hostname === document.domain && e.port === n.port;
+return i.sameOrigin = a && (! e.hostname || s),
+"/" === i.pathname && (r[t] = i),
+i
+}
+}, {}
+], 15 : [
+function (t, e, n) {
+function r(t, e) {
+var n = t.responseType;
+return "json" === n && null !== e ? e : "arraybuffer" === n || "blob" === n || "json" === n ? i(t.response) : "text" === n || "" === n || void 0 === n ? i(t.responseText) : void 0
+}
+var i = t(18);
+e.exports = r
+}, {}
+], 16 : [
+function (t, e, n) {
+function r() {}
+function i(t, e, n, r) {
+return function () {
+return u.recordSupportability("API/" + e + "/called"),
+o(t + e, [f.now()].concat(s(arguments)), n ? null : this, r),
+n ? void 0 : this
+}
+}
+var o = t("handle"),
+a = t(27),
+s = t(28),
+c = t("ee").get("tracer"),
+f = t("loader"),
+u = t(21),
+d = NREUM;
+"undefined" == typeof window.newrelic && (newrelic = d);
+var l = [
+"setPageViewName",
+"setCustomAttribute",
+"setErrorHandler",
+"finished",
+"addToTrace",
+"inlineHit",
+"addRelease"
+],
+p = "api-",
+h = p + "ixn-";
+a(l, function (t, e) {
+d[e] = i(p, e, !0, "api")
+}),
+d.addPageAction = i(p, "addPageAction", !0),
+d.setCurrentRouteName = i(p, "routeName", !0),
+e.exports = newrelic,
+d.interaction = function () {
+return(new r).get()
+};
+var m = r.prototype = {
+createTracer: function (t, e) {
+var n = {},
+r = this,
+i = "function" == typeof e;
+return o(h + "tracer", [
+f.now(), t, n
+], r),
+function () {
+if (c.emit((i ? "" : "no-") + "fn-start", [
+f.now(), r, i
+], n), i) 
+try {
+return e.apply(this, arguments)
+}
+ catch (t) {
+throw c.emit("fn-err", [
+arguments, this, t
+], n),
+t
+} finally {
+c.emit("fn-end", [f.now()], n)
+}
+}
+}
+};
+a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (t, e) {
+m[e] = i(h, e)
+}),
+newrelic.noticeError = function (t, e) {
+"string" == typeof t && (t = new Error(t)),
+u.recordSupportability("API/noticeError/called"),
+o("err", [
+t,
+f.now(),
+!1,
+e
+])
+}
+}, {}
+], 17 : [
+function (t, e, n) {
+function r(t) {
+if (NREUM.init) {
+for (var e = NREUM.init, n = t.split("."), r = 0; r < n.length - 1; r++) 
+if (e = e[n[r]], "object" != typeof e) 
+return;
+
+
+return e = e[n[n.length - 1]]
+}
+}
+e.exports = {
+getConfiguration: r
+}
+}, {}
+], 18 : [
+function (t, e, n) {
+e.exports = function (t) {
+if ("string" == typeof t && t.length) 
+return t.length;
+
+if ("object" == typeof t) {
+if ("undefined" != typeof ArrayBuffer && t instanceof ArrayBuffer && t.byteLength) 
+return t.byteLength;
+
+if ("undefined" != typeof Blob && t instanceof Blob && t.size) 
+return t.size;
+
+if (!("undefined" != typeof FormData && t instanceof FormData)) 
+try {
+return JSON.stringify(t).length
+}
+ catch (e) {
+return
+}
+}
+}
+}, {}
+], 19 : [
+function (t, e, n) {
+var r = !1;
+try {
+var i = Object.defineProperty({}, "passive", {
+get: function () {
+r = !0
+}
+});
+window.addEventListener("testPassive", null, i),
+window.removeEventListener("testPassive", null, i)
+} catch (o) {}e.exports = function (t) {
+return r ? {
+passive: !0,
+capture: !! t
+} : !! t
+}
+}, {}
+], 20 : [
+function (t, e, n) {
+var r = 0,
+i = navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);
+i && (r = + i[1]),
+e.exports = r
+}, {}
+], 21 : [
+function (t, e, n) {
+function r(t, e) {
+var n = [
+a, t, {
+name: t
+},
+e
+];
+return o("storeMetric", n, null, "api"),
+n
+}
+function i(t, e) {
+var n = [
+s, t, {
+name: t
+},
+e
+];
+return o("storeEventMetrics", n, null, "api"),
+n
+}
+var o = t("handle"),
+a = "sm",
+s = "cm";
+e.exports = {
+constants: {
+SUPPORTABILITY_METRIC: a,
+CUSTOM_METRIC: s
+},
+recordSupportability: r,
+recordCustom: i
+}
+}, {}
+], 22 : [
+function (t, e, n) {
+function r() {
+return s.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a
+}
+function i() {
+return o
+}
+var o = (new Date).getTime(),
+a = o,
+s = t(29);
+e.exports = r,
+e.exports.offset = a,
+e.exports.getLastTimestamp = i
+}, {}
+], 23 : [
+function (t, e, n) {
+function r(t, e) {
+var n = t.getEntries();
+n.forEach(function (t) {
+"first-paint" === t.name ? p("timing", [
+"fp", Math.floor(t.startTime)
+]) : "first-contentful-paint" === t.name && p("timing", [
+"fcp", Math.floor(t.startTime)
+])
+})
+}
+function i(t, e) {
+var n = t.getEntries();
+if (n.length > 0) {
+var r = n[n.length - 1];
+if (f && f < r.startTime) 
+return;
+
+var i = [r],
+o = a({});
+o && i.push(o),
+p("lcp", i)
+}
+}
+function o(t) {
+t.getEntries().forEach(function (t) {
+t.hadRecentInput || p("cls", [t])
+})
+}
+function a(t) {
+var e = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+if (e) 
+return e.type && (t["net-type"] = e.type),
+e.effectiveType && (t["net-etype"] = e.effectiveType),
+e.rtt && (t["net-rtt"] = e.rtt),
+e.downlink && (t["net-dlink"] = e.downlink),
+t
+
+}
+function s(t) {
+if (t instanceof w && !y) {
+var e = Math.round(t.timeStamp),
+n = {
+type: t.type
+};
+a(n),
+e <= h.now() ? n.fid = h.now() - e : e > h.offset && e <= Date.now() ? (e -= h.offset, n.fid = h.now() - e) : e = h.now(),
+y = !0,
+p("timing", ["fi", e, n])
+}
+}
+function c(t) {
+"hidden" === t && (f = h.now(), p("pageHide", [f]))
+}
+if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) {
+var f,
+u,
+d,
+l,
+p = t("handle"),
+h = t("loader"),
+m = t(26),
+v = t(19),
+w = NREUM.o.EV;
+if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) {
+u = new PerformanceObserver(r);
+try {
+u.observe({entryTypes: ["paint"]})
+} catch (g) {}d = new PerformanceObserver(i);
+try {
+d.observe({entryTypes: ["largest-contentful-paint"]})
+} catch (g) {}l = new PerformanceObserver(o);
+try {
+l.observe({
+type: "layout-shift",
+buffered: !0
+})
+} catch (g) {}
+}
+if ("addEventListener" in document) {
+var y = !1,
+x = [
+"click",
+"keydown",
+"mousedown",
+"pointerdown",
+"touchstart"
+];
+x.forEach(function (t) {
+document.addEventListener(t, s, v(!1))
+})
+}
+m(c)
+}
+}, {}
+], 24 : [
+function (t, e, n) {
+function r() {
+function t() {
+return e ? 15 & e[n++] : 16 * Math.random() | 0
+}
+var e = null,
+n = 0,
+r = window.crypto || window.msCrypto;
+r && r.getRandomValues && (e = r.getRandomValues(new Uint8Array(31)));
+for (var i, o = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx", a = "", s = 0; s < o.length; s++) 
+i = o[s],
+"x" === i ? a += t().toString(16) : "y" === i ? (i = 3 & t() | 8, a += i.toString(16)) : a += i;
+
+return a
+}
+function i() {
+return a(16)
+}
+function o() {
+return a(32)
+}
+function a(t) {
+function e() {
+return n ? 15 & n[r++] : 16 * Math.random() | 0
+}
+var n = null,
+r = 0,
+i = window.crypto || window.msCrypto;
+i && i.getRandomValues && Uint8Array && (n = i.getRandomValues(new Uint8Array(t)));
+for (var o =[], a = 0; a < t; a++) 
+o.push(e().toString(16));
+
+return o.join("")
+}
+e.exports = {
+generateUuid: r,
+generateSpanId: i,
+generateTraceId: o
+}
+}, {}
+], 25 : [
+function (t, e, n) {
+function r(t, e) {
+if (!i) 
+return !1;
+
+if (t !== i) 
+return !1;
+
+if (! e) 
+return !0;
+
+if (!o) 
+return !1;
+
+for (var n = o.split("."), r = e.split("."), a = 0; a < r.length; a++) 
+if (r[a] !== n[a]) 
+return !1;
+
+
+return !0
+}
+var i = null,
+o = null,
+a = /Version\/(\S+)\s+Safari/;
+if (navigator.userAgent) {
+var s = navigator.userAgent,
+c = s.match(a);
+c && s.indexOf("Chrome") === -1 && s.indexOf("Chromium") === -1 && (i = "Safari", o = c[1])
+}
+e.exports = {
+agent: i,
+version: o,
+match: r
+}
+}, {}
+], 26 : [
+function (t, e, n) {
+function r(t) {
+function e() {
+t(s && document[s] ? document[s] : document[o] ? "hidden" : "visible")
+}
+"addEventListener" in document && a && document.addEventListener(a, e, i(!1))
+}
+var i = t(19);
+e.exports = r;
+var o,
+a,
+s;
+"undefined" != typeof document.hidden ? (o = "hidden", a = "visibilitychange", s = "visibilityState") : "undefined" != typeof document.msHidden ? (o = "msHidden", a = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (o = "webkitHidden", a = "webkitvisibilitychange", s = "webkitVisibilityState")
+}, {}
+], 27 : [
+function (t, e, n) {
+function r(t, e) {
+var n = [],
+r = "",
+o = 0;
+for (r in t) 
+i.call(t, r) && (n[o] = e(r, t[r]), o += 1);
+
+return n
+}
+var i = Object.prototype.hasOwnProperty;
+e.exports = r
+}, {}
+], 28 : [
+function (t, e, n) {
+function r(t, e, n) {
+e || (e = 0),
+"undefined" == typeof n && (n = t ? t.length : 0);
+for (var r = -1, i = n - e || 0, o = Array(i < 0 ? 0 : i); ++ r < i;) 
+o[r] = t[e + r];
+
+return o
+}
+e.exports = r
+}, {}
+], 29 : [
+function (t, e, n) {
+e.exports = {
+exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart
+}
+}, {}
+], ee : [
+function (t, e, n) {
+function r() {}
+function i(t) {
+function e(t) {
+return t && t instanceof r ? t : t ? f(t, c, a) : a()
+}
+function n(n, r, i, o, a) {
+if (a !== !1 && (a =! 0), !p.aborted || o) {
+t && a && t(n, r, i);
+for (var s = e(i), c = m(n), f = c.length, u = 0; u < f; u++) 
+c[u].apply(s, r);
+
+var l = d[y[n]];
+return l && l.push([x, n, r, s]),
+s
+}
+}
+function o(t, e) {
+g[t] = m(t).concat(e)
+}
+function h(t, e) {
+var n = g[t];
+if (n) 
+for (var r = 0; r < n.length; r++) 
+n[r] === e && n.splice(r, 1)
+
+
+}
+function m(t) {
+return g[t] || []
+}
+function v(t) {
+return l[t] = l[t] || i(n)
+}
+function w(t, e) {
+p.aborted || u(t, function (t, n) {
+e = e || "feature",
+y[n] = e,
+e in d || (d[e] =[])
+})
+}
+var g = {},
+y = {},
+x = {
+on: o,
+addEventListener: o,
+removeEventListener: h,
+emit: n,
+get: v,
+listeners: m,
+context: e,
+buffer: w,
+abort: s,
+aborted: !1
+};
+return x
+}
+function o(t) {
+return f(t, c, a)
+}
+function a() {
+return new r
+}
+function s() {
+(d.api || d.feature) && (p.aborted =! 0, d = p.backlog =
+{})
+}
+var c = "nr@context",
+f = t("gos"),
+u = t(27),
+d = {},
+l = {},
+p = e.exports = i();
+e.exports.getOrSetContext = o,
+p.backlog = d
+}, {}
+], gos : [
+function (t, e, n) {
+function r(t, e, n) {
+if (i.call(t, e)) 
+return t[e];
+
+var r = n();
+if (Object.defineProperty && Object.keys) 
+try {
+return Object.defineProperty(t, e, {
+value: r,
+writable: !0,
+enumerable: !1
+}),
+r
+}
+ catch (o) {}
+return t[e] = r,
+r
+}
+var i = Object.prototype.hasOwnProperty;
+e.exports = r
+}, {}
+], handle : [
+function (t, e, n) {
+function r(t, e, n, r) {
+i.buffer([t], r),
+i.emit(t, e, n)
+}
+var i = t("ee").get("handle");
+e.exports = r,
+r.ee = i
+}, {}
+], id : [
+function (t, e, n) {
+function r(t) {
+var e = typeof t;
+return ! t || "object" !== e && "function" !== e ? -1 : t === window ? 0 : a(t, o, function () {
+return i++
+})
+}
+var i = 1,
+o = "nr@id",
+a = t("gos");
+e.exports = r
+}, {}
+], loader : [
+function (t, e, n) {
+function r() {
+if (!O ++) {
+var t = S.info = NREUM.info,
+e = m.getElementsByTagName("script")[0];
+if (setTimeout(f.abort, 3e4), !(t && t.licenseKey && t.applicationID && e)) 
+return f.abort();
+
+c(E, function (e, n) {
+t[e] || (t[e] = n)
+});
+var n = a();
+s("mark", [
+"onload",
+n + S.offset
+], null, "api"),
+s("timing", ["load", n]);
+var r = m.createElement("script");
+0 === t.agent.indexOf("http://") || 0 === t.agent.indexOf("https://") ? r.src = t.agent : r.src = p + "://" + t.agent,
+e.parentNode.insertBefore(r, e)
+}
+}
+function i() {
+"complete" === m.readyState && o()
+}
+function o() {
+s("mark", [
+"domContent",
+a() + S.offset
+], null, "api")
+}
+var a = t(22),
+s = t("handle"),
+c = t(27),
+f = t("ee"),
+u = t(25),
+d = t(17),
+l = t(19),
+p = d.getConfiguration("ssl") === !1 ? "http" : "https",
+h = window,
+m = h.document,
+v = "addEventListener",
+w = "attachEvent",
+g = h.XMLHttpRequest,
+y = g && g.prototype,
+x = !1;
+NREUM.o = {
+ST: setTimeout,
+SI: h.setImmediate,
+CT: clearTimeout,
+XHR: g,
+REQ: h.Request,
+EV: h.Event,
+PR: h.Promise,
+MO: h.MutationObserver
+};
+var b = "" + location,
+E = {
+beacon: "bam.nr-data.net",
+errorBeacon: "bam.nr-data.net",
+agent: "js-agent.newrelic.com/nr-1216.min.js"
+},
+R = g && y && y[v] && !/CriOS/.test(navigator.userAgent),
+S = e.exports = {
+offset: a.getLastTimestamp(),
+now: a,
+origin: b,
+features: {},
+xhrWrappable: R,
+userAgent: u,
+disabled: x
+};
+if (! x) {
+t(16),
+t(23),
+m[v] ? (m[v]("DOMContentLoaded", o, l(!1)), h[v]("load", r, l(!1))) : (m[w]("onreadystatechange", i), h[w]("onload", r)),
+s("mark", [
+"firstbyte", a.getLastTimestamp()
+], null, "api");
+var O = 0
+}
+}, {}
+], "wrap-function" : [
+function (t, e, n) {
+function r(t, e) {
+function n(e, n, r, c, f) {
+function nrWrapper() {
+var o,
+a,
+u,
+l;
+try {
+a = this,
+o = d(arguments),
+u = "function" == typeof r ? r(o, a) : r || {}
+} catch (p) {
+i([
+p,
+"",
+[
+o, a, c
+],
+u
+], t)
+}
+s(n + "start", [
+o, a, c
+], u, f);
+try {
+return l = e.apply(a, o)
+} catch (h) {
+throw s(n + "err", [
+o, a, h
+], u, f),
+h
+} finally {
+s(n + "end", [
+o, a, l
+], u, f)
+}
+}
+return a(e) ? e : (n || (n = ""), nrWrapper[l] = e, o(e, nrWrapper, t), nrWrapper)
+}
+function r(t, e, r, i, o) {
+r || (r = "");
+var s,
+c,
+f,
+u = "-" === r.charAt(0);
+for (f = 0; f < e.length; f++) 
+c = e[f],
+s = t[c],
+a(s) || (t[c] = n(s, u ? c + r : r, i, c, o))
+
+}
+function s(n, r, o, a) {
+if (!h || e) {
+var s = h;
+h = !0;
+try {
+t.emit(n, r, o, e, a)
+} catch (c) {
+i([
+c, n, r, o
+], t)
+}
+h = s
+}
+}
+return t || (t = u),
+n.inPlace = r,
+n.flag = l,
+n
+}
+function i(t, e) {
+e || (e = u);
+try {
+e.emit("internal-error", t)
+} catch (n) {}
+}
+function o(t, e, n) {
+if (Object.defineProperty && Object.keys) 
+try {
+var r = Object.keys(t);
+return r.forEach(function (n) {
+Object.defineProperty(e, n, {
+get: function () {
+return t[n]
+},
+set: function (e) {
+return t[n] = e,
+e
+}
+})
+}),
+e
+}
+ catch (o) {
+i([o], n)
+}
+for (var a in t) 
+p.call(t, a) && (e[a] = t[a]);
+
+return e
+}
+function a(t) {
+return !(t && t instanceof Function && t.apply && ! t[l])
+}
+function s(t, e) {
+var n = e(t);
+return n[l] = t,
+o(t, n, u),
+n
+}
+function c(t, e, n) {
+var r = t[e];
+t[e] = s(r, n)
+}
+function f() {
+for (var t = arguments.length, e = new Array(t), n = 0; n < t; ++ n) 
+e[n] = arguments[n];
+
+return e
+}
+var u = t("ee"),
+d = t(28),
+l = "nr@original",
+p = Object.prototype.hasOwnProperty,
+h = !1;
+e.exports = r,
+e.exports.wrapFunction = s,
+e.exports.wrapInPlace = c,
+e.exports.argsToArray = f
+}, {}
+]}, {},
+[
+"loader",
+2,
+13,
+4,
+3
+]);
+		</head>
+	</html>
+</script>
+<meta name="application-name" content="OpenClassrooms"/>
+<meta name="msapplication-TileColor" content="#7451eb"/>
+<meta name="msapplication-TileImage" content="/fav-icon.png?v=3"/>
+<meta name="theme-color" content="#7451eb">
+<meta property="og:locale" content="fr"/>
+<meta name="apple-itunes-app" content="app-id=1164140533">
+<link rel="icon" sizes="144x144" href="/fav-icon.png?v=3">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon-iphone.png?v=3"/>
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-ipad.png?v=3"/>
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-iphone-retina-display.png?v=3"/>
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-ipad-retina-display.png?v=3"/>
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png?v=3"/>
+<link rel="shortcut icon" href="/favicon.ico?b6f750d1"/>
+<style>
+	.async-hide {
+		opacity: 0 !important
+	}
+</style>
+<script>
+	window.dataLayer = window.dataLayer || [];
+
+var trustarc_reload_referrer = localStorage.getItem('trustarc_reload_referrer');
+if (trustarc_reload_referrer) {
+window.dataLayer.push({event: 'added_new_referrer', 'newReferrer': decodeURI(trustarc_reload_referrer)});
+localStorage.removeItem('trustarc_reload_referrer');
+}
+
+(function (a, s, y, n, c, h, i, d, e) {
+var isEnabled = [/\/paths/, /\/apprenticeship/, /\/employer/,].reduce(function (acc, pathReg) {
+var matchUrl = !!document.location.pathname.match(pathReg);
+return acc || matchUrl;
+}, false);
+
+if (! isEnabled) {
+return;
+}
+
+s.className += ' ' + y;
+h.end = i = function () {
+s.className = s.className.replace(RegExp(' ?' + y), '')
+};
+(a[n] = a[n] || []).hide = h;
+setTimeout(function () {
+i();
+h.end = null
+}, c);
+})(window, document.documentElement, 'async-hide', 'dataLayer', 2000, {'GTM-5WM9PV': true});
+</script>
+<link href="/legacy/css/common_oc-dcc8019f.css" type="text/css" rel="stylesheet" media="all"/>
+<style>
+	#oc-header {
+		display: none
+	}
+	#dashboard-courses section {
+		margin-bottom: 32px;
+		padding-bottom: 32px;
+	}
+</style>
+<script>
+	/*! modernizr 3.3.1 (Custom Build) | MIT *
+    * https://modernizr.com/download/?-cssfilters-touchevents-setclasses !*/
+!function (e, n, t) {
+function o(e, n) {
+return typeof e === n
+}
+function r() {
+var e,
+n,
+t,
+r,
+s,
+i,
+a;
+for (var l in C) 
+if (C.hasOwnProperty(l)) {
+if (e =[], n = C[l], n.name && (e.push(n.name.toLowerCase()), n.options && n.options.aliases && n.options.aliases.length)) 
+for (t = 0; t < n.options.aliases.length; t++) 
+e.push(n.options.aliases[t].toLowerCase());
+
+
+for (r = o(n.fn, "function") ? n.fn() : n.fn, s = 0; s < e.length; s++) 
+i = e[s],
+a = i.split("."),
+1 === a.length ? Modernizr[a[0]] = r : (!Modernizr[a[0]] || Modernizr[a[0]] instanceof Boolean || (Modernizr[a[0]] = new Boolean(Modernizr[a[0]])), Modernizr[a[0]][a[1]] = r),
+g.push((r ? "" : "no-") + a.join("-"))
+
+}
+
+}
+function s(e) {
+var n = w.className,
+t = Modernizr._config.classPrefix || "";
+if (x && (n = n.baseVal), Modernizr._config.enableJSClass) {
+var o = new RegExp("(^|\\s)" + t + "no-js(\\s|$)");
+n = n.replace(o, "$1" + t + "js$2")
+}
+Modernizr._config.enableClasses && (n += " " + t + e.join(" " + t), x ? w.className.baseVal = n : w.className = n)
+}
+function i() {
+return "function" != typeof n.createElement ? n.createElement(arguments[0]) : x ? n.createElementNS.call(n, "http://www.w3.org/2000/svg", arguments[0]) : n.createElement.apply(n, arguments)
+}
+function a() {
+var e = n.body;
+return e || (e = i(x ? "svg" : "body"), e.fake =! 0),
+e
+}
+function l(e, t, o, r) {
+var s,
+l,
+u,
+f,
+p = "modernizr",
+c = i("div"),
+d = a();
+if (parseInt(o, 10)) 
+for (; o--;) 
+u = i("div"),
+u.id = r ? r[o] : p + (o + 1),
+c.appendChild(u);
+
+
+return s = i("style"),
+s.type = "text/css",
+s.id = "s" + p,
+(d.fake ? d : c).appendChild(s),
+d.appendChild(c),
+s.styleSheet ? s.styleSheet.cssText = e : s.appendChild(n.createTextNode(e)),
+c.id = p,
+d.fake && (d.style.background = "", d.style.overflow = "hidden", f = w.style.overflow, w.style.overflow = "hidden", w.appendChild(d)),
+l = t(c, e),
+d.fake ? (d.parentNode.removeChild(d), w.style.overflow = f, w.offsetHeight) : c.parentNode.removeChild(c),
+!! l
+}
+function u(e, n) {
+return ! !~ ("" + e).indexOf(n)
+}
+function f(e) {
+return e.replace(/([a-z])-([a-z])/g, function (e, n, t) {
+return n + t.toUpperCase()
+}).replace(/^-/, "")
+}
+function p(e, n) {
+return function () {
+return e.apply(n, arguments)
+}
+}
+function c(e, n, t) {
+var r;
+for (var s in e) 
+if (e[s] in n) 
+return t === !1 ? e[s] : (r = n[e[s]], o(r, "function") ? p(r, t || n) : r);
+
+
+return !1
+}
+function d(e) {
+return e.replace(/([A-Z])/g, function (e, n) {
+return "-" + n.toLowerCase()
+}).replace(/^ms-/, "-ms-")
+}
+function m(n, o) {
+var r = n.length;
+if ("CSS" in e && "supports" in e.CSS) {
+for (; r--;) 
+if (e.CSS.supports(d(n[r]), o)) 
+return !0;
+
+
+return !1
+}
+if ("CSSSupportsRule" in e) {
+for (var s =[]; r--;) 
+s.push("(" + d(n[r]) + ":" + o + ")");
+
+return s = s.join(" or "),
+l("@supports (" + s + ") { #modernizr { position: absolute; } }", function (e) {
+return "absolute" == getComputedStyle(e, null).position
+})
+}
+return t
+}
+function h(e, n, r, s) {
+function a() {
+p && (delete k.style, delete k.modElem)
+}
+if (s = o(s, "undefined") ? !1 : s, ! o(r, "undefined")) {
+var l = m(e, r);
+if (! o(l, "undefined")) 
+return l
+
+}
+for (var p, c, d, h, v, y =["modernizr", "tspan", "samp"]; !k.style && y.length;) 
+p = !0,
+k.modElem = i(y.shift()),
+k.style = k.modElem.style;
+
+for (d = e.length, c = 0; d > c; c++) 
+if (h = e[c], v = k.style[h], u(h, "-") && (h = f(h)), k.style[h] !== t) {
+if (s || o(r, "undefined")) 
+return a(),
+"pfx" == n ? h : !0;
+
+try {
+k.style[h] = r
+} catch (g) {}
+if (k.style[h] != v) 
+return a(),
+"pfx" == n ? h : !0
+
+}
+
+return a(),
+!1
+}
+function v(e, n, t, r, s) {
+var i = e.charAt(0).toUpperCase() + e.slice(1),
+a = (e + " " + j.join(i + " ") + i).split(" ");
+return o(n, "string") || o(n, "undefined") ? h(a, n, r, s) : (a =( e + " " + E.join(i + " ") + i).split(" "), c(a, n, t))
+}
+function y(e, n, o) {
+return v(e, t, t, n, o)
+}
+var g = [],
+C = [],
+S = {
+_version: "3.3.1",
+_config: {
+classPrefix: "",
+enableClasses: !0,
+enableJSClass: !0,
+usePrefixes: !0
+},
+_q: [],
+on: function (e, n) {
+var t = this;
+setTimeout(function () {
+n(t[e])
+}, 0)
+},
+addTest: function (e, n, t) {
+C.push({name: e, fn: n, options: t})
+},
+addAsyncTest: function (e) {
+C.push({name: null, fn: e})
+}
+},
+Modernizr = function () {};
+Modernizr.prototype = S,
+Modernizr = new Modernizr;
+var w = n.documentElement,
+x = "svg" === w.nodeName.toLowerCase(),
+_ = S._config.usePrefixes ? " -webkit- -moz- -o- -ms- ".split(" ") : ["", ""];
+S._prefixes = _;
+var b = "CSS" in e && "supports" in e.CSS,
+T = "supportsCSS" in e;
+Modernizr.addTest("supports", b || T);
+var z = S.testStyles = l;
+Modernizr.addTest("touchevents", function () {
+var t;
+if ("ontouchstart" in e || e.DocumentTouch && n instanceof DocumentTouch) 
+t = !0;
+ else {
+var o = [
+"@media (",
+_.join("touch-enabled),("),
+"heartz",
+")",
+"{#modernizr{top:9px;position:absolute}}"
+].join("");
+z(o, function (e) {
+t = 9 === e.offsetTop
+})
+}
+return t
+});
+var P = "Moz O ms Webkit",
+j = S._config.usePrefixes ? P.split(" ") : [];
+S._cssomPrefixes = j;
+var E = S._config.usePrefixes ? P.toLowerCase().split(" ") : [];
+S._domPrefixes = E;
+var N = {
+elem: i("modernizr")
+};
+Modernizr._q.push(function () {
+delete N.elem
+});
+var k = {
+style: N.elem.style
+};
+Modernizr._q.unshift(function () {
+delete k.style
+}),
+S.testAllProps = v,
+S.testAllProps = y,
+Modernizr.addTest("cssfilters", function () {
+if (Modernizr.supports) 
+return y("filter", "blur(2px)");
+
+var e = i("a");
+return e.style.cssText = _.join("filter:blur(2px); "),
+!! e.style.length && (n.documentMode === t || n.documentMode > 9)
+}),
+r(),
+s(g),
+delete S.addTest,
+delete S.addAsyncTest;
+for (var A = 0; A < Modernizr._q.length; A++) 
+Modernizr._q[A]();
+
+e.Modernizr = Modernizr
+}(window, document);
+</script>
+<script type="text/javascript">
+	var App = {
+startTime: (new Date()).getTime(),
+pageGenerationDate: 1654561385000
+};
+
+App.user = {
+id: 9485684,
+age: '25',
+createdAt: '2019\u002D02\u002D22T01\u003A41\u003A45\u002B01\u003A00',
+gender: 'M',
+premiumType: '',
+locale: 'fr',
+language: 'fr',
+displayableName: 'Babacar\u0020Ndiaye',
+email: 'babacarndiaye808\u0040gmail.com',
+country: 'SN',
+phoneNumber: '\u002B221781404450',
+avatar: 'https\u003A\/\/user.oc\u002Dstatic.com\/users\/avatars\/15515320413064_WIN_20190107_12_06_25_Pro.jpg',
+isPremium: false,
+isMentor: false,
+roles: {
+CAN_CREATE_AVAILABILITY: false,
+ROLE_ASSIGN_SUPPORT_EXPERT_TO_SUPPORT_RECIPIENT: false,
+ROLE_ADMIN: false,
+ROLE_CAREER_SERVICE: false,
+ROLE_STUDENT_SUCCESS_SPECIALIST: false,
+ROLE_MENTOR_MANAGER: false,
+ROLE_MENTOR: false
+}
+};
+
+App.preferences = {
+debug: false,
+assetVersion: 'b6f750d1',
+contactPhone: '\u002B33\u00201\u002080\u002088\u002080\u002030',
+adyenPublicKey: '10001\u007C889EBFD4D434B82683E21DCA26E77C3E20E0EE09A5ECE3830B0ED51F2FA721A2F7E9EC871C6AB9A1E12C4492F4717673047757E02C5256D8E265CD51E413E5EFCCFEAC41B39C662A424ADC13EE187C38C372A7FCCEC1EA5DF841989437D78B252A8EB51008E60BB55B1E55A7A80DE1A9D60D998C128A576BFAE1DDB97D514AF0A073AEDDE84CEE40D1F8F6ECE85D0FFA50C95C06DB274021C1371376C6EB16561FD65C5E2704B570A7504D617D0F3820F176A0609F6162BDF5890533289FDC3DA7DB03B50BB3BD60A613E1FF72060F22987627E8F1A29F0128A94EC4C8FF7CF6B7AB9558D8433BF86D7A388AB927641CD6C02689139CEE3AAC9ACBFFE83806CB',
+application: {
+form: {
+funnelUrl: 'https\u003A\/\/www.tfaforms.com\/responses\/processor',
+fields: {
+"firstname": "tfa_6",
+"lastname": "tfa_4",
+"email": "tfa_2",
+"path_id": "tfa_138",
+"source_name": "tfa_165",
+"record_type_id": "tfa_217",
+"utm_medium": "tfa_203",
+"utm_source": "tfa_201",
+"utm_term": "tfa_207",
+"utm_campaign": "tfa_205",
+"utm_content": "tfa_225",
+"gclid": "tfa_209",
+"fbclid": "tfa_211",
+"dclid": "tfa_233",
+"msclkid": "tfa_231",
+"ttclid": "tfa_232",
+"referrerId": "tfa_229",
+"placement": "tfa_228",
+"consent": "tfa_150",
+"user_locale": "tfa_125",
+"userId": "tfa_3",
+"gender": "tfa_10",
+"user_study_motivation": "tfa_171",
+"diploma_level": "tfa_30",
+"user_diploma": "tfa_173",
+"language_proficiency_fr": "tfa_40",
+"language_proficiency_en": "tfa_42",
+"language_certificate": "tfa_224",
+"ha_addressline_1": "tfa_16",
+"ha_city": "tfa_18",
+"ha_zip_code": "tfa_24",
+"ha_state": "tfa_163",
+"ha_country": "tfa_22",
+"professional_status": "tfa_94",
+"public_employment_agency_id": "tfa_159",
+"user_public_employment_agency_certificate": "tfa_167",
+"user_pe_advisor_email": "tfa_199",
+"disabled_worker": "tfa_67",
+"veteran": "tfa_73",
+"athlete": "tfa_79",
+"refugee": "tfa_85",
+"rsa": "tfa_91",
+"are": "tfa_175",
+"api": "tfa_177",
+"cui": "tfa_179",
+"aah": "tfa_222",
+"other_allocs": "tfa_223",
+"can_work_in_france": "tfa_142",
+"user_resume": "tfa_1",
+"online_cv": "tfa_157",
+"user_has_mobility": "tfa_193",
+"user_mobility_departamental": "tfa_187",
+"user_mobility_national": "tfa_189",
+"user_mobility_regional": "tfa_191",
+"user_mobility_cities": "tfa_195",
+"work_location_1": "tfa_128",
+"work_location_2": "tfa_130",
+"work_location_3": "tfa_132",
+"work_location_4": "tfa_134",
+"work_location_5": "tfa_136",
+"career_motivation": "tfa_123",
+"has_computer": "tfa_43",
+"has_mic": "tfa_49",
+"has_webcam": "tfa_169",
+"has_fast_internet_connection": "tfa_55",
+"has_quiet_space": "tfa_61",
+"has_online_courses_xp": "tfa_118",
+"has_online_courses_xp_text": "tfa_121",
+"found_a_company": "tfa_146",
+"date_of_birth": "tfa_9",
+"phone_number": "tfa_126",
+"user_desired_start_date": "tfa_161",
+"video_link": "tfa_213",
+"tfa_dbFormId": "tfa_dbFormId",
+"tfa_dbControl": "tfa_dbControl",
+"experiment_id": "tfa_219",
+"full_time_available": "tfa_220",
+"with_prerequisite": "tfa_221",
+"student_application_id": "tfa_226",
+"company_name": "tfa_227",
+"opportunity_id": "tfa_230"
+}
+}
+},
+routes: {
+COURSE_EVENT: '/components/courses/:courseId',
+COURSE_PART_EVENT: '/components/courses/:courseId/parts/:partId',
+
+ACCEPT_COOKIE: '\/ajax\/components\/user\u002Daccept\u002Dconsent\u002Dcookie'
+}
+
+};
+
+App.preferences.navigationPreference = {
+consentCookieExpiredAt: 1584837722
+};
+
+App.preferences.modules = {
+'smiley': {
+basePath: '/bundles/common/images/smiley/'
+}
+};
+
+App.notifications = {};
+App.scripts = [];
+
+if (App.user.id) {
+(function () {
+var userData = {
+userId: App.user.id
+};
+
+if (App.user.premiumType) {
+userData.status = (App.user.premiumType === 'Premium Solo') ? 'premium solo student' : 'path student';
+} else {
+userData.status = 'free student';
+}
+
+if (App.user.isMentor) {
+userData.status = App.user.premiumType ? (userData.status + '|mentor') : 'mentor';
+}
+
+if (!window.dataLayer) {
+return;
+}
+window.dataLayer.push(userData);
+})();
+}
+</script>
+<script></script></head><body class=" oc-body is-connected  ">
+<ul class="skipLink">
+	<li>
+		<a class="skipLink__item" href="#mainContent">Aller au contenu</a>
+	</li>
+	<li>
+		<a class="skipLink__item" href="#footerChangeLanguage">Choisir la langue</a>
+	</li>
+	<li id="skipLink_search">
+		<a class="skipLink__item" href="#algolia-search-input">Aller à la recherche</a>
+	</li>
+</ul>
+<script id="_EVENTS-IDENTIFY" type="application/json">
+	{
+	            "type": "identify",
+	            "userId": "9485684",
+	            "properties": {
+	                "age":  "25",
+	                "name": "Babacar Ndiaye",
+	                "createdAt": "2019-02-22T01:41:45+01:00",
+	                "email": "babacarndiaye808@gmail.com",
+	                "gender":  "M",
+	                "premium": false,
+	                "premiumType": "",
+	                "locale": "fr",
+	                "language": "fr"
+	            },
+	            "integrations": {
+	                "HubSpot": false,
+	                "Zendesk": false
+	            }
+	        }
+</script>
+<script id="_EVENTS-PAGE" type="application/json">
+	{"type":"page","integrations":{"HubSpot":false},"properties":{"pageCategory":"dashboard"}}
+</script>
+<script id="headerConfiguration" type="application/json">
+	{
+	    "user": {
+	        "id": 9485684,
+	        "displayableName": "Babacar\u0020Ndiaye",
+	        "messageCount": 0,
+	        "notificationCount": 0,
+	        "profilePicture": "https://user.oc-static.com/users/avatars/15515320413064_WIN_20190107_12_06_25_Pro.jpg",
+	        "premiumStatus": "none",
+	        "organizationName": "",
+	        "link": {
+	            "profile": "/fr/members/b7pkqvlf4249",
+	            "parameter": "/fr/members/b7pkqvlf4249/parametres",
+	            "logOut": "/logout?_csrf_token=4qRAvnRN_zuHoRw_Zia2x88cutU-4lUh_4HHai8LQuc",
+	            "analyticsDashboard": ""
+	        }
+	    },
+	    "right": {
+	        "canSeeMentorDashboard": false,
+	        "canSeeAdminDashboard": false,
+	        "canDisplayForumAlert": false,
+	        "canEditCourse": false,
+	        "canSeeOrganizationDashboard": false,
+	        "canSeeTutorDashboard": false
+	      }
+	}
+</script>
+<script id="fundingMechanisms" type="application/json">
+	{
+	        "fundingMechanisms": []
+	    }
+</script>
+<div id="oc-header">
+	<div class="oc-mainHeader oc-mainHeader--none oc-mainHeader--skeleton">
+		<div class="grid-wrapper">
+			<div class="grid-inner">
+				<div style="display: flex;">
+					<div class="oc-mainHeaderLogo oc-mainHeaderLogo--skeleton">
+						<a href="/fr/" class="oc-mainHeaderLogo__link">
+							<svg fill="none" height="51" width="668" viewbox="0 0 668 51" xmlns="http://www.w3.org/2000/svg">
+								<title>OpenClassrooms.com</title>
+								<path d="M406.011 35.018c0 2.82-.71 5.641-2.368 7.991-1.659 2.35-3.79 4.23-6.87 5.64-3.079 1.41-6.869 2.116-11.37 2.116-3.79 0-7.343-.47-10.897-1.41-3.553-.94-6.395-2.35-8.527-3.996l7.106-8.46c1.421.705 2.843 1.175 4.501 1.88 2.842.94 5.448 1.41 8.054 1.41 4.974 0 7.58-1.41 7.58-3.995 0-1.41-.711-2.35-2.132-3.056-1.421-.705-3.79-1.41-6.87-2.115-3.553-.705-6.395-1.645-8.764-2.585s-4.264-2.35-6.159-4.23c-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.87-5.64 3.079-1.41 6.869-2.116 11.37-2.116 3.079 0 6.159.47 9.001 1.175 3.08.705 5.685 1.88 7.817 3.055l-7.343 8.696c-3.316-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.895 1.88-1.895 3.056 0 1.41.711 2.35 2.132 2.82 1.421.705 3.79 1.41 6.869 2.115a49.4 49.4 0 0 1 8.765 2.585c2.369.94 4.264 2.35 6.159 4.23 1.658 1.646 2.605 4.466 2.605 7.756zm261.989 0c0 2.82-.711 5.641-2.369 7.991s-3.79 4.23-6.869 5.64c-3.08 1.41-6.87 2.116-11.371 2.116-3.79 0-7.343-.47-10.896-1.41s-6.396-2.35-8.528-3.996l7.107-8.46c1.421.705 2.842 1.175 4.501 1.88 2.842.94 5.448 1.41 8.053 1.41 4.975 0 7.581-1.41 7.581-3.995 0-1.41-.711-2.35-2.132-3.056-1.422-.705-3.791-1.41-6.87-2.115a49.361 49.361 0 0 1-8.764-2.585c-2.369-.94-4.264-2.35-6.159-4.23-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.869-5.64 3.08-1.41 6.87-2.116 11.371-2.116 3.079 0 6.158.47 9.001 1.175 3.079.705 5.685 1.88 7.817 3.055l-7.343 8.696c-3.317-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.896 1.88-1.896 3.056 0 1.41.711 2.35 2.132 2.82 1.422.705 3.791 1.41 6.87 2.115a49.361 49.361 0 0 1 8.764 2.585c2.369.94 4.264 2.35 6.159 4.23 1.895 1.646 2.606 4.466 2.606 7.756zM87.882 19.037c0 3.76-.947 6.816-2.605 9.4-1.659 2.586-4.027 4.701-7.107 6.111s-6.87 2.116-10.896 2.116H59.22v12.69H45.955V.706h21.319c4.264 0 7.817.705 10.896 2.115 3.08 1.41 5.448 3.526 7.107 6.346 1.895 3.055 2.605 6.346 2.605 9.87zm-13.265 0c0-2.35-.71-3.995-2.132-5.17s-3.316-1.88-6.159-1.88h-7.343v14.336h7.343c2.606 0 4.738-.706 6.16-1.88s2.131-3.056 2.131-5.406zm55.904 20.212v10.576h-37.19V1.175h36.242v10.576h-23.214v8.226h18.476v10.341h-18.476v8.93zm50.218-38.074v48.65h-10.896l-20.609-25.853v25.853h-13.028V1.175h10.896l20.609 25.853V1.175zm84.092 37.604v10.81h-32.926V.94h13.265v37.604h19.661zm56.851 11.046h-13.739l-3.553-9.401h-19.661l-3.553 9.4h-13.502l20.608-48.649h13.029zM300.6 30.083l-5.922-15.512-5.922 15.512zm62.536 4.935c0 2.82-.71 5.641-2.369 7.991-1.658 2.35-3.79 4.23-6.869 5.64-3.08 1.41-6.87 2.116-11.37 2.116-3.79 0-7.344-.47-10.897-1.41s-6.396-2.35-8.527-3.996l7.106-8.46c1.421.705 2.842 1.175 4.501 1.88 2.842.94 5.448 1.41 8.054 1.41 4.974 0 7.58-1.41 7.58-3.995 0-1.41-.711-2.35-2.132-3.056-1.421-.705-3.79-1.41-6.87-2.115-3.553-.705-6.395-1.645-8.764-2.585s-4.264-2.35-6.159-4.23c-1.658-1.88-2.606-4.701-2.606-7.991 0-3.056.711-5.641 2.369-7.991 1.658-2.35 3.79-4.23 6.87-5.64 3.079-1.41 6.869-2.116 11.37-2.116 3.079 0 6.159.47 9.001 1.175 3.08.705 5.448 1.88 7.817 3.055l-7.343 8.696c-3.316-1.41-6.633-2.115-9.712-2.115-2.606 0-4.501.47-5.685 1.175-1.185.705-1.895 1.88-1.895 3.056 0 1.41.71 2.35 2.132 2.82 1.421.705 3.79 1.41 6.869 2.115a49.4 49.4 0 0 1 8.765 2.585c2.368.94 4.263 2.35 6.158 4.23 1.659 1.646 2.606 4.466 2.606 7.756zm-322.63-9.636c0 13.867-11.37 25.383-25.583 25.383-5.685 0-10.66-1.88-14.923-4.936l8.528-10.105c1.895 1.175 4.027 1.88 6.395 1.88 6.633 0 12.081-5.406 12.081-11.986 0-6.581-5.448-11.987-12.08-11.987-2.37 0-4.501.705-6.396 1.88L0 5.407C4.264 2.35 9.475.47 14.923.47 29.136.235 40.506 11.516 40.506 25.383zm177.66 10.341l8.528 10.107c-4.264 3.055-9.476 4.935-14.924 4.935-13.976 0-25.583-11.281-25.583-25.383C186.187 11.517 197.557 0 211.77 0c5.685 0 10.66 1.88 14.924 4.936l-8.528 10.105c-1.895-1.175-4.027-1.88-6.396-1.88-6.632 0-12.081 5.406-12.081 11.986 0 6.581 5.449 11.987 12.081 11.987 2.369.47 4.501-.235 6.396-1.41zm236.169 14.102l-10.423-15.042c3.079-1.41 5.211-3.525 6.87-6.11 1.658-2.585 2.605-5.876 2.605-9.401 0-3.76-.947-6.816-2.605-9.636-1.659-2.82-4.027-4.7-7.107-6.346-3.079-1.41-6.869-2.115-10.896-2.115H411.46v48.65h13.028V37.134h6.159l8.764 12.69zm-29.847-37.839h7.58c2.606 0 4.738.705 6.159 1.88s2.132 3.056 2.132 5.17c0 2.351-.711 3.996-2.132 5.171s-3.316 1.88-6.159 1.88h-7.58zM483.945.235c13.976 0 25.583 11.281 25.583 25.382S498.157 51 483.945 51c-13.976 0-25.583-11.281-25.583-25.383S469.732.235 483.945.235zm-13.029 25.147c0 7.051 5.685 12.692 12.792 12.692 7.106 0 12.791-5.64 12.791-12.692s-5.685-12.69-12.791-12.69c-6.87 0-12.792 5.64-12.792 12.69zM538.901.235c13.976 0 25.583 11.281 25.583 25.382S553.114 51 538.901 51c-13.976 0-25.583-11.281-25.583-25.383S524.925.235 538.901.235zm-12.792 25.147c0 7.051 5.685 12.692 12.792 12.692 7.106 0 12.791-5.64 12.791-12.692s-5.685-12.69-12.791-12.69c-7.107 0-12.792 5.64-12.792 12.69zm70.353 6.816L580.828 1.175h-10.896v48.65h11.607V28.438l11.607 21.387h6.87l11.607-21.387v21.387h11.607V1.175h-10.897z"/>
+							</svg>
+						</a>
+					</div>
+					<nav class="oc-mainHeader__navWrapper" role="navigation" aria-label="Menu principal">
+						<div class="oc-mainHeader__linksWrapper">
+							<div class="oc-mainHeader__navLinkWrapper">
+								<a class="oc-mainHeader__navLink" data-event="click|Header|Trainings" href="/fr/paths">Formations</a>
+							</div>
+							<div class="oc-mainHeader__navLinkWrapper--separator"></div>
+							<div class="oc-mainHeader__navLinkWrapper">
+								<a class="oc-mainHeader__navLink" data-event="click|Header|Business" href="/fr/business">Pour les entreprises</a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
 	</div>
-{% endblock %}
+</div>
+<div
+	id="disclaimers-container" style="display:none;">
+	<!--[if lt IE 10]>
+	        <div class="alertMessage">
+	        <span class="bullet bullet--small bullet--orange alertMessage__icon"> <i class="icon-exclamation"></i></span>
+	        <p class="alertMessage__text">
+	            Vous utilisez un navigateur obsolète, veuillez le <a href="https://browser-update.org/update.html">mettre à jour</a>.
+	        </p>
+	    </div>
+	    <![endif]-->
+
+	<div id="modern-ie-disclaimer" style="display:none">
+		<div class="alertMessage">
+			<span class="bullet bullet--small bullet--orange alertMessage__icon">
+				<i class="icon-exclamation"></i>
+			</span>
+			<p class="alertMessage__text">
+				Vous utilisez un navigateur obsolète, veuillez le
+				<a href="https://browser-update.org/update.html">mettre à jour</a>.
+			</p>
+		</div>
+	</div>
+	<script id="webapp-ie-disclaimer" type="application/json">{"message":"Vous utilisez un navigateur obsol\u00e8te, veuillez le
+		<a href="\"https:\/\/browser-update.org\/update.html\"">mettre \u00e0 jour<\/a>."}</script>
+			<script>
+				var isModernIE = document.documentMode === 10 || document.documentMode === 11;
+var isEdgeLegacy = navigator.userAgent.indexOf('Edge') > -1; // Luckily for us, Edge Chromium uses string "Edg" without final "e"
+
+if (isModernIE || isEdgeLegacy) {
+document.getElementById('modern-ie-disclaimer').style.display = 'block';
+document.getElementById('webapp-ie-disclaimer').setAttribute('data-role', 'disclaimer-message-data');
+}
+			</script>
+			<noscript>
+				<div class="alertMessage">
+					<span class="bullet bullet--small bullet--orange alertMessage__icon">
+						<i class="icon-exclamation"></i>
+					</span>
+					<p class="alertMessage__text">
+						Veuillez utiliser un
+						<a href="https://browser-update.org/update.html">navigateur internet moderne</a>
+						avec JavaScript activé pour naviguer sur OpenClassrooms.com
+					</p>
+				</div>
+			</noscript>
+		</div>
+		<div id="mainContentWithHeader">
+			<div id="pre-main-part"></div>
+			<script id="user-config" type="application/json">{"userId":9485684}</script>
+			<div id="dashboard-content" style="display:none;">
+				<script id="dashboard-teams-data" type="application/json">
+
+
+					[]
+				</script>
+				<div id="dashboard-courses-above-recommended-courses">
+					<div id="disclaimers-target-container"/></div>
+				<section id="courses-taken">
+					<h1 class="secondTitle">
+						Cours suivis
+					</h1>
+					<table class="dashboardTable space-bottom" id="list-course-followed">
+						<thead>
+							<tr class="dashboardTable__header">
+								<th class="text-left">
+									Cours
+								</th>
+								<th class="dashboardTable__infoSecondary">
+									Inscription
+								</th>
+								<th class="dashboardTable__headProgress">
+									Progression
+								</th>
+								<th class="dashboardTable__infoSecondary">
+									Certificats
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5489656/next-page-to-do" class="dashboardTable__link">
+										Construisez un site web à l’aide du framework Symfony 5
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									14/01/2022
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											50 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 50%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5489551/next-page-to-do" class="dashboardTable__link">
+										Créez un site moderne et professionnel avec WordPress 5
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									13/11/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											48 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 48%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/7162856/next-page-to-do" class="dashboardTable__link">
+										Gérez du code avec Git et GitHub
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									23/04/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/6339524958">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5543061/next-page-to-do" class="dashboardTable__link">
+										Écrivez du JavaScript pour le web
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									16/10/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											89 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 89%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4449026/next-page-to-do" class="dashboardTable__link">
+										Initiez-vous à l&#039;algèbre relationnelle avec le langage SQL
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									09/03/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											69 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 69%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/6391096/next-page-to-do" class="dashboardTable__link">
+										Créez des sites web responsive avec Bootstrap 4
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									08/09/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/3104572050">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/918836/next-page-to-do" class="dashboardTable__link">
+										Concevez votre site web avec PHP et MySQL
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									10/01/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											96 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 96%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5098931/next-page-to-do" class="dashboardTable__link">
+										Développez une application mobile multiplateforme avec Ionic 3
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									11/11/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/6173501/next-page-to-do" class="dashboardTable__link">
+										Apprenez à programmer en Java
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									27/01/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											72 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 72%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1372996/next-page-to-do" class="dashboardTable__link">
+										Concevez l&#039;architecture d&#039;un système
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									16/10/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/2035826/next-page-to-do" class="dashboardTable__link">
+										Débutez l&#039;analyse logicielle avec UML
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									15/10/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/1984114367">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3504441/next-page-to-do" class="dashboardTable__link">
+										Introduction à jQuery
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									12/10/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/7321304742">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/6031956/next-page-to-do" class="dashboardTable__link">
+										Créez une application web en PHP de qualité professionnelle
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									29/01/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											26 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 26%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4668271/next-page-to-do" class="dashboardTable__link">
+										Développez des applications Web avec Angular
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									23/07/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											13 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 13%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5647281/next-page-to-do" class="dashboardTable__link">
+										Appliquez le principe du Domain-Driven Design à votre application
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									09/08/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											57 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 57%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4670706/next-page-to-do" class="dashboardTable__link">
+										Adoptez une architecture MVC en PHP
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									02/08/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/6175841/next-page-to-do" class="dashboardTable__link">
+										Apprenez à programmer avec JavaScript
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									30/09/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/4611280224">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/6173491/next-page-to-do" class="dashboardTable__link">
+										Apprenez à utiliser la ligne de commande dans un terminal
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									23/07/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											78 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 78%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5641721/next-page-to-do" class="dashboardTable__link">
+										Utilisez Git et GitHub pour vos projets de développement
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									22/07/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											52 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 52%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5919246/next-page-to-do" class="dashboardTable__link">
+										Créez des animations CSS modernes
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									20/04/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											5 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 5%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1603881/next-page-to-do" class="dashboardTable__link">
+										Apprenez à créer votre site web avec HTML5 et CSS3
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									22/02/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/6355435356">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3504431/next-page-to-do" class="dashboardTable__link">
+										Découpez et intégrez une maquette
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									30/03/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											33 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 33%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4517166/next-page-to-do" class="dashboardTable__link">
+										Développez votre première application Android
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									27/03/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4055451/next-page-to-do" class="dashboardTable__link">
+										Modélisez et implémentez une base de données relationnelle avec UML
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									14/04/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											14 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 14%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/626954/next-page-to-do" class="dashboardTable__link">
+										Créez votre application web avec Java EE
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									12/08/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											10 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 10%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="dashboardTable__infoSecondary"></td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/2434016/next-page-to-do" class="dashboardTable__link">
+										Développez des sites web avec Java EE
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									18/01/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											31 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 31%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4192086/next-page-to-do" class="dashboardTable__link">
+										Gérez votre projet informatique facilement
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									29/06/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											25 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 25%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/6106191/next-page-to-do" class="dashboardTable__link">
+										Installez votre environnement de développement Java avec Eclipse
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									14/01/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											44 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 44%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3013891/next-page-to-do" class="dashboardTable__link">
+										Améliorez l&#039;impact de vos présentations
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									07/01/2021
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4206426/next-page-to-do" class="dashboardTable__link">
+										Introduction à iOS : plongez dans le développement mobile !
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									29/12/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											17 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 17%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/4929811/next-page-to-do" class="dashboardTable__link">
+										Maîtrisez les fondamentaux d&#039;Excel (version 2016)
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									03/12/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											25 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 25%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3613341/next-page-to-do" class="dashboardTable__link">
+										Découvrez le framework PHP Laravel
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									13/07/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											11 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 11%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5870066/next-page-to-do" class="dashboardTable__link">
+										Initiez-vous au traitement de texte
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									17/11/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											24 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 24%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1959476/next-page-to-do" class="dashboardTable__link">
+										Administrez vos bases de données avec MySQL
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									17/03/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											26 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 26%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/2984401/next-page-to-do" class="dashboardTable__link">
+										Apprenez à coder avec JavaScript
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									17/07/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/6288748819">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5870206/next-page-to-do" class="dashboardTable__link">
+										Découvrez les bases de la sécurité numérique
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									16/09/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1885491/next-page-to-do" class="dashboardTable__link">
+										Prenez en main Bootstrap
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									10/01/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/9358969089">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3811226/next-page-to-do" class="dashboardTable__link">
+										Préparer son entretien de recrutement - France
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									01/09/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="dashboardTable__infoSecondary"></td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/26832/next-page-to-do" class="dashboardTable__link">
+										Apprenez à programmer en Java
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									13/07/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											8 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 8%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/2342361/next-page-to-do" class="dashboardTable__link">
+										Gérez votre code avec Git et GitHub
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									22/07/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1056721/next-page-to-do" class="dashboardTable__link">
+										Des applications ultra-rapides avec Node.js
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									06/03/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											42 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 42%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1766341/next-page-to-do" class="dashboardTable__link">
+										Structurez vos données avec XML
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									14/06/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											70 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 70%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3014016/next-page-to-do" class="dashboardTable__link">
+										Réalisez la maquette d’une application mobile avec Adobe XD
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									26/03/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											7 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 7%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/2847691/next-page-to-do" class="dashboardTable__link">
+										Maquettez votre site responsive avec Photoshop
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									09/03/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1665806/next-page-to-do" class="dashboardTable__link">
+										Programmez en orienté objet en PHP
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									29/02/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1631636/next-page-to-do" class="dashboardTable__link">
+										Simplifiez vos développements JavaScript avec jQuery
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									08/02/2020
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3504421/next-page-to-do" class="dashboardTable__link">
+										Réalisez des sites modernes et beaux grâce à WordPress
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									05/12/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/8327732929">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/2622436/next-page-to-do" class="dashboardTable__link">
+										Créez votre premier site avec WordPress
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									04/12/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1615271/next-page-to-do" class="dashboardTable__link">
+										Stylisez votre site avec CSS3 !
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									11/09/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											14 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 14%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="dashboardTable__infoSecondary"></td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/19980/next-page-to-do" class="dashboardTable__link">
+										Apprenez à programmer en C
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									11/06/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											18 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 18%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1946386/next-page-to-do" class="dashboardTable__link">
+										Comprendre le Web
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									25/07/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/6498757398">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/3703911/next-page-to-do" class="dashboardTable__link">
+										Évaluer sa maîtrise des outils bureautiques
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									01/07/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar progressbar--notStarted">
+										<div class="progressbar__rate">
+											0 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 0%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="dashboardTable__infoSecondary"></td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/5737801/next-page-to-do" class="dashboardTable__link">
+										Faites vos premiers pas sur ordinateur
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									24/02/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											100 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 100%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notPremium dashboardTable__infoSecondary">
+									<a class="certificate__link js-tooltip" title="Devenir Premium pour obtenir votre certificat" href="/fr/course-certificates/4197193109">
+										<i class="icon-badge certificate__icon"></i><br>
+										Obtenir votre certificat
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/278642/next-page-to-do" class="dashboardTable__link">
+										Débuter sur Adobe Photoshop !
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									19/03/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											11 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 11%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="dashboardTable__infoSecondary"></td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/857447/next-page-to-do" class="dashboardTable__link">
+										Apprenez le fonctionnement des réseaux TCP/IP
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									15/04/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											9 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 9%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="certificate--notCompleted dashboardTable__infoSecondary">
+									<i class="icon-badge certificate__icon"></i>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1916641/next-page-to-do" class="dashboardTable__link">
+										Dynamisez vos sites web avec JavaScript !
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									12/04/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											8 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 8%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="dashboardTable__infoSecondary"></td>
+							</tr>
+							<tr>
+								<td class="text-left">
+									<a href="/fr/courses/1467201/next-page-to-do" class="dashboardTable__link">
+										Algorithmique pour l&#039;apprenti programmeur
+									</a>
+								</td>
+								<td class="dashboardTable__infoSecondary">
+									19/03/2019
+								</td>
+								<td class="dashboardTable__progressBar">
+									<div class="progressbar ">
+										<div class="progressbar__rate">
+											33 %
+										</div>
+										<div class="progressbar__barWrapper">
+											<div class="progressbar__bar" style="width: 33%"></div>
+										</div>
+									</div>
+								</td>
+								<td class="dashboardTable__infoSecondary"></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<div class="alertMessage alertMessage--info">
+						<span class="bullet bullet--small bullet--orange alertMessage__icon">
+							<i class="icon-info"></i>
+						</span>
+						<div class="alertMessage__text">
+							<p>
+								<strong>Looking for a way into AI?</strong>
+							</p>
+							<p>Our new Microsoft-backed
+								<strong>AI Engineer path</strong>
+								is now available.</p>
+							<p>
+								<a title="AI Engineer path" href="/en/paths/167-ai-engineer">Discover more and download the brochure here</a>
+							</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div id="dashboard-courses">
+				<section id="course-certificates">
+					<h1 class="secondTitle">
+						Certificats de cours
+					</h1>
+					<ul class="thumbnailList">
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/6355435356" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/1603881/1603881_teaser_picture_1646430861.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/1603881/1603881_teaser_picture_1646430861.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Apprenez à créer votre site web avec HTML5 et CSS3</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/6355435356" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/9358969089" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/1885491/1885491_teaser_picture_1573034687.jpg%3Fr%3Dpad" data-image-cdn-background-image="https://course.oc-static.com/courses/1885491/1885491_teaser_picture_1573034687.jpg%3Fr%3Dpad" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Prenez en main Bootstrap</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/9358969089" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/6498757398" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/1946386/1946386_teaser_picture_1614871858.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/1946386/1946386_teaser_picture_1614871858.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Comprendre le Web</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/6498757398" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/1984114367" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/2035826/2035826_teaser_picture_1614871866.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/2035826/2035826_teaser_picture_1614871866.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											ESGI
+										</span>
+									</div>
+									<div class="courseHit__title">Débutez l&#039;analyse logicielle avec UML</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/1984114367" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/6288748819" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/0/2984401.png" data-image-cdn-background-image="https://course.oc-static.com/courses/0/2984401.png" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Apprenez à coder avec JavaScript</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/6288748819" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/8327732929" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/3504421/3504421_teaser_picture_1614871897.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/3504421/3504421_teaser_picture_1614871897.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Réalisez des sites modernes et beaux grâce à WordPress</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/8327732929" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/7321304742" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/3504441/3504441_teaser_picture_1614871898.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/3504441/3504441_teaser_picture_1614871898.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Introduction à jQuery</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/7321304742" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/4197193109" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/5737801/5737801_teaser_picture_1614872064.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/5737801/5737801_teaser_picture_1614872064.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Faites vos premiers pas sur ordinateur</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/4197193109" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/4611280224" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/6175841/6175841_teaser_picture_1617092189.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/6175841/6175841_teaser_picture_1617092189.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Apprenez à programmer avec JavaScript</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/4611280224" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/3104572050" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/6391096/6391096_teaser_picture_1614872109.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/6391096/6391096_teaser_picture_1614872109.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Créez des sites web responsive avec Bootstrap 4</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/3104572050" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+						<li class="thumbnailList__item">
+							<a href="/fr/course-certificates/6339524958" class="courseHit ">
+								<div class="courseHit__inner">
+									<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/7162856/7162856_teaser_picture_1652361360.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/7162856/7162856_teaser_picture_1652361360.jpg" data-image-cdn-width="436">
+										<span class="courseHit__author">
+											<span class="courseHit__authorOriginal">Original</span>
+											<span class="courseHit__authorOC">OpenClassrooms</span>
+										</span>
+									</div>
+									<div class="courseHit__title">Gérez du code avec Git et GitHub</div>
+								</div>
+								<div class="courseHit__action">
+									<span class="courseHit__actionLabel">
+										<span class="pathAction pathAction--open">Voir le certificat</span>
+									</span>
+								</div>
+							</a>
+							<div class="courseHit__shareCertificate">
+								<a class=" button visible button--linkedin space-bottom" href="https://openclassrooms.com/fr/course-certificates/share/6339524958" rel="nofollow" target="_blank">
+									<i class="icon-linkedin icon-large"></i>
+									<small>
+										Ajouter à mon profil Linkedin
+									</small>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section id="recently-published-courses">
+					<div id="last-course-published">
+						<h1 class="secondTitle">
+							Derniers cours publiés
+						</h1>
+						<ul class="thumbnailList">
+							<li class="thumbnailList__item">
+								<a href="/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3" class="courseHit ">
+									<div class="courseHit__descriptionWrapper">
+										<div class="courseHit__descriptionTitle">Apprenez à créer votre site web avec HTML5 et CSS3</div>
+										<p class="courseHit__description">
+											Vous rêvez d&#039;apprendre à créer des sites web ? Débutez avec ce cours qui vous enseignera tout ce qu&#039;il faut savoir sur le développement de sites web en HTML5 et CSS3 !
+										</p>
+									</div>
+									<div class="courseHit__inner">
+										<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/1603881/1603881_teaser_picture_1646430861.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/1603881/1603881_teaser_picture_1646430861.jpg" data-image-cdn-width="436">
+											<span class="courseHit__author">
+												<span class="courseHit__authorOriginal">Original</span>
+												<span class="courseHit__authorOC">OpenClassrooms</span>
+											</span>
+										</div>
+										<div class="courseHit__title">Apprenez à créer votre site web avec HTML5 et CSS3</div>
+									</div>
+									<div class="courseHit__action">
+										<span class="courseHit__actionLabel">
+											<span class="pathAction pathAction--open">Voir le cours</span>
+										</span>
+									</div>
+								</a>
+								<div class="courseHit__shareCertificate"></div>
+							</li>
+							<li class="thumbnailList__item">
+								<a href="/fr/courses/7168871-apprenez-les-bases-du-langage-python" class="courseHit ">
+									<div class="courseHit__descriptionWrapper">
+										<div class="courseHit__descriptionTitle">Apprenez les bases du langage Python</div>
+										<p class="courseHit__description">
+											Python est très demandé et accessible pour les débutants. Apprenez à coder avec Python pour écrire des programmes simples mais puissants et pour automatiser les tâches.
+										</p>
+									</div>
+									<div class="courseHit__inner">
+										<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/7168871/7168871_teaser_picture_1653062314.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/7168871/7168871_teaser_picture_1653062314.jpg" data-image-cdn-width="436">
+											<span class="courseHit__author">
+												<span class="courseHit__authorOriginal">Original</span>
+												<span class="courseHit__authorOC">OpenClassrooms</span>
+											</span>
+										</div>
+										<div class="courseHit__title">Apprenez les bases du langage Python</div>
+									</div>
+									<div class="courseHit__action">
+										<span class="courseHit__actionLabel">
+											<span class="pathAction pathAction--open">Voir le cours</span>
+										</span>
+									</div>
+								</a>
+								<div class="courseHit__shareCertificate"></div>
+							</li>
+							<li class="thumbnailList__item">
+								<a href="/fr/courses/6175841-apprenez-a-programmer-avec-javascript" class="courseHit ">
+									<div class="courseHit__descriptionWrapper">
+										<div class="courseHit__descriptionTitle">Apprenez à programmer avec JavaScript</div>
+										<p class="courseHit__description">
+											Établissez une base solide en développement web en apprenant et en pratiquant JavaScript, l&#039;un des principaux langages de programmation sur le web, et créez une application simple !
+										</p>
+									</div>
+									<div class="courseHit__inner">
+										<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/6175841/6175841_teaser_picture_1617092189.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/6175841/6175841_teaser_picture_1617092189.jpg" data-image-cdn-width="436">
+											<span class="courseHit__author">
+												<span class="courseHit__authorOriginal">Original</span>
+												<span class="courseHit__authorOC">OpenClassrooms</span>
+											</span>
+										</div>
+										<div class="courseHit__title">Apprenez à programmer avec JavaScript</div>
+									</div>
+									<div class="courseHit__action">
+										<span class="courseHit__actionLabel">
+											<span class="pathAction pathAction--open">Voir le cours</span>
+										</span>
+									</div>
+								</a>
+								<div class="courseHit__shareCertificate"></div>
+							</li>
+							<li class="thumbnailList__item">
+								<a href="/fr/courses/7168336-maitrisez-les-fondamentaux-dexcel" class="courseHit ">
+									<div class="courseHit__descriptionWrapper">
+										<div class="courseHit__descriptionTitle">Maîtrisez les fondamentaux d&#039;Excel</div>
+										<p class="courseHit__description">
+											La maîtrise des fonctionnalités d&#039;Excel est souvent indispensable. Prenez en main le logiciel puis allez plus loin avec les tableaux, les formules et les tableaux croisés dynamiques !
+										</p>
+									</div>
+									<div class="courseHit__inner">
+										<div class="courseHit__illustration js-illustration" data-img-url="https://course.oc-static.com/courses/7168336/7168336_teaser_picture_1645092872.jpg" data-image-cdn-background-image="https://course.oc-static.com/courses/7168336/7168336_teaser_picture_1645092872.jpg" data-image-cdn-width="436">
+											<span class="courseHit__author">
+												<span class="courseHit__authorOriginal">Original</span>
+												<span class="courseHit__authorOC">OpenClassrooms</span>
+											</span>
+										</div>
+										<div class="courseHit__title">Maîtrisez les fondamentaux d&#039;Excel</div>
+									</div>
+									<div class="courseHit__action">
+										<span class="courseHit__actionLabel">
+											<span class="pathAction pathAction--open">Voir le cours</span>
+										</span>
+									</div>
+								</a>
+								<div class="courseHit__shareCertificate"></div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div id="dashboard"></div>
+	</div>
+	<div id="mainSearchLegacy" class="mainSearch"></div>
+	<div id="showDisclaimer" class="cookiesDisclaimer"></div>
+	<script>
+		var isPrerender = !!navigator.userAgent.match(/github\.com\/prerender\/prerender/);
+var preRenderBrowserFakeUa = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163 Safari/537.36";
+var polyfillUrl = "https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=default,es6,IntersectionObserver,Object.values,Array.prototype.includes,Array.prototype.findIndex,Array.prototype.find,Array.from,Promise.prototype.finally,fetch,String.prototype.includes,Object.entries,Array.prototype.entries,Intl.~locale,Array.prototype.flat.fr";
+
+if (isPrerender) {
+polyfillUrl += "&ua=" + encodeURIComponent(preRenderBrowserFakeUa);
+}
+
+App.translations = {};
+
+App.scripts.push(polyfillUrl);
+
+App.script = {
+DASHBOARD: 'dashboard',
+MENTORSHIP_STUDENT_DASHBOARD: 'mentorshipStudentdashboard',
+SHOP: 'shop',
+PAYMENT: 'payment',
+PROJECTS: 'projects',
+TEAM: 'team',
+COURSE_EDIT: 'course_edit',
+COURSE_VIEW: 'course_view',
+ADMIN: 'admin',
+ADMIN_STUDENT_CREDENTIAL: 'adminStudentCredential',
+ADMIN_STUDENT_CREDENTIAL_EDIT: 'adminStudentCredentialEdit',
+POST_A_JOB: 'postAJob',
+GIG_WORKERS: 'gigWorkers',
+JOB_SURVEY: 'jobSurvey',
+MCQ_EDIT: 'mcqEdit',
+MCQ_VIEW: 'mcqView',
+MENTOR_EDIT: 'mentorEdit',
+PATHS: 'paths',
+PRIVATE_CONVERSATIONS: 'privateConversations',
+USER_PROFILE: 'userProfile',
+WELCOME: 'welcome',
+APPRENTICESHIP: 'apprenticeship',
+WEBAPP: 'webapp',
+PROJECTS_ADMIN: 'projectsAdmin',
+SECURITY: 'security'
+};
+
+App.scripts.push("/js/index.12ba6d303cee93b08c73.js");
+	</script>
+	<script type="text/javascript">
+		function getConsentedSegmentIntegrations () {
+// getCookie from https://www.w3schools.com/js/js_cookies.asp
+function getCookie(cname) {
+var name = cname + "=";
+var decodedCookie = decodeURIComponent(document.cookie);
+
+var ca = decodedCookie.split(';');
+for (var i = 0; i < ca.length; i++) {
+var c = ca[i];
+while (c.charAt(0) === ' ') {
+c = c.substring(1);
+}
+if (c.indexOf(name) === 0) {
+return c.substring(name.length, c.length);
+}
+}
+return "";
+}
+
+var consent = getCookie('cmapi_cookie_privacy');
+
+function isCookieAllowedByConsent(consent, level) {
+return !! consent && consent.search(level) !== -1;
+}
+
+var isFunctionalCookieAllowed = isCookieAllowedByConsent(consent, 2);
+var isAdvertisingCookieAllowed = isCookieAllowedByConsent(consent, 3);
+
+var isAppCuesPremiumUser = false;
+
+var isOnPoleEmploiPage = !!window && window.location.pathname.indexOf('partners/pole-emploi/offers') >= 0;
+
+return {
+Amplitude: isFunctionalCookieAllowed,
+'Bing Ads': isAdvertisingCookieAllowed,
+'Google Ads': isAdvertisingCookieAllowed,
+'Google Analytics': isFunctionalCookieAllowed,
+'Zendesk': isFunctionalCookieAllowed,
+Appcues: (isAppCuesPremiumUser || isOnPoleEmploiPage) && isFunctionalCookieAllowed
+};
+}
+
+var consentedSegmentIntegrations = getConsentedSegmentIntegrations();
+
+!function () {
+var analytics = window.analytics = window.analytics || [];
+if (! analytics.initialize) 
+if (analytics.invoked) 
+window.console && console.error && console.error("Segment snippet included twice.");
+
+ else {
+analytics.invoked = !0;
+analytics.methods = [
+"trackSubmit",
+"trackClick",
+"trackLink",
+"trackForm",
+"pageview",
+"identify",
+"reset",
+"group",
+"track",
+"ready",
+"alias",
+"debug",
+"page",
+"once",
+"off",
+"on"
+];
+analytics.factory = function (t) {
+return function () {
+var e = Array.prototype.slice.call(arguments);
+e.unshift(t);
+analytics.push(e);
+return analytics
+}
+};
+for (var t = 0; t < analytics.methods.length; t++) {
+var e = analytics.methods[t];
+analytics[e] = analytics.factory(e)
+}
+analytics.load = function (t, e) {
+var n = document.createElement("script");
+n.type = "text/javascript";
+n.async = !0;
+n.src = "https://cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js";
+var a = document.getElementsByTagName("script")[0];
+a.parentNode.insertBefore(n, a);
+analytics._loadOptions = e
+};
+analytics.SNIPPET_VERSION = "4.1.0";
+window.loadAnalytics = function () {
+window.analytics.load('mou95e6tdn', {integrations: consentedSegmentIntegrations})
+};
+}
+}();
+	</script>
+
+	<script>
+		App.scriptToLoad = App.script.DASHBOARD
+	</script>
+
+	<script>
+		(function () {
+function loadScripts(cb) {
+App.scripts.forEach(function (src, index) {
+var script = document.createElement('script');
+script.src = src;
+script.async = false;
+document.body.appendChild(script);
+
+if (cb && index === App.scripts.length - 1) {
+script.onload = cb;
+}
+});
+}
+
+function boot() {
+loadScripts(function () {
+if (App.modules) {
+App.modules.startAll();
+}
+});
+}
+
+if (window.addEventListener) {
+window.addEventListener('load', boot, false);
+} else if (window.attachEvent) {
+window.attachEvent('onload', boot);
+} else {
+window.onload = boot;
+}
+}());
+	</script>
+	<script type="text/javascript">
+		window.NREUM || (NREUM =
+{});
+NREUM.info = {
+"beacon": "bam.eu01.nr-data.net",
+"licenseKey": "NRJS-5b58725ce0d442079d0",
+"applicationID": "156815673",
+"transactionName": "MhBSZQoZVhJWB0xfDAtac0QLDFcMGABZRQsHGlFDHA==",
+"queueTime": 0,
+"applicationTime": 1752,
+"atts": "HldRE0IDRRw=",
+"errorBeacon": "bam.eu01.nr-data.net",
+"agent": ""
+}
+	</script>
+	<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"71753ca9bfb4f5c2","token":"8e698008242e427fae12788d79d12ecf","version":"2021.12.0","si":100}' crossorigin="anonymous"></script>
+</body></body></html>

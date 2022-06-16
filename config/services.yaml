@@ -17,6 +17,7 @@ services:
     App\Controller\GestionVoteController:
     App\Controller\CandidatsController:
     App\Controller\CampagneController:
+    App\Controller\Calendar\CalendarController:
         calls:
             - [setContainer, ['@service_container']]
     App\:

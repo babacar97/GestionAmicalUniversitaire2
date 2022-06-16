@@ -1,15 +1,21 @@
-{% extends 'calendrier/base.html.twig' %}
+{% extends "admin/base.html.twig" %}
 
 {% block title %}Hello CalendrierController!
 {% endblock %}
 {% block stylesheets %}
-	<style>/* #calendrier {
-			width: 80%;
-			margin: auto;
-		} */</style>{% endblock %}{% block body %}
-<div id="calendrier"></div>{% endblock %}{% block javascripts %}
-<script>
-	window.onload = () => {
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+	<div id="calendrier"></div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js" integrity="sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=" crossorigin="anonymous"></script>
+	<script>
+		window.onload = () => {
 let calendarElt = document.querySelector("#calendrier")
 let calendar = new FullCalendar.Calendar(calendarElt, {
 initialView: 'timeGridWeek',
@@ -46,4 +52,5 @@ xhr.send(JSON.stringify(donnees))
 
 calendar.render()
 }
-</script>{% endblock %}
+	</script>
+{% endblock %}

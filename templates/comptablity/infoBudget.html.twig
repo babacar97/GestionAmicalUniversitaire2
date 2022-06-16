@@ -136,7 +136,7 @@
 					<!-- Card Body -->
 					<div class="card-body">
 						<div class="chart-area">
-							<canvas id="myAreaChart"></canvas>
+							<canvas id="RapportBudget" width="400" height="160"></canvas>
 						</div>
 					</div>
 				</div>
@@ -216,5 +216,28 @@ window.location.href = '/idbudget/' + name;
 // type: "GET"
 // })
 }
+		</script>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+		<script>
+			let categories = document.querySelector("#RapportBudget")
+let categGraph = new Chart(categories, {
+type: "line",
+data: {
+labels: [
+"cat1", "cat2", "cat3"
+],
+datasets: [
+{
+label: "Répartition des catégories",
+data: [
+2, 5, 3
+],
+backgroundColor: ["red", "yellow", "blue"]
+}
+]
+}
+})
 		</script>
 	{% endblock %}

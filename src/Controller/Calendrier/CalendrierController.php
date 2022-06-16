@@ -34,4 +34,15 @@ class CalendrierController extends AbstractController
         }
         return $this->render('calendrier/index.html.twig', compact('data'));
     }
+
+    /**
+     * @Route("/listeEvents", name="app_listeEvents")
+     */
+    public function listeEvents(CalendarRepository $calendarse): Response
+    {
+        $calendars = $calendarse->findAll();
+        return $this->render('calendrier/listeEvent.html.twig', [
+            'calendars' => $calendars,
+        ]);
+    }
 }

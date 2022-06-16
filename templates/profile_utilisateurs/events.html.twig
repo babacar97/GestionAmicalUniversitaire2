@@ -1,0 +1,47 @@
+{% extends "profile_utilisateurs/base.html.twig" %}
+{% block body %}
+	<div id="wrapper">
+		<div class="container-fluid">
+			<div class="row position-relative" style="top: 100px;">
+				<div class="col-2"></div>
+				<div class="col-9">
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered" id="dataTable"></thead>
+									<tr>
+										<th>Titre</th>
+										<th>Date debut</th>
+										<th>Date fin</th>
+										<th>Details</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for calendar in calendars %}
+										<tr>
+											<td>{{ calendar.id }}</td>
+											<td>{{ calendar.title }}</td>
+											<td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+											<td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+											<td>{{ calendar.description }}</td>
+
+
+										</tr>
+									{% else %}
+										<tr>
+											<td colspan="9">no records found</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-1"></div>
+			</div>
+
+		</div>
+	</div>
+</div></div></div>{% endblock %}

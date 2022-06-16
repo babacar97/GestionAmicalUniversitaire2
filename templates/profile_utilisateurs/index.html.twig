@@ -1,62 +1,33 @@
 {% extends "profile_utilisateurs/base.html.twig" %}
-
 {% block body %}
-	<div class="container-fluid">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<div class="card-body">
-							<h1>Mes cotisations</h1>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<a href="{{path('app_gestion_vote')}}">
-							<div class="card-body">
-								<h1>Votes</h1>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<div class="card-body">
-							<h1>Actu</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<a href="">
-							<div class="card-body">
-								<h1>Je candidate</h1>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<a href="">
-							<div class="card-body">
-								<h1>Inscription liste</h1>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<a href="">
-							<div class="card-body">
-								<h1>Mes informations</h1>
-							</div>
-						</a>
-					</div>
+
+	<div class="container-fluid ">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-10 mb-4">
+
+				<div class="card  position-relative mb-4 " style="top:100px">
+					<h1 class="btn btn-primary mb-4">Mot de bienvenue
+					</h1>
+					<p>
+						Les missions de l’amicale tournent autour des thèmes suivants :
+						<br>
+
+						=> Créer un cadre d’échange, de partage, de solidarité et de fraternité
+						<br>
+						=> Favoriser l’intégration pédagogique et sociale ;
+						<br>
+						=> Apporter un soutien et un accompagnement d’ordre pédagogique à tout étudiant qui en manifesterait le besoin ;<br>
+						=> Coordonner l’ensemble des activités des différents clubs de chaque section ;<br>
+						=> Favoriser l’enrichissement, la promotion et la protection de la diversité culturelle
+						<br>
+						en veillant à tenir l’ensemble de ses activités ouvertes aux préoccupations du Sénégal, de l’Afrique et du Monde ;<br>
+						=> Favoriser la cohésion interne et la reconnaissance externe des étudiants de l’amicale ;<br>
+						=> Représenter l’amicale dans les compétitions intra et extra universitaires.
+					</p>
 				</div>
 			</div>
 		</div>
+
 	</div>
 {% endblock %}

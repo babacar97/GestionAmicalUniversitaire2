@@ -1,0 +1,98 @@
+{% extends "admin/base.html.twig" %}
+{% block body %}
+	<div class="container-fluid">
+
+		<div class="row mb-4">
+			<div class="col-12 ">
+				<div class="card shadow ">
+					<div class="card-body">
+						<a href="#" class="btn btn-primary btn-block mb-4">
+							Resultat des elections</a>
+						<canvas id="REvotes" width="400" height="80"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% for listeCampagne in listeCampagnes %}
+			<div class="row">
+				<div class="col-6 ">
+					<div class="card shadow ">
+						<div class="card-body">
+
+							<a href="#" class="btn btn-primary btn-block mb-4">
+								Election en cours</a>
+
+							<h5>NOM CAMPAGNE:
+								{{listeCampagne.libelle}}</5>
+							<h5>TYPE DE CAMPAGNE :{{listeCampagne.type}}
+							</h5>
+
+							<p>
+								{{listeCampagne.description}}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 ">
+					<div class="card shadow ">
+						<div class="card-body">
+							<a href="#" class="btn btn-primary btn-block mb-4">
+								Liste Candidats</a>
+
+							<div class="card shadow mb-4">
+								<div class="card-header py-3"></div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th>N::</th>
+													{# <th>Prenom</th> #}
+													<th>Partie</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												{% for listeCandidat in listeCandidats %}
+													<tr>
+														<td>{{listeCandidat.id}}</td>
+														{# <td>{{listeCandidat.idUserid}}</td> #}
+														<td>{{listeCandidat.liste}}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+{% block javascripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+	<script>
+		let vote = document.querySelector("#REvotes")
+let categGraph = new Chart(vote, {
+type: "doughnut",
+data: {
+labels: [
+"Liste rouge ", "Liste jaune", "Liste bleu"
+],
+datasets: [
+{
+label: "Répartition des catégories",
+data: [
+2, 5, 3
+],
+backgroundColor: ["red", "yellow", "blue"]
+}
+]
+}
+})
+	</script>
+
+{% endblock %}

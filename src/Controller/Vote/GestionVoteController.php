@@ -6,6 +6,7 @@ use DateTime;
 use App\Entity\User;
 use App\Entity\Vote;
 use App\Form\VoteType;
+use App\Repository\CampagneRepository;
 use App\Service\MailerService;
 use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
@@ -118,6 +119,21 @@ class GestionVoteController extends AbstractController
 
         return $this->render('gestion_vote/vote.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/resultvote", name="app_resulte")
+     */
+    public function ResulteVote(CampagneRepository $campagne, CandidatsRepository $candidats)
+    {
+        $listeCampagnes = $campagne->findAll();
+        $listeCandidats = $candidats->findAll();
+
+        return $this->render('gestion_vote/resulteVote.html.twig', [
+            'listeCampagnes' => $listeCampagnes,
+            'listeCandidats' => $listeCandidats,
         ]);
     }
 }

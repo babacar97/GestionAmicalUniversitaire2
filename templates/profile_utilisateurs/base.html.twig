@@ -6,33 +6,138 @@
 			{% block title %}Welcome!
 			{% endblock %}
 		</title>
-		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 		{% block stylesheets %}
-			<link href="{{ asset ('assets/admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 			<link
-			href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-			<!-- Custom styles for this template-->
-			<link href=" {{ asset ('assets/admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
-			<link href=" {{ asset ('assets/admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+			<!-- Google Fonts -->
+			<link
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+			<!-- MDB -->
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css" rel="stylesheet"/>
 		{% endblock %}
+		<style>
+			body {
+				background-color: #fbfbfb;
+			}
 
+			/* Sidebar */
+			.sidebar {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				padding: 58px 0 0; /* Height of navbar */
+				box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+				width: 240px;
+				z-index: 600;
+			}
+
+			@media(max-width: 991.98px) {
+				.sidebar {
+					width: 100%;
+				}
+			}
+			.sidebar .active {
+				border-radius: 5px;
+				box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+			}
+
+			.sidebar-sticky {
+				position: relative;
+				top: 0;
+				height: calc(100vh - 48px);
+				padding-top: 0.5rem;
+				overflow-x: hidden;
+				overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+			}
+			.i {
+				position: relative;
+				left: -20px;
+			}
+		</style>
 	</head>
-	<body id="page-top">
+	<body>
+		<header
+			class=" mb-4">
+			<!-- Sidebar -->
+			<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white mb-4">
+				<div class="position-sticky">
+					<div class="list-group list-group-flush mx-3 mt-4">
+						<div>
+							<!-- Tab navs -->
+							<div class="nav flex-column nav-tabs position-relative " style="top:25px">
+								<a class="nav-link" href="{{path('app_actu')}}">
+									<i class="fas fa-bullhorn"></i>&nbsp;
+									<span>Actualité</span>
+								</a>
+								<hr>
+								<a class="nav-link" href="#v-tabs-profile">
+									<i class="fas fa-comments-dollar"></i>&nbsp;
+									<span>cotise</span>
+								</a>
+								<hr>
+								<a class="nav-link" href="{{path('app_gestion_vote')}}">
+									<i class="fas fa-vote-yea"></i>&nbsp;
+									<span>Je vote</span>
+								</a>
+								<hr>
+								<a class="nav-link" href="{{path('app_utievent')}}">
+									<i class="fas fa-people-carry"></i>&nbsp;
+									<span>
+										Evenement a venir</span>
+								</a>
+								<hr>
+								<a class="nav-link " href="#v-tabs-home">
+									<i class="fas fa-braille"></i>&nbsp;
+									<span>Parametre</span>
+								</a>
+							</div>
+							<!-- Tab navs -->
+						</div>
+					</div>
+				</div>
+			</nav>
+			<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+				<h4 class="text-primary position-relative" style="left: 30px">GestionAmicaleUniversitaire</h4>
+				<div class="container-fluid">
+					<div class="input-group  position-relative" style="left: 760px">
+						<div class="form-outline">
+							<input type="search" id="form1" class="form-control"/>
+							<label class="form-label" for="form1">Search</label>
+						</div>
+						<button type="button" class="btn btn-primary">
+							<i class="fas fa-search"></i>
+						</button>
+					</div>
+					<ul class="navbar-nav ms-auto d-flex flex-row">
 
-		{% include "profile_utilisateurs/includesprofile/header.html.twig" %}
+						<span class=" position-relative" style="left:-20px;top:8px">Babacar Ndiaye</span>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+								<img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" height="60px" class="rounded-circle" height="22" alt="" loading="lazy"/>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+								<li>
+									<a class="dropdown-item" href="#">Mon profile</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Parametre</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Deconnexion</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- Container wrapper -->
+			</nav>
+			<!-- Navbar -->
+		</header>
 		{% block body %}{% endblock %}
 
-		{% include "profile_utilisateurs/includesprofile/footer.html.twig" %}
 		{% block javascripts %}
-			<script src="{{ asset ('assets/admin/vendor/jquery/jquery.min.js')}}"></script>
-			<script src="{{ asset ('assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-			<script src="{{ asset ('assets/admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-			<script src="{{ asset ('assets/admin/vendor/jquery/jquery.min.js')}}"></script>
-			<script src="{{ asset ('assets/admin/js/sb-admin-2.min.js')}}"></script>
-			<script src="{{ asset ('assets/admin/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-			<script src="{{ asset ('assets/admin/js/demo/datatables-demo.js')}}"></script>
-			<script src="{{ asset ('assets/admin/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
 		{% endblock %}
 	</body>
 </html>

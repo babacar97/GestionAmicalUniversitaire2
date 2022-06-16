@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Actualite;
 use App\Entity\Budget;
 use App\Entity\Campagne;
 use App\Entity\Candidats;
@@ -76,7 +77,14 @@ class AppFixtures extends Fixture
             $candidat = new Candidats();
             $candidat->setListe($faker->colorName);
             $candidat->setProgrammes($faker->text());
-            $manager->persist($candidat);
+
+            $actualite = new Actualite();
+            $actualite->setTitle($faker->title())
+                ->setDescription($faker->text())
+                ->setImage($faker->imageUrl())
+                ->setDatepublie($faker->dateTime());
+
+            $manager->persist($actualite);
         }
 
 

@@ -21,7 +21,7 @@ class MailerService
 
 
         $email = (new Email())
-            ->from('babacarndiaye808@gmail.com')
+            ->from('babacar.ndiaye20@uvs.edu.sn')
             ->to($to)
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')

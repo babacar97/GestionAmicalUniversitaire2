@@ -1,95 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-		<!-- Font Awesome -->
-		<link
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-		<!-- Google Fonts -->
-		<link
-		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-		<!-- MDB -->
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet"/>
+{% extends "profile_utilisateurs/base.html.twig" %}
+{% block body %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-10">
+				<div class="tab-content" id="ex1-content">
+					<div class="tab-pane fade show active">
+						<section style="background-color: #eee;">
+							<div class="text-center container py-5">
+								<h4 class="mt-4 mb-5">
+									<strong>Listes Candidats</strong>
+								</h4>
+								<div class="row">
+									{% for listeCandidat in listeCandidats %}
 
-	</head>
-	<body>
-		<!-- Tabs navs -->
-		<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
-			<li class="nav-item" role="presentation">
-				<a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab" aria-controls="ex1-tabs-1" aria-selected="true">Vote pour le président du bureau</a>
-			</li>
-			<li class="nav-item" role="presentation">
-				<a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab" aria-controls="ex1-tabs-2" aria-selected="false">Tab 2</a>
-			</li>
-			<li class="nav-item" role="presentation">
-				<a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab" aria-controls="ex1-tabs-3" aria-selected="false">Tab 3</a>
-			</li>
-		</ul>
-		<!-- Tabs navs -->
-
-		<!-- Tabs content -->
-		<div class="tab-content" id="ex1-content">
-			<div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
-				<section style="background-color: #eee;">
-					<div class="text-center container py-5">
-						<h4 class="mt-4 mb-5">
-							<strong>Listes Candidats</strong>
-						</h4>
-						<div class="row">
-							{% for listeCandidat in listeCandidats %}
-
-								<div class="col-lg-4 col-md-6 mb-4">
-									<div class="card">
-										<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-											<img src="{{listeCandidat.getIdUser().getImage()}} " class="w-100 "/>
-											<a href="#!">
-												<div class="mask">
-													<div class="d-flex justify-content-start align-items-end h-100"></div>
+										<div class="col-lg-4 col-md-6 mb-4">
+											<div class="card">
+												<div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+													<img src="{{listeCandidat.getIdUser().getImage()}} " class="w-100 "/>
+													<a href="#!">
+														<div class="mask">
+															<div class="d-flex justify-content-start align-items-end h-100"></div>
+														</div>
+														<div class="hover-overlay">
+															<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+														</div>
+													</a>
 												</div>
-												<div class="hover-overlay">
-													<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+												<div class="card-body">
+													<a href="" class="text-reset">
+														<h5 class="card-title mb-3">{{listeCandidat.liste}}</h5>
+													</a>
+													<a href="" class="text-reset">
+														<p>Programme</p>
+													</a>
+													<h6 class="mb-3">{{listeCandidat.programmes}}</h6>
 												</div>
-											</a>
+												<div class="d-flex justify-content-start align-items-end h-100">
+													<h5>
+														<a href="{{path('app_candidats_show', {'id': listeCandidat.id})}}">
+															<span class="badge bg-primary ms-2">Plus de détails</span>
+														</a>
+													</h5>
+													<h5>
+														<a href="{{path('app_Vote', {'idCandidat':listeCandidat.id}) }}">
+															<span class="badge bg-success ms-2">Je vote</span>
+														</a>
+													</h5>
+												</div>
+											</div>
 										</div>
-										<div class="card-body">
-											<a href="" class="text-reset">
-												<h5 class="card-title mb-3">{{listeCandidat.liste}}</h5>
-											</a>
-											<a href="" class="text-reset">
-												<p>Programme</p>
-											</a>
-											<h6 class="mb-3">{{listeCandidat.programmes}}</h6>
-										</div>
-										<div class="d-flex justify-content-start align-items-end h-100">
-											<h5>
-												<a href="{{path('app_candidats_show', {'id': listeCandidat.id})}}">
-													<span class="badge bg-primary ms-2">Plus de détails</span>
-												</a>
-											</h5>
-											<h5>
-												<a href="{{path('app_Vote', {'idCandidat':listeCandidat.id}) }}">
-													<span class="badge bg-success ms-2">Je vote</span>
-												</a>
-											</h5>
-										</div>
-									</div>
+
+									{% else %}
+										<tr>
+											<td colspan="7">no records found</td>
+										</tr>
+									{% endfor %}
 								</div>
-
-							{% else %}
-								<tr>
-									<td colspan="7">no records found</td>
-								</tr>
-							{% endfor %}
-						</div>
+							</div>
+						</section>
 					</div>
-				</section>
+				</div>
 			</div>
-			<div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">Tab 2 content</div>
-			<div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">ab 3 content</div>
 		</div>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>
-	</body>
-</html>
+	</div>
+{% endblock %}
