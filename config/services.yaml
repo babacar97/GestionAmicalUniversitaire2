@@ -4,7 +4,27 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-  personne_directory: '%kernel.project_dir%/public/uploads/personne'
+    personne_directory: '%kernel.project_dir%/public/uploads/personne'
+    paydunya_master_key: deZVI02k-CMRk-Ll77-iMe9-7xoqpyO1ASol
+    paydunya_public_key: test_public_pnNYBE9frMvi5XVSY1W63fYmiA5
+    paydunya_private_key: test_private_Rh56YHl26Ps9rXHT4HOTRHvqTg4
+    paydunya_token: WQICmpzyZI4V6KtMpU5Q
+    paydunya_mode: test
+    paydunya_name: "Light Invest"
+    paydunya_tag_line: "We invest"
+    paydunya_phone_number: "774555568"
+    paydunya_postal_address: "Cité Keur Gorgui"
+    paydunya_webSite_url: "https://light-invest.herokuapp.com/"
+    paydunya_logo_url: "https://www.tailorbrands.com/wp-content/uploads/2020/06/twitter-logo-a.png"
+    paydunya_url_call_back: "https://light-invest.herokuapp.com/callback"
+    paydunya_return_url_store: "http://light-invest.herokuapp.com/api/contribution/check"
+    paydunya_cancel_url_store: "https://light-invest.herokuapp.com/api/contribution/cancelled"
+    paydunya_return_url_invoice: "http://light-invest.herokuapp.com/api/contribution/check"
+    paydunya_cancel_url_invoice: "https://light-invest.herokuapp.com/api/contribution/cancelled"
+    paydunya_init_deboursement: "https://app.paydunya.com/api/v1/disburse/get-invoice"
+    paydunya_submit_deboursement: "https://app.paydunya.com/api/v1/disburse/submit-invoice"
+    paydunya_check_deboursement: "https://app.paydunya.com/api/v1/disburse/check-status"
+    url_path: "https://light-invest.herokuapp.com/"
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -26,6 +46,27 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    App\Service\PaydunyaService:
+        arguments:
+            $masterKey: '%paydunya_master_key%'
+            $publicKey: '%paydunya_public_key%'          
+            $privateKey: '%paydunya_private_key%'
+            $token: '%paydunya_token%'
+            $mode: '%paydunya_mode%'
+            $name: '%paydunya_name%'
+            $tagLine: '%paydunya_tag_line%'
+            $phoneNumber: '%paydunya_phone_number%'
+            $postalAddress: '%paydunya_postal_address%'
+            $webSiteUrl: '%paydunya_webSite_url%'
+            $logoUrl: '%paydunya_logo_url%'
+            $urlCallBack: '%paydunya_url_call_back%'
+            $returnUrlStore: '%paydunya_return_url_store%' 
+            $cancelUrlStore: '%paydunya_cancel_url_store%'
+            $returnUrlInvoice: '%paydunya_return_url_invoice%'
+            $cancelUrlInvoice: '%paydunya_cancel_url_invoice%'
+            $initDeboursement: '%paydunya_init_deboursement%'
+            $submitDeboursement: '%paydunya_submit_deboursement%'
+            $checkDeboursement: '%paydunya_check_deboursement%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

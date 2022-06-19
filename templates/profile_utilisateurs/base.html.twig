@@ -70,11 +70,7 @@
 									<i class="fas fa-bullhorn"></i>&nbsp;
 									<span>Actualité</span>
 								</a>
-								<hr>
-								<a class="nav-link" href="#v-tabs-profile">
-									<i class="fas fa-comments-dollar"></i>&nbsp;
-									<span>cotise</span>
-								</a>
+
 								<hr>
 								<a class="nav-link" href="{{path('app_gestion_vote')}}">
 									<i class="fas fa-vote-yea"></i>&nbsp;
@@ -124,7 +120,7 @@
 									<a class="dropdown-item" href="#">Parametre</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Deconnexion</a>
+									<a class="dropdown-item" href="{{path('app_logout')}}">Deconnexion</a>
 								</li>
 							</ul>
 						</li>
@@ -138,6 +134,7 @@
 
 		{% block javascripts %}
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+
 		{% endblock %}
 	</body>
 </html>

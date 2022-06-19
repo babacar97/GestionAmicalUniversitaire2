@@ -23,12 +23,12 @@ class Vote
     private $date_vote;
 
     /**
-     * @ORM\OneToOne(targetEntity=candidats::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Candidats::class, cascade={"persist", "remove"})
      */
     private $id_candidat;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_user;

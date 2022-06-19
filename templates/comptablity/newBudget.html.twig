@@ -142,7 +142,7 @@
 								</div>
 								<div class="font-weight-bold">
 									<div class="text-truncate">Hi there! I am wondering if you can help me with a
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                            problem I've been having.</div>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														                                            problem I've been having.</div>
 									<div class="small text-gray-500">Emily Fowler · 58m</div>
 								</div>
 							</a>
@@ -153,7 +153,7 @@
 								</div>
 								<div>
 									<div class="text-truncate">I have the photos that you ordered last month, how
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                            would you like them sent to you?</div>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														                                            would you like them sent to you?</div>
 									<div class="small text-gray-500">Jae Chun · 1d</div>
 								</div>
 							</a>
@@ -164,7 +164,7 @@
 								</div>
 								<div>
 									<div class="text-truncate">Last month's report looks great, I am very happy with
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                            the progress so far, keep up the good work!</div>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														                                            the progress so far, keep up the good work!</div>
 									<div class="small text-gray-500">Morgan Alvarez · 2d</div>
 								</div>
 							</a>
@@ -175,7 +175,7 @@
 								</div>
 								<div>
 									<div class="text-truncate">Am I a good boy? The reason I ask is because someone
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                            told me that people say this to all dogs, even if they aren't good...</div>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														                                            told me that people say this to all dogs, even if they aren't good...</div>
 									<div class="small text-gray-500">Chicken the Dog · 2w</div>
 								</div>
 							</a>
@@ -243,12 +243,24 @@
 					<div class="col-3"></div>
 				</div>
 			</div>
-			{{ form_end(registrationForm) }}
+
 
 			<div class="col text-center ">
-				<button type="submit" class="btn btn-primary pull-center">Enregistrer le nouveau budget
+				<button type="submit" id="submit" class="btn btn-primary pull-center">Enregistrer le nouveau budget
 				</button>
 			</div>
+			{{ form_end(registrationForm) }}
 		{% endblock %}
+		{% block javascripts %}
+			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+			<script>
+				let btn = document.getElementById('submit');
+btn.onclick = function () {
+
+swal({title: "Felicitation!", text: "Le budget a bien été enregistrer avec succée!", icon: "success"});
+}
+			</script>
+		{% endblock %}
+
 	</body>
 </html>

@@ -11,6 +11,7 @@ use App\Service\MailerService;
 use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
 use App\Repository\CandidatsRepository;
+use App\Repository\VoteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -85,41 +86,44 @@ class GestionVoteController extends AbstractController
     /**
      * @Route("/email/{idCandidat}", name="app_email")
      */
-    public function email(MailerService $mailer, int $idCandidat, EntityManagerInterface $entityManager)
+    public function email(MailerService $mailer, int $idCandidat, EntityManagerInterface $entityManager, CandidatsRepository $candidat)
     {
-        // $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
+        $candidatChoisi = $candidat->findOneBy(["id" => $idCandidat]);
         $vote = new Vote();
         $code = rand(1000, 9000);
         $user = $this->getUser()->getUserIdentifier();
+        $userCon = $this->getUser();
         $mailer->sendEmail($code, $user);
         $vote->setCodeDeConfirmation($code);
+        $vote->setIdUser($userCon);
+        $vote->setDateVote(new \DateTime());
+        $vote->setIdCandidat($candidatChoisi);
+        $vote->setAVoter(false);
+
         $entityManager->persist($vote);
         $entityManager->flush();
         return $this->redirectToRoute('app_Vote', ['idCandidat' => $idCandidat]);
     }
 
     /**
-     * @Route("/validation", name="app_validation")
+     * @Route("/validation/{idCandidat}", name="app_validation")
      */
-    public function validationVote(Request $request)
+    public function validationVote(VoteRepository $voteRepo, Request $request, int $idCandidat, EntityManagerInterface $entityManager, CandidatsRepository $candidatsRepository)
     {
-        $defaultData = ['message' => 'Type your message here'];
-        $form = $this->createFormBuilder($defaultData)
+        $user = $this->getUser();
+        $code = $request->query->get('code');
+        $vote = $voteRepo->findOneBy(['codeDeConfirmation' => $code, 'id_user' => $user]);
 
-            ->add('codeConfirmation', NumberType::class)
-            ->add('send', SubmitType::class)
-            ->getForm();
 
-        // $form->handleRequest($request);
 
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     // data is an array with "name", "email", and "message" keys
-        //     $data = $form->getData();
-        // }
+        if ($vote) {
 
-        return $this->render('gestion_vote/vote.html.twig', [
-            'form' => $form->createView(),
-        ]);
+            $vote->setAVoter('true');
+            $vote->setDateVote(new \DateTime());
+            $entityManager->persist($vote);
+            $entityManager->flush($vote);
+        }
+        return $this->redirectToRoute('app_Vote', ['idCandidat' => $idCandidat]);
     }
 
 

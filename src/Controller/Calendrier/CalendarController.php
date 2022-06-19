@@ -21,7 +21,7 @@ class CalendarController extends AbstractController
     public function index(CalendarRepository $calendarRepository): Response
     {
         return $this->render('calendar/index.html.twig', [
-            'calendar' => $calendarRepository->findAll(),
+            'calendars' => $calendarRepository->findAll(),
         ]);
     }
 

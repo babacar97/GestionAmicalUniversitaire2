@@ -203,11 +203,20 @@
 			{# <img src={{asset('uploads/personne/'~ user.image)}} "" alt="" srcset=""> #}
 
 			<div class="col text-center ">
-				<button type="submit" class="btn btn-primary pull-center">Enregistrer la Modification
+				<button type="submit" id="submit" class="btn btn-primary pull-center">Enregistrer la Modification
 				</button>
 			</div>
 			{{ form_end(registrationForm) }}
 		{% endblock %}
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script>
+			let btn = document.getElementById('submit');
+btn.onclick = function () {
+
+swal({title: "Felicitation!", text: "Votre vote a bien été enregistrer avec succée!", icon: "success"});
+}
+		</script>
 	</body>
 </html>
